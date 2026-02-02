@@ -7,8 +7,8 @@ async function loadPartial(id, url) {
 }
 
 (async () => {
-  await loadPartial("app-header", "partials/header.html");
-  await loadPartial("app-footer", "partials/footer.html");
+await loadPartial("app-header", "header.html");
+await loadPartial("app-footer", "footer.html");
 
   // año automático
   const year = document.getElementById("nxYear");
