@@ -1,17 +1,36 @@
-<header id="siteHeader" class="nx-header">
+<header class="nx-header" id="siteHeader">
   <div class="nx-header__inner">
-    <a class="nx-brand" href="index.html" aria-label="Nexus Ecosystem Home">
-      <img src="assets/nexus_icon.png" class="nx-brand__logo" alt="Nexus Ecosystem" />
+
+    <a class="nx-brand" href="index.html">
+      <img src="assets/nexus_icon.png" class="nx-brand__logo" alt="Nexus Ecosystem">
       <span class="nx-brand__name">Nexus Ecosystem</span>
     </a>
 
-    <nav id="nav" class="nx-nav" aria-label="Navegación">
-      <span class="nx-nav__pill" id="pill" aria-hidden="true"></span>
-      <a href="index.html" data-key="medi">Medi</a>
-      <a href="aura-zen.html" data-key="zen">Aura Zen</a>
-      <a href="beast.html" data-key="beast">Beast</a>
-      <a href="support.html" data-key="soporte">Soporte</a>
-      <a href="contacto.html" data-key="contacto">Contacto</a>
+    <nav class="nx-nav" id="nxNav">
+      <span class="nx-nav__pill" id="nxPill"></span>
+
+<a href="index.html" data-color="nexus">Inicio</a>
+      <a href="medi.html" data-color="medi">Medi</a>
+      <a href="aura-zen.html" data-color="aura">Aura Zen</a>
+      <a href="beast.html" data-color="beast">Beast</a>
+      <a href="support.html" data-color="support">Soporte</a>
     </nav>
+
+    <div class="nx-header__right">
+      <!-- ✅ IDs + data-lang para que funcione el dropdown -->
+      <div class="nx-lang" id="nxLang">
+        <button class="nx-lang__btn" id="nxLangBtn" type="button" aria-expanded="false" aria-haspopup="menu">
+          <span aria-hidden="true">🌐</span>
+          <span id="nxLangCode">ES</span>
+        </button>
+
+        <div class="nx-lang__menu" id="nxLangMenu" role="menu" aria-label="Language">
+          <button class="nx-lang__item" type="button" role="menuitem" data-lang="es">Español</button>
+          <button class="nx-lang__item" type="button" role="menuitem" data-lang="en">English</button>
+          <button class="nx-lang__item" type="button" role="menuitem" data-lang="pt">Português</button>
+        </div>
+      </div>
+    </div>
+
   </div>
 </header>

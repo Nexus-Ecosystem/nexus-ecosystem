@@ -1,0 +1,68 @@
+/* =========================
+   GLOBAL BACKGROUND (VISIBLE)
+   ========================= */
+   @import url("../sections/index/hero.css");
+
+
+:root{
+  /* Ajusta aquí el color “pill” de Nexus */
+  --nx-accent: rgba(20, 90, 220, 0.30);   /* azul fuerte */
+  --nx-accent-2: rgba(60, 140, 255, 0.22);/* azul suave */
+  --nx-mid: rgba(255,255,255,1);
+  --nx-gray: rgba(238,242,248,1);
+}
+
+/* 1) Base gradient (suave pero continuo) */
+body{
+  background:
+    linear-gradient(
+      180deg,
+      var(--nx-accent) 0%,
+      rgba(20,90,220,0.14) 18%,
+      var(--nx-mid) 45%,
+      var(--nx-gray) 70%,
+      rgba(20,90,220,0.22) 92%,
+      var(--nx-accent) 100%
+    );
+  background-attachment: fixed;
+  position: relative;
+}
+
+/* 2) Blobs arriba (hace MUY obvio el “top accent”) */
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+
+  background:
+    radial-gradient(900px 520px at 20% 12%, var(--nx-accent-2), transparent 60%),
+    radial-gradient(800px 500px at 78% 18%, rgba(110,193,255,0.22), transparent 62%);
+
+  filter: blur(18px);
+  opacity: 1; /* súbelo a 1.2 si quieres más */
+}
+
+/* 3) Blob abajo (para que “regrese” el color antes del footer) */
+body::after{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+
+  background:
+    radial-gradient(1100px 620px at 60% 92%, rgba(20,90,220,0.22), transparent 62%),
+    radial-gradient(900px 540px at 25% 96%, rgba(60,140,255,0.18), transparent 65%);
+
+  filter: blur(22px);
+  opacity: 1;
+}
+
+/* 4) Importante: secciones SIN fondo */
+#main-content,
+#page-sections,
+#page-sections > section{
+  background: transparent !important;
+}

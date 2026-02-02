@@ -6,21 +6,26 @@
   <title>Nexus Ecosystem</title>
 
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/landing.css">
 </head>
 
 <body>
-
-  <!-- HEADER INYECTADO -->
+  <!-- Header -->
   <div id="app-header"></div>
 
-  <main class="container">
-    <h1>Nexus Ecosystem</h1>
-    <p>Landing principal</p>
+  <!-- Main -->
+  <main id="main-content">
+    <div id="section-hero"></div>
+    <div id="section-about"></div>
+    <div id="section-apps"></div>
+    <div id="section-socials"></div>
   </main>
 
-  <!-- FOOTER INYECTADO -->
+  <!-- Footer -->
   <div id="app-footer"></div>
 
-  <script src="js/layout.js"></script>
+  <!-- Scripts (orden correcto: i18n primero, luego layout) -->
+  <script src="js/i18n.js" defer></script>
+  <script src="js/layout.js" defer></script>
 </body>
 </html>
