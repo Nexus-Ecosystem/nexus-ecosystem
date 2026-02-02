@@ -1,0 +1,277 @@
+/* =========================================================
+   NEXUS ECOSYSTEM — GLOBAL STYLES
+   Header + Footer + Base
+   ========================================================= */
+
+/* ================= ROOT VARIABLES ================= */
+:root {
+  /* Nexus brand */
+  --nexus-blue-dark: #0B3C5D;
+  --nexus-blue: #1F6AE1;
+  --nexus-blue-light: #6EC1FF;
+
+  /* Text */
+  --text-main: #0B1220;
+  --text-muted: rgba(11,18,32,.68);
+
+  /* Header */
+  --header-bg: linear-gradient(
+    180deg,
+    rgba(228,238,255,.75),
+    rgba(214,230,255,.45)
+  );
+
+  /* Footer */
+  --footer-bg: #0B1220;
+  --footer-border: rgba(255,255,255,.12);
+  --footer-text: rgba(255,255,255,.82);
+  --footer-muted: rgba(255,255,255,.58);
+
+  /* Layout */
+  --container: 1200px;
+  --radius-xl: 28px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  /* Header height (JS lo ajusta) */
+  --header-h: 84px;
+}
+
+/* ================= RESET ================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-padding-top: var(--header-h);
+}
+
+body {
+  font-family: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text-main);
+  background: #fff;
+  padding-top: var(--header-h);
+}
+
+/* ================= UTILITIES ================= */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ================= HEADER ================= */
+header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 9999;
+
+  background: var(--header-bg);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  background-color: rgba(255,255,255,.55);
+
+  border-bottom: 1px solid rgba(255,255,255,.35);
+  box-shadow: 0 8px 24px rgba(11,60,93,.12);
+}
+
+.header-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 16px 24px;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 14px rgba(11,60,93,.18));
+}
+
+/* ================= NAV ================= */
+nav {
+  position: relative;
+  display: flex;
+  gap: 6px;
+  padding: 6px;
+  border-radius: var(--radius-pill);
+  justify-self: center;
+}
+
+nav a {
+  position: relative;
+  z-index: 2;
+  font-size: 14px;
+  font-weight: 800;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  min-width: 96px;
+  text-align: center;
+  white-space: nowrap;
+  color: var(--nexus-blue-dark);
+}
+
+nav a.active {
+  color: var(--nexus-blue-dark);
+}
+
+/* Pill animation */
+.pill {
+  position: absolute;
+  inset: 6px auto 6px 6px;
+  width: 0;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(
+    90deg,
+    rgba(31,106,225,.20),
+    rgba(110,193,255,.25)
+  );
+  border: 1px solid rgba(31,106,225,.30);
+  transition: transform .32s ease, width .32s ease;
+  pointer-events: none;
+}
+
+/* ================= HEADER RESPONSIVE ================= */
+@media (max-width: 720px) {
+  :root { --header-h: 98px; }
+
+  .header-inner {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    justify-items: center;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* ================= FOOTER ================= */
+footer {
+  background:
+    radial-gradient(900px 320px at 18% 0%, rgba(31,106,225,.20), transparent 58%),
+    radial-gradient(900px 320px at 82% 0%, rgba(110,193,255,.14), transparent 60%),
+    var(--footer-bg);
+
+  color: var(--footer-text);
+  padding: 48px 18px 20px;
+  border-top: 1px solid var(--footer-border);
+}
+
+.footer-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1.4fr 1.6fr;
+  gap: 28px;
+}
+
+/* Brand */
+.footer-brand {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.footer-logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,.25));
+}
+
+.footer-brand h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.footer-brand p {
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--footer-muted);
+  max-width: 420px;
+}
+
+/* Footer columns */
+.footer-cols {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(160px, 1fr));
+  gap: 18px;
+}
+
+.footer-title {
+  font-size: 13px;
+  letter-spacing: .7px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  display: grid;
+  gap: 10px;
+}
+
+.footer-link {
+  font-size: 14px;
+  color: var(--footer-muted);
+  transition: color .15s ease, transform .15s ease;
+}
+
+.footer-link:hover {
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* Bottom */
+.footer-bottom {
+  max-width: 1120px;
+  margin: 22px auto 0;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,.10);
+  text-align: center;
+  font-size: 13px;
+  color: rgba(255,255,255,.45);
+}
+
+/* ================= FOOTER RESPONSIVE ================= */
+@media (max-width: 940px) {
+  .footer-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-cols {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
