@@ -1,6 +1,7 @@
 /* =========================================================
-   NEXUS ECOSYSTEM — GLOBAL STYLES (CORRECCIÓN FINAL)
+   NEXUS ECOSYSTEM — GLOBAL STYLES (FINAL CORREGIDO)
    Base + Header (Nav + Language) + Footer
+   Sticky footer real sin espacio extra abajo
    ========================================================= */
 
 /* =========================
@@ -34,41 +35,48 @@
   /* Nav metrics */
   --nav-pad: 6px;
   --nav-link-h: 38px;
+
+  /* Spacing */
+  --main-bottom-space: 0px; /* 👈 si quieres espacio antes del footer: 80px */
 }
 
 /* =========================
-   2) RESET / BASE (STICKY FOOTER FIX)
+   2) RESET / BASE (STICKY FOOTER)
    ========================= */
 *,
 *::before,
 *::after { box-sizing: border-box; }
 
-html { 
-  height: 100%; /* Vital para el cálculo de altura */
-  scroll-padding-top: calc(var(--header-h) + 14px); 
+html {
+  height: 100%;
+  scroll-padding-top: calc(var(--header-h) + 14px);
 }
 
 body {
   margin: 0;
-  padding: 0 !important; /* ✅ ELIMINADO: El padding aquí causa el hueco al final */
+  padding: 0 !important;
   overflow-x: hidden;
   font-family: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   color: var(--text-main);
   background: #fff;
   line-height: 1.25;
 
-  /* ✅ SISTEMA DE EMPUJE: Flexbox */
+  /* ✅ Sticky footer real */
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Altura mínima de la pantalla completa */
+  min-height: 100vh;
 }
 
-/* ✅ EL MAIN CRECE: Ocupa todo el espacio sobrante para bajar el footer */
+/* ✅ MAIN ocupa el espacio sobrante */
 #main-content {
   flex: 1 0 auto;
-  /* El espacio del header fijo se compensa aquí */
-  padding-top: calc(var(--header-h) + 24px); 
   width: 100%;
+
+  /* Compensa el header fijo */
+  padding-top: calc(var(--header-h) + 24px);
+
+  /* ✅ Si quieres separación antes del footer, se hace aquí */
+  padding-bottom: var(--main-bottom-space);
 }
 
 a { color: inherit; text-decoration: none; }
@@ -180,12 +188,15 @@ img { max-width: 100%; display: block; }
   border: 1px solid rgba(31,106,225,.28);
   z-index: 1;
   pointer-events: none;
-  transition: transform .28s cubic-bezier(.4,0,.2,1), width .28s cubic-bezier(.4,0,.2,1);
+  transition: transform .28s cubic-bezier(.4,0,.2,1),
+              width .28s cubic-bezier(.4,0,.2,1);
 }
 
 /* =========================
    LANGUAGE DROPDOWN
    ========================= */
+.nx-lang { position: relative; }
+
 .nx-lang__btn {
   height: var(--nav-link-h);
   padding: 0 12px;
@@ -221,7 +232,7 @@ img { max-width: 100%; display: block; }
 .nx-lang.is-open .nx-lang__menu { display: block; }
 
 /* =========================================================
-   4) APP CARDS — ICON ZOOM FIX (CORREGIDO)
+   4) APP CARDS — ICON ZOOM FIX
    ========================================================= */
 .nx-appCard__iconWrap {
   width: 56px !important;
@@ -246,14 +257,23 @@ img { max-width: 100%; display: block; }
 /* =========================
    5) FOOTER — NX (FINAL)
    ========================= */
+
+/* ✅ El wrapper NO debe empujar nada */
 #app-footer {
-  flex-shrink: 0; /* Asegura que no se colapse */
-  margin-top: 100px; /* Separación de 100px arriba */
-  background: var(--footer-bg); /* Evita fugas de color blanco */
+  flex-shrink: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: var(--footer-bg);
+}
+
+/* ✅ Evita cualquier margen default del footer */
+footer.nx-footer {
+  display: block;
+  width: 100%;
+  margin: 0 !important;
 }
 
 .nx-footer {
-  /* Fondo con degradado radial dinámico */
   background:
     radial-gradient(900px 320px at 18% 0%, rgba(31,106,225,.20), transparent 58%),
     radial-gradient(900px 320px at 82% 0%, rgba(110,193,255,.14), transparent 60%),
@@ -262,7 +282,6 @@ img { max-width: 100%; display: block; }
   color: var(--footer-text);
   padding: 48px 18px 20px;
   border-top: 1px solid var(--footer-border);
-  margin: 0 !important; /* Forzamos a que no haya margen externo */
 }
 
 .nx-footer__inner {
@@ -355,9 +374,33 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 820px) {
   :root { --header-h: 120px; }
-  .nx-header { top: 10px; left: 10px; right: 10px; border-radius: 22px; }
-  .nx-header__inner { flex-direction: column; gap: 10px; align-items: stretch; }
-  .nx-brand { justify-content: center; min-width: auto; }
-  .nx-header__right { justify-content: center; flex-wrap: wrap; gap: 10px; }
-  .nx-nav { justify-content: center; flex-wrap: wrap; }
+
+  .nx-header {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    border-radius: 22px;
+  }
+
+  .nx-header__inner {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  .nx-brand {
+    justify-content: center;
+    min-width: auto;
+  }
+
+  .nx-header__right {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .nx-nav {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 }
