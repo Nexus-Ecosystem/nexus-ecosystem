@@ -1,56 +1,51 @@
-/* Path: css/landing.css (HERO) — g0.png + sin card */
+/* Path: css/landing.css (HERO) — g0 BIG, sin plataformas/stats */
 
-/* =========================================================
-   HERO WRAPPER
-   ========================================================= */
 .nx-hero{
   position: relative;
   overflow: hidden;
   isolation: isolate;
   background: transparent;
-  padding: 72px 0 64px;
+  padding: 76px 0 72px;
 }
 
-/* soft premium glow */
+/* glows */
 .nx-hero::before,
 .nx-hero::after{
   content:"";
   position:absolute;
-  width: 520px;
-  height: 520px;
+  width: 620px;
+  height: 620px;
   border-radius: 999px;
-  filter: blur(50px);
+  filter: blur(58px);
   opacity: .55;
   pointer-events:none;
   z-index: 0;
 }
 .nx-hero::before{
-  top: -210px;
-  left: -180px;
+  top: -240px;
+  left: -220px;
   background: radial-gradient(circle at 30% 30%, rgba(20,90,220,.55), transparent 62%);
 }
 .nx-hero::after{
-  bottom: -240px;
-  right: -220px;
+  bottom: -280px;
+  right: -260px;
   background: radial-gradient(circle at 40% 40%, rgba(60,150,255,.45), transparent 64%);
 }
 
-/* =========================================================
-   LAYOUT
-   ========================================================= */
+/* layout */
 .nx-hero__inner{
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1.05fr .95fr;
+  grid-template-columns: 1.02fr .98fr;
   align-items: center;
-  gap: 42px;
+  gap: 44px;
 }
 
-/* LEFT */
+/* left */
 .nx-hero__title{
   margin: 0;
-  font-size: clamp(46px, 4.4vw, 72px);
+  font-size: clamp(46px, 4.4vw, 74px);
   line-height: 1.02;
   letter-spacing: -0.035em;
   font-weight: 950;
@@ -86,29 +81,27 @@
   flex-wrap: wrap;
 }
 
-/* =========================================================
-   Buttons (safe)
-   ========================================================= */
+/* buttons */
 .nx-btn{
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  height: 44px;
-  padding: 0 16px;
+  height: 46px;
+  padding: 0 18px;
   border-radius: 999px;
   font-weight: 900;
   font-size: 13px;
   cursor: pointer;
   user-select: none;
-  transition: transform .16s ease;
+  transition: transform .16s ease, box-shadow .16s ease;
   text-decoration: none;
 }
 
 .nx-btn__arrow{
   display: inline-flex;
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   align-items: center;
   justify-content: center;
   border-radius: 999px;
@@ -122,7 +115,10 @@
   border: 1px solid rgba(20,90,220,.22);
   box-shadow: 0 16px 34px rgba(20,90,220,.26);
 }
-.nx-btn--primary:hover{ transform: translateY(-1px); }
+.nx-btn--primary:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 22px 44px rgba(20,90,220,.28);
+}
 
 .nx-btn--ghost{
   background: rgba(255,255,255,.55);
@@ -132,41 +128,35 @@
 }
 .nx-btn--ghost:hover{ transform: translateY(-1px); }
 
-/* =========================================================
-   RIGHT COLUMN
-   ========================================================= */
+/* right */
 .nx-hero__right{
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 14px;
+  justify-content: center;
 }
 
-/* =========================================================
-   HERO IMAGE MOCK (g0.png)
-   ========================================================= */
+/* ✅ BIG IMAGE MOCK */
 .nx-heroMock{
-  width: min(560px, 100%);
-  border-radius: 26px;
-  background: rgba(255,255,255,.18);
-  border: 1px solid rgba(255,255,255,.32);
+  width: min(680px, 100%);     /* 👈 más grande */
+  border-radius: 30px;
+  background: rgba(255,255,255,.16);
+  border: 1px solid rgba(255,255,255,.30);
   backdrop-filter: blur(18px) saturate(160%);
   -webkit-backdrop-filter: blur(18px) saturate(160%);
   box-shadow:
-    0 24px 70px rgba(11,18,32,.14),
+    0 28px 88px rgba(11,18,32,.16),
     0 1px 0 rgba(255,255,255,.55) inset;
-  padding: 14px;
+  padding: 16px;
   overflow: hidden;
 
   animation: nxFloat 6.5s ease-in-out infinite;
   transform-origin: center;
 }
-
 .nx-heroMock:hover{
   animation-play-state: paused;
-  transform: translateY(-4px);
+  transform: translateY(-5px);
   box-shadow:
-    0 34px 92px rgba(11,18,32,.18),
+    0 38px 110px rgba(11,18,32,.20),
     0 1px 0 rgba(255,255,255,.55) inset;
 }
 
@@ -174,87 +164,18 @@
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 18px;
-  box-shadow: 0 16px 44px rgba(11,18,32,.16);
+  border-radius: 22px;
+  box-shadow: 0 18px 52px rgba(11,18,32,.14);
 }
 
 /* float */
 @keyframes nxFloat{
   0%{ transform: translateY(0); }
-  50%{ transform: translateY(-6px); }
+  50%{ transform: translateY(-7px); }
   100%{ transform: translateY(0); }
 }
 
-/* BELOW block */
-.nx-hero__below{
-  width: min(560px, 100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-}
-
-/* Platforms */
-.nx-hero__platforms{
-  display:flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.nx-platform{
-  height: 38px;
-  padding: 0 12px;
-  border-radius: 999px;
-  display:flex;
-  align-items:center;
-  gap: 10px;
-  background: rgba(255,255,255,.62);
-  border: 1px solid rgba(20,90,220,.12);
-  box-shadow: 0 12px 22px rgba(11,18,32,.06);
-  font-weight: 900;
-  font-size: 12.5px;
-  color: rgba(11,18,32,.78);
-}
-
-.nx-platform__icon{
-  width: 18px;
-  height: 18px;
-  object-fit: contain;
-}
-
-/* Stats row */
-.nx-hero__stats{
-  width: 100%;
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-}
-
-.nx-stat{
-  border-radius: 18px;
-  background: rgba(255,255,255,.62);
-  border: 1px solid rgba(20,90,220,.12);
-  padding: 12px 12px;
-}
-
-.nx-stat__n{
-  font-weight: 950;
-  font-size: 18px;
-  color: rgba(11,18,32,.92);
-  line-height: 1.1;
-}
-
-.nx-stat__l{
-  margin-top: 2px;
-  font-weight: 850;
-  font-size: 12.5px;
-  color: rgba(11,18,32,.55);
-}
-
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
+/* responsive */
 @media (max-width: 980px){
   .nx-hero{
     padding: 64px 0 64px;
@@ -265,11 +186,11 @@
     gap: 26px;
   }
 
-  .nx-hero__right{ align-items: stretch; }
-  .nx-heroMock{ width: 100%; }
-  .nx-hero__below{ width: 100%; }
-}
+  .nx-hero__right{
+    justify-content: flex-start;
+  }
 
-@media (max-width: 520px){
-  .nx-hero__stats{ grid-template-columns: 1fr; }
+  .nx-heroMock{
+    width: 100%;
+  }
 }
