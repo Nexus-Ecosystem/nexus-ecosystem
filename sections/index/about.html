@@ -104,7 +104,7 @@
               </div>
             </div>
 
-            <!-- Mini strip -->
+            <!-- strip apps -->
             <div class="nx-strip nx-anim" aria-label="Apps del ecosistema">
               <div class="nx-strip__item">
                 <span class="nx-strip__dot nx-strip__dot--medi"></span>
@@ -168,7 +168,7 @@
         </div>
       </section>
 
-      <!-- MEDI GALLERY (g1-g3) -->
+      <!-- MEDI GALLERY -->
       <section class="nx-section nx-gallerySection">
         <div class="container">
           <div class="nx-sectionHead nx-anim">
@@ -178,20 +178,22 @@
           </div>
 
           <div class="nx-gallery nx-gallery--compact">
-            <button class="nx-gallery__item nx-gallery__phone nx-anim" data-img="assets/gallery/g1.png?v=1" aria-label="Abrir g1">
-              <img src="assets/gallery/g1.png?v=1" alt="Medi screen 1">
+            <button class="nx-gallery__phone nx-anim" data-img="assets/gallery/g1.png" aria-label="Abrir g1" type="button">
+              <img src="assets/gallery/g1.png" alt="Medi screen 1" loading="lazy" decoding="async">
             </button>
-            <button class="nx-gallery__item nx-gallery__phone nx-anim" data-img="assets/gallery/g2.png?v=1" aria-label="Abrir g2">
-              <img src="assets/gallery/g2.png?v=1" alt="Medi screen 2">
+
+            <button class="nx-gallery__phone nx-anim" data-img="assets/gallery/g2.png" aria-label="Abrir g2" type="button">
+              <img src="assets/gallery/g2.png" alt="Medi screen 2" loading="lazy" decoding="async">
             </button>
-            <button class="nx-gallery__item nx-gallery__phone nx-anim" data-img="assets/gallery/g3.png?v=1" aria-label="Abrir g3">
-              <img src="assets/gallery/g3.png?v=1" alt="Medi screen 3">
+
+            <button class="nx-gallery__phone nx-anim" data-img="assets/gallery/g3.png" aria-label="Abrir g3" type="button">
+              <img src="assets/gallery/g3.png" alt="Medi screen 3" loading="lazy" decoding="async">
             </button>
           </div>
         </div>
       </section>
 
-      <!-- AURA GALLERY (g4-g6) -->
+      <!-- AURA GALLERY -->
       <section class="nx-section nx-gallerySection">
         <div class="container">
           <div class="nx-sectionHead nx-anim">
@@ -201,14 +203,16 @@
           </div>
 
           <div class="nx-gallery nx-gallery--compact">
-            <button class="nx-gallery__item nx-gallery__phone nx-anim" data-img="assets/gallery/g4.png?v=1" aria-label="Abrir g4">
-              <img src="assets/gallery/g4.png?v=1" alt="Aura screen 1">
+            <button class="nx-gallery__phone nx-anim" data-img="assets/gallery/g4.png" aria-label="Abrir g4" type="button">
+              <img src="assets/gallery/g4.png" alt="Aura screen 1" loading="lazy" decoding="async">
             </button>
-            <button class="nx-gallery__item nx-gallery__phone nx-anim" data-img="assets/gallery/g5.png?v=1" aria-label="Abrir g5">
-              <img src="assets/gallery/g5.png?v=1" alt="Aura screen 2">
+
+            <button class="nx-gallery__phone nx-anim" data-img="assets/gallery/g5.png" aria-label="Abrir g5" type="button">
+              <img src="assets/gallery/g5.png" alt="Aura screen 2" loading="lazy" decoding="async">
             </button>
-            <button class="nx-gallery__item nx-gallery__phone nx-anim" data-img="assets/gallery/g6.png?v=1" aria-label="Abrir g6">
-              <img src="assets/gallery/g6.png?v=1" alt="Aura screen 3">
+
+            <button class="nx-gallery__phone nx-anim" data-img="assets/gallery/g6.png" aria-label="Abrir g6" type="button">
+              <img src="assets/gallery/g6.png" alt="Aura screen 3" loading="lazy" decoding="async">
             </button>
           </div>
         </div>
@@ -234,11 +238,11 @@
         </div>
       </section>
 
-      <!-- MODAL PREVIEW -->
+      <!-- MODAL -->
       <div class="nx-modal" id="nxModal" aria-hidden="true">
         <div class="nx-modal__backdrop" data-close="1"></div>
         <div class="nx-modal__panel" role="dialog" aria-modal="true" aria-label="Vista previa">
-          <button class="nx-modal__close" data-close="1" aria-label="Cerrar">✕</button>
+          <button class="nx-modal__close" data-close="1" aria-label="Cerrar" type="button">✕</button>
           <img class="nx-modal__img" id="nxModalImg" src="" alt="Preview">
         </div>
       </div>
@@ -285,7 +289,7 @@
         document.body.style.overflow = '';
       }
 
-      document.querySelectorAll('.nx-gallery__item[data-img]').forEach(btn => {
+      document.querySelectorAll('.nx-gallery__phone[data-img]').forEach(btn => {
         btn.addEventListener('click', () => openModal(btn.dataset.img));
       });
 
