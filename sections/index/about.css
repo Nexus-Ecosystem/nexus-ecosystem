@@ -1,5 +1,5 @@
 /* =========================================================
-   NEXUS — ABOUT PAGE (PREMIUM)
+   NEXUS — ABOUT PAGE (PERRÓN, CON CARDS)
    Path: css/about-page.css
    ========================================================= */
 
@@ -9,49 +9,34 @@
   isolation: isolate;
 }
 
-/* Background glows */
+/* Premium glows */
 .nx-aboutPage::before,
 .nx-aboutPage::after{
   content:"";
   position:absolute;
-  width: 640px;
-  height: 640px;
+  width: 680px;
+  height: 680px;
   border-radius: 999px;
-  filter: blur(60px);
+  filter: blur(65px);
   opacity: .55;
   pointer-events:none;
   z-index: 0;
 }
-
 .nx-aboutPage::before{
-  top: -280px;
-  left: -280px;
+  top: -320px;
+  left: -320px;
   background: radial-gradient(circle at 30% 30%, rgba(31,106,225,.18), transparent 62%);
 }
-
 .nx-aboutPage::after{
-  bottom: -320px;
-  right: -300px;
+  bottom: -360px;
+  right: -320px;
   background: radial-gradient(circle at 40% 40%, rgba(110,193,255,.14), transparent 62%);
 }
 
 /* =========================================================
-   HERO
+   TYPO — NEXUS (simple y consistente)
    ========================================================= */
-.nx-aboutHero{
-  position: relative;
-  z-index: 1;
-  padding: 58px 0 28px;
-}
-
-.nx-aboutHero__inner{
-  display: grid;
-  grid-template-columns: 1.12fr .88fr;
-  gap: 18px;
-  align-items: center;
-}
-
-.nx-aboutHero__kicker{
+.nx-kicker{
   display:inline-flex;
   align-items:center;
   height: 30px;
@@ -66,33 +51,167 @@
   color: rgba(11,18,32,.72);
 }
 
-.nx-aboutHero__title{
+.nx-h1{
   margin: 14px 0 10px;
-  font-size: clamp(28px, 4.0vw, 46px);
+  font-size: clamp(28px, 4.2vw, 48px);
   line-height: 1.04;
   letter-spacing: -0.03em;
   font-weight: 950;
   color: rgba(11,18,32,.95);
 }
 
-.nx-aboutHero__desc{
+.nx-h2{
   margin: 0;
-  max-width: 680px;
-  font-size: 14.5px;
+  font-size: clamp(22px, 3.2vw, 34px);
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  font-weight: 950;
+  color: rgba(11,18,32,.95);
+}
+
+.nx-h3{
+  margin: 0;
+  font-size: 15px;
+  font-weight: 950;
+  letter-spacing: -0.02em;
+  color: rgba(11,18,32,.92);
+}
+
+.nx-lead{
+  margin: 0;
+  max-width: 760px;
+  font-size: 14.8px;
   line-height: 1.7;
   font-weight: 750;
   color: rgba(11,18,32,.70);
 }
 
+.nx-sub{
+  margin: 10px auto 0;
+  max-width: 760px;
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 750;
+  color: rgba(11,18,32,.70);
+}
+
+.nx-p{
+  margin: 10px 0 0;
+  font-size: 13.5px;
+  line-height: 1.65;
+  font-weight: 750;
+  color: rgba(11,18,32,.70);
+}
+
+.nx-mini{
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: .35px;
+  text-transform: uppercase;
+  color: rgba(11,18,32,.55);
+}
+
+/* =========================================================
+   GLASS CARD — Base reusable
+   ========================================================= */
+.nx-glassCard{
+  position: relative;
+  border-radius: 26px;
+  padding: 18px;
+  background: rgba(255,255,255,.18);
+  border: 1px solid rgba(255,255,255,.24);
+  backdrop-filter: blur(18px) saturate(170%);
+  -webkit-backdrop-filter: blur(18px) saturate(170%);
+  box-shadow: 0 26px 60px rgba(11,18,32,.09), 0 1px 0 rgba(255,255,255,.22) inset;
+  overflow: hidden;
+}
+
+.nx-glassCard::before{
+  content:"";
+  position:absolute;
+  inset:-140px;
+  opacity: .55;
+  pointer-events:none;
+  filter: blur(24px);
+  background:
+    radial-gradient(520px 280px at 18% 0%, rgba(31,106,225,.16), transparent 58%),
+    radial-gradient(520px 280px at 88% 60%, rgba(110,193,255,.12), transparent 60%);
+}
+
+/* Keep content above glow */
+.nx-glassCard > *{ position: relative; z-index: 1; }
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.nx-aboutHero{
+  position: relative;
+  z-index: 1;
+  padding: 58px 0 22px;
+}
+
+.nx-aboutHero__inner{
+  display: grid;
+  grid-template-columns: 1.08fr .92fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.nx-aboutHero__leftCard{
+  min-height: 260px;
+}
+
+.nx-aboutHero__rightCard{
+  background: rgba(255,255,255,.62);
+  border-color: rgba(255,255,255,.70);
+  box-shadow: 0 26px 70px rgba(11,18,32,.08);
+}
+
+.nx-cardTop{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.nx-cardTitle{
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: .35px;
+  text-transform: uppercase;
+  color: rgba(11,18,32,.62);
+}
+
+.nx-badge{
+  height: 26px;
+  padding: 0 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 950;
+  letter-spacing: .3px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,.65);
+  background: rgba(255,255,255,.55);
+  color: rgba(11,18,32,.78);
+  white-space: nowrap;
+}
+
+.nx-badge--live{
+  border-color: rgba(60,150,255,.35);
+  background: rgba(60,150,255,.14);
+  color: rgba(11,18,32,.90);
+}
+
 /* Chips */
-.nx-aboutHero__chips{
+.nx-chipRow{
   margin-top: 14px;
   display:flex;
   gap: 10px;
   flex-wrap: wrap;
 }
 
-/* Reuse chip style from other sections if exists; otherwise define */
 .nx-chip{
   height: 34px;
   padding: 0 12px;
@@ -116,61 +235,36 @@
   box-shadow: 0 10px 18px rgba(31,106,225,.14);
 }
 
-/* Panel */
-.nx-aboutHero__panel{
-  border-radius: 26px;
-  padding: 14px;
-  background: rgba(255,255,255,.62);
-  border: 1px solid rgba(255,255,255,.70);
-  box-shadow: 0 26px 70px rgba(11,18,32,.08);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
-}
-
-.nx-aboutHero__panelTop{
-  display:flex;
-  align-items:center;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.nx-aboutHero__panelTitle{
-  font-size: 12px;
-  font-weight: 950;
-  letter-spacing: .35px;
-  color: rgba(11,18,32,.62);
-  text-transform: uppercase;
-}
-
-.nx-aboutHero__panelGrid{
+/* Metrics */
+.nx-metricsGrid{
   margin-top: 12px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
 
-.nx-statCard{
+.nx-metric{
   border-radius: 22px;
   padding: 14px 14px;
   background: rgba(255,255,255,.70);
   border: 1px solid rgba(11,18,32,.06);
 }
 
-.nx-statCard__n{
+.nx-metric__n{
   font-weight: 950;
   font-size: 22px;
   letter-spacing: -0.02em;
   color: rgba(11,18,32,.92);
 }
 
-.nx-statCard__l{
+.nx-metric__l{
   margin-top: 4px;
   font-weight: 850;
   font-size: 12.5px;
   color: rgba(11,18,32,.58);
 }
 
-.nx-aboutHero__panelNote{
+.nx-note{
   margin-top: 12px;
   padding: 12px 12px;
   border-radius: 18px;
@@ -183,81 +277,43 @@
 }
 
 /* =========================================================
-   SECTION HEAD
+   SECTIONS
    ========================================================= */
+.nx-section{
+  position: relative;
+  z-index: 1;
+  padding: 24px 0 10px;
+}
+
+.nx-section--last{
+  padding-bottom: 48px;
+}
+
 .nx-sectionHead{
   text-align: center;
   max-width: 920px;
   margin: 0 auto;
 }
 
-.nx-sectionHead__kicker{
-  display:inline-flex;
-  align-items:center;
-  height: 30px;
-  padding: 0 12px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 950;
-  letter-spacing: .35px;
-  background: rgba(255,255,255,.60);
-  border: 1px solid rgba(255,255,255,.70);
-  box-shadow: 0 18px 40px rgba(11,18,32,.06);
-  color: rgba(11,18,32,.72);
-}
-
-.nx-sectionHead__title{
-  margin: 14px 0 10px;
-  font-size: clamp(22px, 3.2vw, 34px);
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  font-weight: 950;
-  color: rgba(11,18,32,.95);
-}
-
-.nx-sectionHead__desc{
-  margin: 0 auto;
-  max-width: 760px;
-  font-size: 14px;
-  line-height: 1.6;
-  color: rgba(11,18,32,.70);
-  font-weight: 750;
-}
-
-/* =========================================================
-   VALUES
-   ========================================================= */
-.nx-values{
-  position: relative;
-  z-index: 1;
-  padding: 22px 0 10px;
-}
-
-.nx-values__grid{
+/* 3 cards grid */
+.nx-cards3{
+  margin-top: 14px;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
-  margin-top: 14px;
 }
 
-.nx-valueCard{
-  border-radius: 24px;
-  padding: 16px;
-  background: rgba(255,255,255,.18);
-  border: 1px solid rgba(255,255,255,.24);
-  backdrop-filter: blur(18px) saturate(170%);
-  -webkit-backdrop-filter: blur(18px) saturate(170%);
-  box-shadow: 0 26px 60px rgba(11,18,32,.09), 0 1px 0 rgba(255,255,255,.22) inset;
+/* Feature cards */
+.nx-feature{
   transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
 }
-
-.nx-valueCard:hover{
+.nx-feature:hover{
   transform: translateY(-3px);
   border-color: rgba(31,106,225,.26);
   box-shadow: 0 30px 70px rgba(11,18,32,.12), 0 1px 0 rgba(255,255,255,.22) inset;
 }
 
-.nx-valueCard__icon{
+.nx-feature__icon{
   width: 44px;
   height: 44px;
   border-radius: 16px;
@@ -268,150 +324,100 @@
   border: 1px solid rgba(255,255,255,.70);
   box-shadow: 0 18px 40px rgba(11,18,32,.06);
   font-size: 18px;
+  margin-bottom: 12px;
 }
 
-.nx-valueCard__t{
-  margin: 12px 0 6px;
-  font-size: 15px;
-  font-weight: 950;
-  letter-spacing: -0.02em;
-  color: rgba(11,18,32,.92);
-}
-
-.nx-valueCard__d{
-  margin: 0;
-  font-size: 13.5px;
-  line-height: 1.6;
-  font-weight: 750;
-  color: rgba(11,18,32,.70);
-}
-
-/* =========================================================
-   TIMELINE
-   ========================================================= */
-.nx-timeline{
-  position: relative;
-  z-index: 1;
-  padding: 28px 0 10px;
-}
-
-.nx-timeline__grid{
-  display:grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-  margin-top: 14px;
-}
-
-.nx-tlCard{
-  border-radius: 24px;
-  padding: 16px;
+/* Timeline cards */
+.nx-timelineCard{
   background: rgba(255,255,255,.62);
-  border: 1px solid rgba(255,255,255,.70);
+  border-color: rgba(255,255,255,.70);
   box-shadow: 0 18px 40px rgba(11,18,32,.06);
 }
 
-.nx-tlCard__top{
+.nx-timelineTop{
   display:flex;
   align-items:center;
   gap: 10px;
 }
 
-.nx-tlCard__dot{
+.nx-dot{
   width: 12px;
   height: 12px;
   border-radius: 999px;
+  flex: 0 0 auto;
   background: rgba(31,106,225,.70);
   box-shadow: 0 10px 18px rgba(31,106,225,.14);
-  flex: 0 0 auto;
 }
 
-.nx-tlCard__dot--aura{
-  background: rgba(170,120,255,.70);
+.nx-dot--medi{ background: rgba(31,106,225,.75); }
+.nx-dot--aura{
+  background: rgba(170,120,255,.75);
   box-shadow: 0 10px 18px rgba(170,120,255,.14);
 }
-
-.nx-tlCard__dot--beast{
-  background: rgba(255,190,30,.75);
+.nx-dot--beast{
+  background: rgba(255,190,30,.80);
   box-shadow: 0 10px 18px rgba(255,190,30,.14);
 }
 
-.nx-tlCard__meta{
-  min-width: 0;
-}
-
-.nx-tlCard__when{
-  font-size: 12px;
-  font-weight: 950;
-  color: rgba(11,18,32,.55);
-  letter-spacing: .35px;
-  text-transform: uppercase;
-}
-
-.nx-tlCard__title{
-  margin-top: 2px;
-  font-size: 15px;
-  font-weight: 950;
-  color: rgba(11,18,32,.92);
-}
-
-.nx-tlCard__desc{
-  margin: 10px 0 0;
-  font-size: 13.5px;
-  line-height: 1.6;
-  font-weight: 750;
-  color: rgba(11,18,32,.68);
-}
-
-/* =========================================================
-   CTA
-   ========================================================= */
-.nx-aboutCta{
-  position: relative;
-  z-index: 1;
-  padding: 28px 0 46px;
-}
-
-.nx-aboutCta__card{
-  border-radius: 28px;
-  padding: 18px;
-  background: rgba(255,255,255,.18);
-  border: 1px solid rgba(255,255,255,.24);
-  backdrop-filter: blur(18px) saturate(170%);
-  -webkit-backdrop-filter: blur(18px) saturate(170%);
-  box-shadow: 0 26px 60px rgba(11,18,32,.09), 0 1px 0 rgba(255,255,255,.22) inset;
+/* CTA */
+.nx-ctaCard{
   display:flex;
   align-items:center;
   justify-content: space-between;
   gap: 12px;
 }
 
-.nx-aboutCta__t{
-  margin: 0;
-  font-size: 18px;
-  font-weight: 950;
-  letter-spacing: -0.02em;
-  color: rgba(11,18,32,.92);
+.nx-ctaTitle{
+  margin-bottom: 6px;
 }
 
-.nx-aboutCta__d{
-  margin: 6px 0 0;
-  font-size: 13.5px;
-  line-height: 1.6;
-  font-weight: 750;
-  color: rgba(11,18,32,.70);
-  max-width: 560px;
-}
-
-.nx-aboutCta__actions{
+.nx-ctaActions{
   display:flex;
   gap: 10px;
   flex-wrap: wrap;
 }
 
-/* Buttons align with your global */
-.nx-aboutCta .nx-btn{
-  height: 42px;
+/* Buttons fallback (si no existen globales) */
+.nx-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 44px;
+  padding: 0 16px;
   border-radius: 999px;
+  font-weight: 950;
+  font-size: 13px;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,.65);
+  transition: transform .16s ease, background .16s ease, border-color .16s ease;
+}
+.nx-btn:active{ transform: translateY(1px); }
+
+.nx-btn__arrow{
+  display: inline-flex;
+  width: 26px;
+  height: 26px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba(255,255,255,.18);
+  border: 1px solid rgba(255,255,255,.22);
+}
+
+.nx-btn--primary{
+  background: linear-gradient(90deg, rgba(20,90,220,1), rgba(60,140,255,1));
+  color: #fff;
+  border: 1px solid rgba(20,90,220,.22);
+  box-shadow: 0 16px 34px rgba(20,90,220,.22);
+}
+.nx-btn--ghost{
+  background: rgba(255,255,255,.55);
+  border: 1px solid rgba(20,90,220,.14);
+  color: rgba(11,18,32,.84);
+  box-shadow: 0 10px 22px rgba(11,18,32,.08);
 }
 
 /* =========================================================
@@ -422,15 +428,11 @@
     grid-template-columns: 1fr;
   }
 
-  .nx-values__grid{
+  .nx-cards3{
     grid-template-columns: 1fr;
   }
 
-  .nx-timeline__grid{
-    grid-template-columns: 1fr;
-  }
-
-  .nx-aboutCta__card{
+  .nx-ctaCard{
     flex-direction: column;
     align-items: stretch;
   }

@@ -10,15 +10,13 @@
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" type="image/png" href="/assets/nexus_icon.png">
 
-  <!-- Page CSS -->
+  <!-- About Page -->
   <link rel="stylesheet" href="css/about-page.css">
 </head>
 
 <body>
-  <!-- Header (inyectado por layout.js) -->
   <div id="app-header"></div>
 
-  <!-- Main -->
   <main id="main-content">
     <section class="nx-aboutPage">
 
@@ -26,20 +24,17 @@
       <section class="nx-aboutHero">
         <div class="container nx-aboutHero__inner">
 
-          <!-- LEFT -->
-          <div class="nx-aboutHero__left">
-            <div class="nx-aboutHero__kicker" data-i18n="about.kicker">Acerca de Nexus</div>
+          <!-- LEFT CARD -->
+          <div class="nx-glassCard nx-aboutHero__leftCard">
+            <div class="nx-kicker">Acerca de Nexus</div>
 
-            <h1 class="nx-aboutHero__title" data-i18n="about.title">
-              Un ecosistema de apps modernas, conectadas y hechas para mejorar tu vida.
-            </h1>
+            <h1 class="nx-h1">¿Qué es Nexus Ecosystem?</h1>
 
-            <p class="nx-aboutHero__desc" data-i18n="about.desc">
-              Nexus Ecosystem es un conjunto de aplicaciones enfocadas en salud, bienestar y productividad.
-              Nuestro objetivo es crear productos útiles, elegantes y rápidos, con una experiencia premium desde el primer toque.
+            <p class="nx-lead">
+              Un ecosistema de productos digitales enfocados en utilidad diaria, calidad y experiencia de usuario.
             </p>
 
-            <div class="nx-aboutHero__chips">
+            <div class="nx-chipRow">
               <span class="nx-chip"><span class="nx-chip__dot"></span> iOS & Android</span>
               <span class="nx-chip"><span class="nx-chip__dot"></span> Diseño premium</span>
               <span class="nx-chip"><span class="nx-chip__dot"></span> Roadmap vivo</span>
@@ -47,36 +42,36 @@
             </div>
           </div>
 
-          <!-- RIGHT PANEL -->
-          <aside class="nx-aboutHero__panel">
-            <div class="nx-aboutHero__panelTop">
-              <div class="nx-aboutHero__panelTitle" data-i18n="about.panelTitle">En números</div>
-              <div class="nx-badge nx-badge--live" data-i18n="about.panelBadge">Actualizado</div>
+          <!-- RIGHT CARD -->
+          <aside class="nx-glassCard nx-aboutHero__rightCard">
+            <div class="nx-cardTop">
+              <div class="nx-cardTitle">En números</div>
+              <div class="nx-badge nx-badge--live">Actualizado</div>
             </div>
 
-            <div class="nx-aboutHero__panelGrid">
-              <div class="nx-statCard">
-                <div class="nx-statCard__n">3+</div>
-                <div class="nx-statCard__l" data-i18n="about.statApps">Apps activas</div>
+            <div class="nx-metricsGrid">
+              <div class="nx-metric">
+                <div class="nx-metric__n">3+</div>
+                <div class="nx-metric__l">Apps activas</div>
               </div>
 
-              <div class="nx-statCard">
-                <div class="nx-statCard__n">24/7</div>
-                <div class="nx-statCard__l" data-i18n="about.statSupport">Soporte</div>
+              <div class="nx-metric">
+                <div class="nx-metric__n">24/7</div>
+                <div class="nx-metric__l">Soporte</div>
               </div>
 
-              <div class="nx-statCard">
-                <div class="nx-statCard__n">⚡</div>
-                <div class="nx-statCard__l" data-i18n="about.statPerformance">Performance</div>
+              <div class="nx-metric">
+                <div class="nx-metric__n">⚡</div>
+                <div class="nx-metric__l">Performance</div>
               </div>
 
-              <div class="nx-statCard">
-                <div class="nx-statCard__n">🔒</div>
-                <div class="nx-statCard__l" data-i18n="about.statPrivacy">Privacidad</div>
+              <div class="nx-metric">
+                <div class="nx-metric__n">🔒</div>
+                <div class="nx-metric__l">Privacidad</div>
               </div>
             </div>
 
-            <div class="nx-aboutHero__panelNote" data-i18n="about.panelNote">
+            <div class="nx-note">
               Construimos con calidad: UI limpia, animaciones sutiles y arquitectura sólida para escalar.
             </div>
           </aside>
@@ -85,37 +80,37 @@
       </section>
 
       <!-- VALUES -->
-      <section class="nx-values">
+      <section class="nx-section">
         <div class="container">
           <div class="nx-sectionHead">
-            <div class="nx-sectionHead__kicker" data-i18n="about.valuesKicker">Principios</div>
-            <h2 class="nx-sectionHead__title" data-i18n="about.valuesTitle">Lo que define a Nexus</h2>
-            <p class="nx-sectionHead__desc" data-i18n="about.valuesDesc">
+            <div class="nx-kicker">Principios</div>
+            <h2 class="nx-h2">Lo que define a Nexus</h2>
+            <p class="nx-sub">
               Diseñamos apps con enfoque humano, estética premium y decisiones técnicas que evitan deuda.
             </p>
           </div>
 
-          <div class="nx-values__grid">
-            <article class="nx-valueCard">
-              <div class="nx-valueCard__icon">✨</div>
-              <h3 class="nx-valueCard__t" data-i18n="about.value1Title">Experiencia premium</h3>
-              <p class="nx-valueCard__d" data-i18n="about.value1Desc">
-                Interacciones limpias, micro-animaciones, UI consistente y una estética que se siente “App Store ready”.
+          <div class="nx-cards3">
+            <article class="nx-glassCard nx-feature">
+              <div class="nx-feature__icon">✨</div>
+              <h3 class="nx-h3">Experiencia premium</h3>
+              <p class="nx-p">
+                Interacciones limpias, micro-animaciones, UI consistente y una estética “App Store ready”.
               </p>
             </article>
 
-            <article class="nx-valueCard">
-              <div class="nx-valueCard__icon">🧠</div>
-              <h3 class="nx-valueCard__t" data-i18n="about.value2Title">Útil desde el día 1</h3>
-              <p class="nx-valueCard__d" data-i18n="about.value2Desc">
+            <article class="nx-glassCard nx-feature">
+              <div class="nx-feature__icon">🧠</div>
+              <h3 class="nx-h3">Útil desde el día 1</h3>
+              <p class="nx-p">
                 Cada pantalla tiene propósito. Reducimos fricción y maximizamos valor real para el usuario.
               </p>
             </article>
 
-            <article class="nx-valueCard">
-              <div class="nx-valueCard__icon">🔒</div>
-              <h3 class="nx-valueCard__t" data-i18n="about.value3Title">Privacidad primero</h3>
-              <p class="nx-valueCard__d" data-i18n="about.value3Desc">
+            <article class="nx-glassCard nx-feature">
+              <div class="nx-feature__icon">🔒</div>
+              <h3 class="nx-h3">Privacidad primero</h3>
+              <p class="nx-p">
                 Datos mínimos, transparencia y decisiones seguras. Lo sensible se trata como sensible.
               </p>
             </article>
@@ -124,76 +119,71 @@
       </section>
 
       <!-- TIMELINE -->
-      <section class="nx-timeline">
+      <section class="nx-section">
         <div class="container">
           <div class="nx-sectionHead">
-            <div class="nx-sectionHead__kicker" data-i18n="about.timelineKicker">Historia</div>
-            <h2 class="nx-sectionHead__title" data-i18n="about.timelineTitle">Construyendo el ecosistema</h2>
-            <p class="nx-sectionHead__desc" data-i18n="about.timelineDesc">
-              Lanzamientos incrementales, mejoras continuas y expansión por etapas.
-            </p>
+            <div class="nx-kicker">Historia</div>
+            <h2 class="nx-h2">Construyendo el ecosistema</h2>
+            <p class="nx-sub">Lanzamientos incrementales, mejoras continuas y expansión por etapas.</p>
           </div>
 
-          <div class="nx-timeline__grid">
-            <div class="nx-tlCard">
-              <div class="nx-tlCard__top">
-                <div class="nx-tlCard__dot"></div>
-                <div class="nx-tlCard__meta">
-                  <div class="nx-tlCard__when">2025</div>
-                  <div class="nx-tlCard__title">Medi</div>
+          <div class="nx-cards3">
+            <article class="nx-glassCard nx-timelineCard">
+              <div class="nx-timelineTop">
+                <span class="nx-dot nx-dot--medi"></span>
+                <div>
+                  <div class="nx-mini">2025</div>
+                  <div class="nx-h3">Medi</div>
                 </div>
               </div>
-              <p class="nx-tlCard__desc" data-i18n="about.tlMedi">
+              <p class="nx-p">
                 Lanzamiento inicial, monetización con AdMob, recordatorios y tracking. Base para escalar features premium.
               </p>
-            </div>
+            </article>
 
-            <div class="nx-tlCard">
-              <div class="nx-tlCard__top">
-                <div class="nx-tlCard__dot nx-tlCard__dot--aura"></div>
-                <div class="nx-tlCard__meta">
-                  <div class="nx-tlCard__when">2026+</div>
-                  <div class="nx-tlCard__title">Aura</div>
+            <article class="nx-glassCard nx-timelineCard">
+              <div class="nx-timelineTop">
+                <span class="nx-dot nx-dot--aura"></span>
+                <div>
+                  <div class="nx-mini">2026+</div>
+                  <div class="nx-h3">Aura</div>
                 </div>
               </div>
-              <p class="nx-tlCard__desc" data-i18n="about.tlAura">
-                Enfoque en bienestar y ciclo, diseño calmado y módulos guiados. Personalización por etapas.
+              <p class="nx-p">
+                Bienestar y ciclo, diseño calmado y módulos guiados. Personalización por etapas.
               </p>
-            </div>
+            </article>
 
-            <div class="nx-tlCard">
-              <div class="nx-tlCard__top">
-                <div class="nx-tlCard__dot nx-tlCard__dot--beast"></div>
-                <div class="nx-tlCard__meta">
-                  <div class="nx-tlCard__when">Labs</div>
-                  <div class="nx-tlCard__title">Beast</div>
+            <article class="nx-glassCard nx-timelineCard">
+              <div class="nx-timelineTop">
+                <span class="nx-dot nx-dot--beast"></span>
+                <div>
+                  <div class="nx-mini">Labs</div>
+                  <div class="nx-h3">Beast</div>
                 </div>
               </div>
-              <p class="nx-tlCard__desc" data-i18n="about.tlBeast">
+              <p class="nx-p">
                 Experimentación: rendimiento, UX modular y features con enfoque “power user”.
               </p>
-            </div>
+            </article>
           </div>
         </div>
       </section>
 
       <!-- CTA -->
-      <section class="nx-aboutCta">
+      <section class="nx-section nx-section--last">
         <div class="container">
-          <div class="nx-aboutCta__card">
-            <div class="nx-aboutCta__txt">
-              <h2 class="nx-aboutCta__t" data-i18n="about.ctaTitle">¿Quieres colaborar o pedir soporte?</h2>
-              <p class="nx-aboutCta__d" data-i18n="about.ctaDesc">
-                Escríbenos y cuéntanos qué necesitas. Respondemos rápido y con soluciones claras.
-              </p>
+          <div class="nx-glassCard nx-ctaCard">
+            <div>
+              <h2 class="nx-h2 nx-ctaTitle">¿Quieres colaborar o pedir soporte?</h2>
+              <p class="nx-sub">Escríbenos y cuéntanos qué necesitas. Respondemos rápido y con soluciones claras.</p>
             </div>
 
-            <div class="nx-aboutCta__actions">
+            <div class="nx-ctaActions">
               <a class="nx-btn nx-btn--primary" href="contacto.html">
-                <span data-i18n="about.ctaBtn1">Contacto</span>
-                <span class="nx-btn__arrow">→</span>
+                Contacto <span class="nx-btn__arrow">→</span>
               </a>
-              <a class="nx-btn nx-btn--ghost" href="support.html" data-i18n="about.ctaBtn2">Soporte</a>
+              <a class="nx-btn nx-btn--ghost" href="support.html">Soporte</a>
             </div>
           </div>
         </div>
@@ -202,10 +192,8 @@
     </section>
   </main>
 
-  <!-- Footer (inyectado por layout.js) -->
   <div id="app-footer"></div>
 
-  <!-- Scripts -->
   <script src="js/i18n.js" defer></script>
   <script src="js/layout.js" defer></script>
 </body>
