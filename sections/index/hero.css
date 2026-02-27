@@ -1,4 +1,4 @@
-/* Path: css/landing.css (HERO) — FINAL SIN CHIPS */
+/* Path: css/landing.css (HERO) — g0.png + sin card */
 
 /* =========================================================
    HERO WRAPPER
@@ -142,202 +142,52 @@
   gap: 14px;
 }
 
-/* CARD (ajustada para no verse gigante) */
-.nx-heroCard{
-  width: min(520px, 100%);
+/* =========================================================
+   HERO IMAGE MOCK (g0.png)
+   ========================================================= */
+.nx-heroMock{
+  width: min(560px, 100%);
   border-radius: 26px;
-  background: rgba(255,255,255,.66);
-  border: 1px solid rgba(255,255,255,.60);
-  box-shadow:
-    0 22px 56px rgba(11,18,32,.12),
-    0 1px 0 rgba(255,255,255,.55) inset;
+  background: rgba(255,255,255,.18);
+  border: 1px solid rgba(255,255,255,.32);
   backdrop-filter: blur(18px) saturate(160%);
   -webkit-backdrop-filter: blur(18px) saturate(160%);
+  box-shadow:
+    0 24px 70px rgba(11,18,32,.14),
+    0 1px 0 rgba(255,255,255,.55) inset;
   padding: 14px;
+  overflow: hidden;
 
-  /* animación sutil */
   animation: nxFloat 6.5s ease-in-out infinite;
   transform-origin: center;
 }
 
-.nx-heroCard:hover{
+.nx-heroMock:hover{
   animation-play-state: paused;
   transform: translateY(-4px);
   box-shadow:
-    0 30px 80px rgba(11,18,32,.18),
+    0 34px 92px rgba(11,18,32,.18),
     0 1px 0 rgba(255,255,255,.55) inset;
 }
 
+.nx-heroMock__img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 18px;
+  box-shadow: 0 16px 44px rgba(11,18,32,.16);
+}
+
+/* float */
 @keyframes nxFloat{
   0%{ transform: translateY(0); }
   50%{ transform: translateY(-6px); }
   100%{ transform: translateY(0); }
 }
 
-.nx-heroCard__list{
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.nx-appRow{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 12px 12px;
-  border-radius: 18px;
-  background: rgba(255,255,255,.70);
-  border: 1px solid rgba(11,18,32,.06);
-}
-
-.nx-appRow--active{
-  background: rgba(20,90,220,.06);
-  border-color: rgba(20,90,220,.16);
-}
-
-.nx-appRow__left{
-  display:flex;
-  align-items:center;
-  gap: 12px;
-  min-width: 0;
-}
-
-.nx-appRow__txt{ min-width: 0; }
-
-.nx-appRow__name{
-  font-weight: 950;
-  color: rgba(11,18,32,.92);
-  font-size: 15px;
-  line-height: 1.1;
-}
-
-.nx-appRow__desc{
-  margin-top: 2px;
-  font-weight: 750;
-  color: rgba(11,18,32,.55);
-  font-size: 12.5px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 300px;
-}
-
-/* ICON WRAP */
-.nx-appRow__iconWrap{
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex: 0 0 auto;
-  overflow: hidden;
-}
-
-.nx-appRow__iconWrap--img{
-  background: rgba(255,255,255,.6);
-  border: 1px solid rgba(11,18,32,.08);
-}
-
-.nx-appRow__icon{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transform: scale(1.12);
-  border-radius: 12px;
-}
-
-.nx-appRow__iconWrap--beast{
-  background: linear-gradient(135deg, rgba(255,190,30,.20), rgba(255,230,140,.30));
-  border: 1px solid rgba(255,190,30,.20);
-}
-
-.nx-appRow__letter{
-  font-weight: 950;
-  color: rgba(11,18,32,.84);
-}
-
-/* Status */
-.nx-status{
-  height: 30px;
-  padding: 0 12px;
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: 12px;
-  color: rgba(11,18,32,.66);
-  background: rgba(11,18,32,.04);
-  border: 1px solid rgba(11,18,32,.06);
-  white-space: nowrap;
-}
-
-.nx-status--ok{
-  background: rgba(20,160,120,.12);
-  border-color: rgba(20,160,120,.22);
-  color: rgba(11,18,32,.84);
-}
-
-/* Shimmer bar */
-.nx-shimmerBar{
-  margin-top: 8px;
-  height: 8px;
-  width: 240px;
-  max-width: 100%;
-  border-radius: 999px;
-  background: linear-gradient(
-    90deg,
-    rgba(11,18,32,.06),
-    rgba(20,90,220,.18),
-    rgba(11,18,32,.06)
-  );
-  background-size: 220% 100%;
-  animation: nxShimmer 1.25s linear infinite;
-  opacity: .55;
-}
-
-.nx-shimmerBar--short{ width: 180px; }
-
-@keyframes nxShimmer{
-  0%{ background-position: 0% 0; }
-  100%{ background-position: 220% 0; }
-}
-
-/* Footer stats inside card */
-.nx-heroCard__footer{
-  margin-top: 12px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-}
-
-.nx-miniStat{
-  border-radius: 18px;
-  background: rgba(255,255,255,.62);
-  border: 1px solid rgba(11,18,32,.06);
-  padding: 12px 10px;
-  text-align: center;
-}
-
-.nx-miniStat__t{
-  font-weight: 950;
-  color: rgba(11,18,32,.90);
-  font-size: 13px;
-}
-
-.nx-miniStat__s{
-  margin-top: 2px;
-  font-weight: 850;
-  color: rgba(11,18,32,.55);
-  font-size: 12px;
-}
-
 /* BELOW block */
 .nx-hero__below{
-  width: min(520px, 100%);
+  width: min(560px, 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -416,16 +266,10 @@
   }
 
   .nx-hero__right{ align-items: stretch; }
-
-  .nx-heroCard{ width: 100%; }
-
+  .nx-heroMock{ width: 100%; }
   .nx-hero__below{ width: 100%; }
 }
 
 @media (max-width: 520px){
   .nx-hero__stats{ grid-template-columns: 1fr; }
-
-  .nx-heroCard__footer{ grid-template-columns: 1fr; }
-
-  .nx-appRow__desc{ max-width: 210px; }
 }
