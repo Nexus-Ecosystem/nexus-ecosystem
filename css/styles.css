@@ -1,5 +1,5 @@
 /* =========================================================
-   NEXUS ECOSYSTEM — GLOBAL STYLES (CORREGIDO)
+   NEXUS ECOSYSTEM — GLOBAL STYLES (CORRECCIÓN FINAL)
    Base + Header (Nav + Language) + Footer
    ========================================================= */
 
@@ -37,36 +37,37 @@
 }
 
 /* =========================
-   2) RESET / BASE
+   2) RESET / BASE (STICKY FOOTER FIX)
    ========================= */
 *,
 *::before,
 *::after { box-sizing: border-box; }
 
 html { 
-  height: 100%;
+  height: 100%; /* Vital para el cálculo de altura */
   scroll-padding-top: calc(var(--header-h) + 14px); 
 }
 
 body {
   margin: 0;
-  padding: 0; /* ✅ CORREGIDO: Eliminado padding de aquí para evitar espacios extra */
+  padding: 0 !important; /* ✅ ELIMINADO: El padding aquí causa el hueco al final */
   overflow-x: hidden;
   font-family: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   color: var(--text-main);
   background: #fff;
   line-height: 1.25;
 
-  /* ✅ STICKY FOOTER: Flexbox real */
+  /* ✅ SISTEMA DE EMPUJE: Flexbox */
   display: flex;
   flex-direction: column;
-  min-height: 100vh; 
+  min-height: 100vh; /* Altura mínima de la pantalla completa */
 }
 
-/* ✅ CORRECCIÓN: El main crece y gestiona el espacio del Header */
+/* ✅ EL MAIN CRECE: Ocupa todo el espacio sobrante para bajar el footer */
 #main-content {
   flex: 1 0 auto;
-  padding-top: calc(var(--header-h) + 14px); /* ✅ El espacio se queda aquí */
+  /* El espacio del header fijo se compensa aquí */
+  padding-top: calc(var(--header-h) + 24px); 
   width: 100%;
 }
 
@@ -220,7 +221,7 @@ img { max-width: 100%; display: block; }
 .nx-lang.is-open .nx-lang__menu { display: block; }
 
 /* =========================================================
-   4) APP CARDS — ICON CORRECTION (INTEGRADO)
+   4) APP CARDS — ICON ZOOM FIX (CORREGIDO)
    ========================================================= */
 .nx-appCard__iconWrap {
   width: 56px !important;
@@ -243,14 +244,16 @@ img { max-width: 100%; display: block; }
 }
 
 /* =========================
-   5) FOOTER — NX
+   5) FOOTER — NX (FINAL)
    ========================= */
 #app-footer {
-  flex-shrink: 0;
+  flex-shrink: 0; /* Asegura que no se colapse */
   margin-top: 100px; /* Separación de 100px arriba */
+  background: var(--footer-bg); /* Evita fugas de color blanco */
 }
 
 .nx-footer {
+  /* Fondo con degradado radial dinámico */
   background:
     radial-gradient(900px 320px at 18% 0%, rgba(31,106,225,.20), transparent 58%),
     radial-gradient(900px 320px at 82% 0%, rgba(110,193,255,.14), transparent 60%),
@@ -259,6 +262,7 @@ img { max-width: 100%; display: block; }
   color: var(--footer-text);
   padding: 48px 18px 20px;
   border-top: 1px solid var(--footer-border);
+  margin: 0 !important; /* Forzamos a que no haya margen externo */
 }
 
 .nx-footer__inner {
