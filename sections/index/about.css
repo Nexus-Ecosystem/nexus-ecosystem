@@ -406,7 +406,7 @@
 }
 
 /* =========================================================
-   GALLERY (más pequeña + web clean)
+   GALLERY (FIX 1080x1200 + ZOOM + NO CROP)
    ========================================================= */
 .nx-gallerySection{ padding: 18px 0 18px; }
 
@@ -414,8 +414,12 @@
   margin-top: 16px;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  gap: 22px;
   justify-items: center;
+}
+
+.nx-gallery--compact{
+  gap: 22px;
 }
 
 .nx-gallery__item{
@@ -426,22 +430,20 @@
   background: none;
   cursor: pointer;
   text-align: left;
-  display: block;
 }
 
-/* ✅ tamaño controlado para que NO se vean gigantes */
 .nx-gallery__phone{
-  width: min(260px, 100%);
-  border-radius: 26px;
+  width: min(300px, 100%);
+  border-radius: 28px;
   overflow: hidden;
-  background: rgba(255,255,255,.12);
-  border: 1px solid rgba(255,255,255,.22);
+  background: rgba(255,255,255,.14);
+  border: 1px solid rgba(255,255,255,.26);
   backdrop-filter: blur(14px) saturate(160%);
   -webkit-backdrop-filter: blur(14px) saturate(160%);
-  box-shadow: 0 22px 56px rgba(11,18,32,.12);
+  box-shadow: 0 26px 70px rgba(11,18,32,.14);
   transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-  aspect-ratio: 9 / 19;
-  padding: 10px;
+  aspect-ratio: 9 / 10; /* ✅ 1080x1200 */
+  padding: 12px;
   position: relative;
 }
 
@@ -462,20 +464,21 @@
   z-index: 1;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: 20px;
+  object-fit: contain; /* ✅ NO recorta */
+  border-radius: 22px;
   display: block;
+  background: rgba(255,255,255,.55);
   box-shadow: 0 14px 34px rgba(11,18,32,.16);
   transition: transform .35s ease;
 }
 
 .nx-gallery__phone:hover{
-  transform: translateY(-6px);
-  border-color: rgba(31,106,225,.35);
-  box-shadow: 0 34px 80px rgba(11,18,32,.18);
+  transform: translateY(-8px);
+  border-color: rgba(31,106,225,.42);
+  box-shadow: 0 40px 110px rgba(11,18,32,.20);
 }
 .nx-gallery__phone:hover img{
-  transform: scale(1.02);
+  transform: scale(1.06);
 }
 
 /* =========================================================
@@ -561,7 +564,7 @@
 }
 
 /* =========================================================
-   MODAL PREVIEW
+   MODAL PREVIEW (BIG + WOW)
    ========================================================= */
 .nx-modal{
   position: fixed;
@@ -574,7 +577,7 @@
 .nx-modal__backdrop{
   position:absolute;
   inset:0;
-  background: rgba(11,18,32,.62);
+  background: rgba(11,18,32,.66);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -583,23 +586,28 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
-  width: min(980px, calc(100% - 28px));
-  border-radius: 26px;
+  transform: translate(-50%, -50%) scale(.96);
+  width: min(1200px, calc(100% - 18px));
+  border-radius: 28px;
   background: rgba(255,255,255,.14);
   border: 1px solid rgba(255,255,255,.22);
   backdrop-filter: blur(18px) saturate(160%);
   -webkit-backdrop-filter: blur(18px) saturate(160%);
-  box-shadow: 0 40px 120px rgba(0,0,0,.35);
-  padding: 14px;
+  box-shadow: 0 46px 140px rgba(0,0,0,.38);
+  padding: 12px;
+  transition: transform .18s ease;
+}
+
+.nx-modal.is-open .nx-modal__panel{
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .nx-modal__close{
   position:absolute;
   top: 12px;
   right: 12px;
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,.28);
   background: rgba(255,255,255,.16);
@@ -610,10 +618,10 @@
 
 .nx-modal__img{
   width: 100%;
-  height: min(82vh, 860px);
+  height: min(90vh, 980px);
   object-fit: contain;
   display:block;
-  border-radius: 18px;
+  border-radius: 20px;
 }
 
 /* =========================================================
@@ -633,6 +641,6 @@
 
 @media (max-width: 680px){
   .nx-gallery{ grid-template-columns: 1fr; }
-  .nx-gallery__phone{ width: min(320px, 100%); }
+  .nx-gallery__phone{ width: min(340px, 100%); }
   .nx-microGrid{ grid-template-columns: 1fr; }
 }
