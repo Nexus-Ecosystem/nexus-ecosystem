@@ -413,6 +413,7 @@ footer.nx-footer {
 .nx-nav--desktop { display: inline-flex; }
 
 /* Burger oculto en desktop */
+/* Burger */
 .nx-burger{
   display:none;
   width: 44px;
@@ -424,19 +425,25 @@ footer.nx-footer {
   -webkit-backdrop-filter: blur(12px) saturate(160%);
   box-shadow: 0 10px 26px rgba(11,18,32,.08), 0 1px 0 rgba(255,255,255,.18) inset;
   cursor:pointer;
-  align-items:center;
-  justify-content:center;
-  gap: 6px;
+
+  /* ✅ center icon */
+  display: none;
+  align-items: center;
+  justify-content: center;
   padding: 0;
 }
+
 .nx-burger__line{
+  /* ✅ forzamos el stack vertical de 3 líneas */
+  display: block;
   width: 18px;
   height: 2px;
   border-radius: 999px;
   background: rgba(11,18,32,.82);
-  display:block;
+  margin: 3px 0;
 }
 
+/* Drawer */
 /* Drawer */
 .nx-mobileMenu{
   position: fixed;
@@ -446,14 +453,16 @@ footer.nx-footer {
 }
 .nx-mobileMenu.is-open{ display:block; }
 
+/* ✅ backdrop oscuro */
 .nx-mobileMenu__backdrop{
   position:absolute;
   inset:0;
-  background: rgba(11,18,32,.52);
+  background: rgba(11,18,32,.45);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
 
+/* ✅ PANEL BLANCO SÓLIDO (con blur) */
 .nx-mobileMenu__panel{
   position:absolute;
   top: 14px;
@@ -464,76 +473,38 @@ footer.nx-footer {
 
   border-radius: 26px;
   padding: 14px;
-  background: rgba(255,255,255,.16);
-  border: 1px solid rgba(255,255,255,.22);
+
+  /* 👇 blanco sólido */
+  background: rgba(255,255,255,.95);
+  border: 1px solid rgba(11,18,32,.08);
+
+  /* 👇 blur del contenido detrás */
   backdrop-filter: blur(18px) saturate(170%);
   -webkit-backdrop-filter: blur(18px) saturate(170%);
-  box-shadow: 0 30px 90px rgba(0,0,0,.28);
+
+  box-shadow: 0 30px 90px rgba(0,0,0,.22);
 
   transform: translateY(-10px);
   opacity: 0;
   transition: transform .22s ease, opacity .22s ease;
 }
-.nx-mobileMenu.is-open .nx-mobileMenu__panel{
-  transform: translateY(0);
-  opacity: 1;
-}
 
-.nx-mobileMenu__top{
-  display:flex;
-  align-items:center;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 6px 6px 10px;
-}
-.nx-mobileMenu__title{
-  font-weight: 950;
-  color: rgba(11,18,32,.92);
-  font-size: 14px;
-}
 .nx-mobileMenu__close{
   width: 40px;
   height: 40px;
   border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.25);
-  background: rgba(255,255,255,.14);
+  border: 1px solid rgba(11,18,32,.10);
+  background: rgba(11,18,32,.04);
   color: rgba(11,18,32,.86);
   font-weight: 950;
   cursor:pointer;
 }
 
-.nx-mobileMenu__nav{
-  display:grid;
-  gap: 10px;
-  padding: 4px 6px 8px;
-}
-.nx-mobileMenu__nav a{
-  display:flex;
-  align-items:center;
-  justify-content: space-between;
-  padding: 14px 14px;
-  border-radius: 18px;
-  background: rgba(255,255,255,.62);
-  border: 1px solid rgba(11,18,32,.06);
-  box-shadow: 0 14px 34px rgba(11,18,32,.06);
-  font-weight: 900;
-  color: rgba(11,18,32,.86);
-}
-.nx-mobileMenu__nav a::after{
-  content:"→";
-  font-weight: 950;
-  opacity: .7;
-}
-
-.nx-mobileMenu__hint{
-  margin-top: 10px;
-  padding: 10px 12px;
-  border-radius: 16px;
-  background: rgba(20,90,220,.06);
-  border: 1px solid rgba(20,90,220,.14);
-  font-weight: 850;
-  font-size: 12.5px;
-  color: rgba(11,18,32,.68);
+.nx-mobileMenu.is-open .nx-mobileMenu__panel{
+  transform: translateY(0);
+  opacity: 
+  
+  1;
 }
 
 /* ✅ breakpoint: en móvil ocultamos nav normal y mostramos burger */
