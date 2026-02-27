@@ -405,17 +405,16 @@ footer.nx-footer {
   }
 }
 
-/* =========================
-   MOBILE NAV (Hamburger)
-   ========================= */
+/* =========================================================
+   MOBILE NAV (Hamburger) — FIX FINAL
+   ========================================================= */
 
-/* Desktop visible por defecto */
+/* Desktop nav visible por defecto */
 .nx-nav--desktop { display: inline-flex; }
 
-/* Burger oculto en desktop */
-/* Burger */
+/* Burger: oculto en desktop */
 .nx-burger{
-  display:none;
+  display: none;
   width: 44px;
   height: 44px;
   border-radius: 999px;
@@ -424,61 +423,72 @@ footer.nx-footer {
   backdrop-filter: blur(12px) saturate(160%);
   -webkit-backdrop-filter: blur(12px) saturate(160%);
   box-shadow: 0 10px 26px rgba(11,18,32,.08), 0 1px 0 rgba(255,255,255,.18) inset;
-  cursor:pointer;
+  cursor: pointer;
 
-  /* ✅ center icon */
-  display: none;
+  /* ✅ CLAVE: apilar las líneas */
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+
   padding: 0;
 }
 
 .nx-burger__line{
-  /* ✅ forzamos el stack vertical de 3 líneas */
   display: block;
   width: 18px;
   height: 2px;
   border-radius: 999px;
   background: rgba(11,18,32,.82);
-  margin: 3px 0;
 }
 
-/* Drawer */
+/* Animación a X (opcional, se ve pro) */
+.nx-burger.is-open .nx-burger__line:nth-child(1){
+  transform: translateY(6px) rotate(45deg);
+}
+.nx-burger.is-open .nx-burger__line:nth-child(2){
+  opacity: 0;
+}
+.nx-burger.is-open .nx-burger__line:nth-child(3){
+  transform: translateY(-6px) rotate(-45deg);
+}
+.nx-burger__line{
+  transition: transform .18s ease, opacity .18s ease;
+}
+
 /* Drawer */
 .nx-mobileMenu{
   position: fixed;
   inset: 0;
   z-index: 99998;
-  display:none;
+  display: none;
 }
-.nx-mobileMenu.is-open{ display:block; }
+.nx-mobileMenu.is-open{ display: block; }
 
-/* ✅ backdrop oscuro */
+/* Backdrop */
 .nx-mobileMenu__backdrop{
-  position:absolute;
-  inset:0;
+  position: absolute;
+  inset: 0;
   background: rgba(11,18,32,.45);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
 
-/* ✅ PANEL BLANCO SÓLIDO (con blur) */
+/* ✅ Panel blanco sólido con blur */
 .nx-mobileMenu__panel{
-  position:absolute;
-  top: 14px;
-  right: 14px;
-  left: 14px;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  left: 12px;
   max-width: 520px;
   margin-left: auto;
 
   border-radius: 26px;
   padding: 14px;
 
-  /* 👇 blanco sólido */
-  background: rgba(255,255,255,.95);
+  background: rgba(255,255,255,.96);
   border: 1px solid rgba(11,18,32,.08);
 
-  /* 👇 blur del contenido detrás */
   backdrop-filter: blur(18px) saturate(170%);
   -webkit-backdrop-filter: blur(18px) saturate(170%);
 
@@ -487,6 +497,26 @@ footer.nx-footer {
   transform: translateY(-10px);
   opacity: 0;
   transition: transform .22s ease, opacity .22s ease;
+}
+.nx-mobileMenu.is-open .nx-mobileMenu__panel{
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Top row inside panel */
+.nx-mobileMenu__top{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.nx-mobileMenu__title{
+  font-weight: 950;
+  color: rgba(11,18,32,.92);
+  font-size: 13px;
+  letter-spacing: -0.02em;
 }
 
 .nx-mobileMenu__close{
@@ -500,14 +530,39 @@ footer.nx-footer {
   cursor:pointer;
 }
 
-.nx-mobileMenu.is-open .nx-mobileMenu__panel{
-  transform: translateY(0);
-  opacity: 
-  
-  1;
+/* Links */
+.nx-mobileMenu__links{
+  display:grid;
+  gap: 10px;
 }
 
-/* ✅ breakpoint: en móvil ocultamos nav normal y mostramos burger */
+.nx-mobileMenu__link{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 12px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.75);
+  border: 1px solid rgba(11,18,32,.06);
+  box-shadow: 0 14px 34px rgba(11,18,32,.06);
+  font-weight: 900;
+  color: rgba(11,18,32,.88);
+}
+.nx-mobileMenu__link:active{ transform: translateY(1px); }
+.nx-mobileMenu__arrow{
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(20,90,220,.08);
+  border: 1px solid rgba(20,90,220,.12);
+  font-weight: 950;
+}
+
+/* ✅ Breakpoint: ocultar nav desktop y mostrar burger */
 @media (max-width: 820px){
   .nx-nav--desktop{ display:none; }
   .nx-burger{ display:inline-flex; }

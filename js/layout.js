@@ -1,7 +1,7 @@
 // Path: js/layout.js
 
 /* =========================================================
-   NEXUS — LAYOUT LOADER (FIX SCROLL + NAV PILL + LANG)
+   NEXUS — LAYOUT LOADER (FIX SCROLL + NAV PILL + LANG + MOBILE)
    Evita “anclaje” al cargar parciales con fetch
    ========================================================= */
 
@@ -13,19 +13,29 @@
      ========================= */
   const hadHash = !!(location.hash && location.hash.length > 1);
 
+  // Guardamos estado previo (para restaurar)
+  const prevScrollBehavior = document.documentElement.style.scrollBehavior;
+
   function lockScroll() {
     // Congela el scroll durante carga (evita saltos)
     document.documentElement.style.scrollBehavior = "auto";
-    document.body.style.overflowAnchor = "none"; // 🔑 evita el “anclaje” al crecer el DOM
+
+    // 🔑 overflow-anchor funciona mejor en <html> y contenedores
+    document.documentElement.style.overflowAnchor = "none";
+
+    // Opcional: evita que el browser intente “mantener” posición
+    document.body.style.overflowAnchor = "none";
   }
 
   function unlockScroll() {
+    document.documentElement.style.overflowAnchor = "";
     document.body.style.overflowAnchor = "";
+    document.documentElement.style.scrollBehavior = prevScrollBehavior || "";
   }
 
   function forceTopIfNoHash() {
     if (!hadHash) {
-      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      window.scrollTo(0, 0);
     }
   }
 
@@ -40,6 +50,9 @@
     const el = document.getElementById(id);
     if (!el) return false;
 
+    // 🔑 evita anclaje específicamente donde se inyecta contenido
+    el.style.overflowAnchor = "none";
+
     try {
       const res = await fetch(file, { cache: "no-store" });
       if (!res.ok) {
@@ -51,6 +64,8 @@
     } catch (_) {
       el.innerHTML = `<!-- Error loading: ${file} -->`;
       return false;
+    } finally {
+      el.style.overflowAnchor = "";
     }
   }
 
@@ -69,9 +84,6 @@
     if (file === "aura-zen.html") return "aura";
     if (file === "beast.html") return "beast";
     if (file === "support.html") return "support";
-
-    // Si más adelante haces about.html con secciones:
-    // if (file === "about.html") return "index";
 
     return "index";
   }
@@ -93,7 +105,7 @@
      ========================= */
   (async () => {
     lockScroll();
-    forceTopIfNoHash(); // top desde el inicio si no hay #anchor
+    forceTopIfNoHash();
 
     // Header/Footer siempre
     await loadPartial("app-header", "header.html");
@@ -118,19 +130,18 @@
         window.NXI18N.apply();
       }
 
-      // Recalc pill luego de i18n
+      // Recalc pill luego de i18n + fonts/layout
       requestAnimationFrame(() => {
         if (typeof window.__nxRecalcNavPill === "function") window.__nxRecalcNavPill();
 
-        // 🔥 ahora sí: libera scroll y ajusta a top o hash
+        // Libera scroll y ajusta a top o hash
         unlockScroll();
 
-        // Si hay hash, deja que el navegador vaya a ese anchor
         if (hadHash) {
-          const el = document.querySelector(location.hash);
-          if (el) el.scrollIntoView({ behavior: "auto", block: "start" });
+          const target = document.querySelector(location.hash);
+          if (target) target.scrollIntoView({ behavior: "auto", block: "start" });
         } else {
-          window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+          window.scrollTo(0, 0);
         }
       });
     });
@@ -138,10 +149,10 @@
 })();
 
 /* =========================
-   NAV PILL
+   NAV PILL (DESKTOP NAV)
    ========================= */
 function initNavPill() {
-  const nav = document.getElementById("nxNav");
+  const nav = document.getElementById("nxNav");   // ✅ este debe ser el nav desktop
   const pill = document.getElementById("nxPill");
   if (!nav || !pill) return;
 
@@ -187,7 +198,7 @@ function initNavPill() {
       pill.style.width = `${w}px`;
       pill.style.background = t.bg;
       pill.style.borderColor = t.border;
-      pill.offsetHeight;
+      pill.offsetHeight; // flush
       pill.style.transition = prev;
     } else {
       pill.style.transform = `translateX(${x}px)`;
@@ -210,26 +221,39 @@ function initNavPill() {
 
   movePill(initial, false);
 
-  links.forEach(link => {
-    link.addEventListener("click", (e) => {
-      const href = (link.getAttribute("href") || "").trim();
-      if (!href) return;
+  // ✅ evita duplicar listeners
+  if (!nav.dataset.bound) {
+    nav.dataset.bound = "1";
 
-      const isHtmlNav = href.toLowerCase().endsWith(".html");
+    links.forEach(link => {
+      link.addEventListener("click", (e) => {
+        const href = (link.getAttribute("href") || "").trim();
+        if (!href) return;
 
-      if (isHtmlNav) {
-        e.preventDefault();
-        movePill(link, true);
+        const isHtmlNav = href.toLowerCase().endsWith(".html");
 
-        // evitar “saltos” en navegación
-        setTimeout(() => {
-          window.location.href = href;
-        }, 180);
-      } else {
-        movePill(link, true);
-      }
+        if (isHtmlNav) {
+          e.preventDefault();
+          movePill(link, true);
+          setTimeout(() => { window.location.href = href; }, 180);
+        } else {
+          movePill(link, true);
+        }
+      });
     });
-  });
+
+    window.addEventListener("resize", () => {
+      const active = nav.querySelector("a.active") || initial;
+      movePill(active, false);
+    });
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
+        const active = nav.querySelector("a.active") || initial;
+        movePill(active, false);
+      }).catch(() => {});
+    }
+  }
 
   const recalc = () => {
     const active = nav.querySelector("a.active") || initial;
@@ -237,13 +261,6 @@ function initNavPill() {
   };
 
   window.__nxRecalcNavPill = recalc;
-
-  window.addEventListener("resize", recalc);
-
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(recalc).catch(() => {});
-  }
-
   requestAnimationFrame(recalc);
 }
 
@@ -257,6 +274,18 @@ function initLangDropdown() {
   const code = document.getElementById("nxLangCode");
 
   if (!wrap || !btn || !menu || !code) return;
+
+  // ✅ evita duplicar listeners
+  if (wrap.dataset.bound) {
+    // solo repintar código actual
+    if (window.NXI18N && typeof window.NXI18N.getLang === "function") {
+      code.textContent = window.NXI18N.getLang().toUpperCase();
+    } else {
+      code.textContent = code.textContent || "ES";
+    }
+    return;
+  }
+  wrap.dataset.bound = "1";
 
   const open = () => {
     wrap.classList.add("is-open");
@@ -295,11 +324,8 @@ function initLangDropdown() {
 
       if (window.NXI18N && typeof window.NXI18N.setLang === "function") {
         window.NXI18N.setLang(lang);
-        code.textContent = lang.toUpperCase();
-      } else {
-        code.textContent = lang.toUpperCase();
       }
-
+      code.textContent = lang.toUpperCase();
       close();
 
       requestAnimationFrame(() => {
@@ -311,18 +337,26 @@ function initLangDropdown() {
   if (window.NXI18N && typeof window.NXI18N.getLang === "function") {
     code.textContent = window.NXI18N.getLang().toUpperCase();
   } else {
-    code.textContent = "ES";
+    code.textContent = code.textContent || "ES";
   }
 }
 
+/* =========================
+   MOBILE MENU
+   ========================= */
 function initMobileMenu() {
   const burger = document.getElementById("nxBurger");
-  const menu = document.getElementById("nxMobileMenu");
+  const menu   = document.getElementById("nxMobileMenu");
   if (!burger || !menu) return;
+
+  // ✅ evita duplicar listeners
+  if (menu.dataset.bound) return;
+  menu.dataset.bound = "1";
 
   const open = () => {
     menu.classList.add("is-open");
     menu.setAttribute("aria-hidden", "false");
+    burger.classList.add("is-open");
     burger.setAttribute("aria-expanded", "true");
     document.body.style.overflow = "hidden";
   };
@@ -330,6 +364,7 @@ function initMobileMenu() {
   const close = () => {
     menu.classList.remove("is-open");
     menu.setAttribute("aria-hidden", "true");
+    burger.classList.remove("is-open");
     burger.setAttribute("aria-expanded", "false");
     document.body.style.overflow = "";
   };
@@ -339,15 +374,16 @@ function initMobileMenu() {
     menu.classList.contains("is-open") ? close() : open();
   });
 
+  // click backdrop / close buttons
   menu.addEventListener("click", (e) => {
-    if (e.target?.dataset?.close) close();
+    if (e.target && e.target.dataset && e.target.dataset.close) close();
   });
 
   window.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && menu.classList.contains("is-open")) close();
   });
 
-  // ✅ si das click en un link, cierra el menú
+  // ✅ cerrar al navegar dentro del drawer
   menu.querySelectorAll("a[href]").forEach(a => {
     a.addEventListener("click", () => close());
   });
