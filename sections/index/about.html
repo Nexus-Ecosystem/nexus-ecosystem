@@ -104,7 +104,6 @@
               </div>
             </div>
 
-            <!-- Mini strip de “apps” (se ve pro y rompe el bloque de texto) -->
             <div class="nx-strip nx-anim" aria-label="Apps del ecosistema">
               <div class="nx-strip__item">
                 <span class="nx-strip__dot nx-strip__dot--medi"></span>
@@ -178,14 +177,37 @@
           </div>
 
           <div class="nx-gallery nx-gallery--compact">
-            <button class="nx-gallery__item nx-gallery__phone nx-anim" data-img="assets/gallery/g1.png" aria-label="Abrir g1">
-              <img src="assets/gallery/g1.png" alt="Medi screen 1">
+            <button class="nx-gallery__item nx-gallery__phone nx-anim"
+                    data-img="assets/gallery/g1.png"
+                    aria-label="Abrir g1">
+              <img
+                src="assets/gallery/g1.png"
+                data-fb1="../assets/gallery/g1.png"
+                data-fb2="../../assets/gallery/g1.png"
+                alt="Medi screen 1"
+                loading="lazy">
             </button>
-            <button class="nx-gallery__item nx-gallery__phone nx-anim" data-img="assets/gallery/g2.png" aria-label="Abrir g2">
-              <img src="assets/gallery/g2.png" alt="Medi screen 2">
+
+            <button class="nx-gallery__item nx-gallery__phone nx-anim"
+                    data-img="assets/gallery/g2.png"
+                    aria-label="Abrir g2">
+              <img
+                src="assets/gallery/g2.png"
+                data-fb1="../assets/gallery/g2.png"
+                data-fb2="../../assets/gallery/g2.png"
+                alt="Medi screen 2"
+                loading="lazy">
             </button>
-            <button class="nx-gallery__item nx-gallery__phone nx-anim" data-img="assets/gallery/g3.png" aria-label="Abrir g3">
-              <img src="assets/gallery/g3.png" alt="Medi screen 3">
+
+            <button class="nx-gallery__item nx-gallery__phone nx-anim"
+                    data-img="assets/gallery/g3.png"
+                    aria-label="Abrir g3">
+              <img
+                src="assets/gallery/g3.png"
+                data-fb1="../assets/gallery/g3.png"
+                data-fb2="../../assets/gallery/g3.png"
+                alt="Medi screen 3"
+                loading="lazy">
             </button>
           </div>
         </div>
@@ -201,14 +223,37 @@
           </div>
 
           <div class="nx-gallery nx-gallery--compact">
-            <button class="nx-gallery__item nx-gallery__phone nx-anim" data-img="assets/gallery/g4.png" aria-label="Abrir g4">
-              <img src="assets/gallery/g4.png" alt="Aura screen 1">
+            <button class="nx-gallery__item nx-gallery__phone nx-anim"
+                    data-img="assets/gallery/g4.png"
+                    aria-label="Abrir g4">
+              <img
+                src="assets/gallery/g4.png"
+                data-fb1="../assets/gallery/g4.png"
+                data-fb2="../../assets/gallery/g4.png"
+                alt="Aura screen 1"
+                loading="lazy">
             </button>
-            <button class="nx-gallery__item nx-gallery__phone nx-anim" data-img="assets/gallery/g5.png" aria-label="Abrir g5">
-              <img src="assets/gallery/g5.png" alt="Aura screen 2">
+
+            <button class="nx-gallery__item nx-gallery__phone nx-anim"
+                    data-img="assets/gallery/g5.png"
+                    aria-label="Abrir g5">
+              <img
+                src="assets/gallery/g5.png"
+                data-fb1="../assets/gallery/g5.png"
+                data-fb2="../../assets/gallery/g5.png"
+                alt="Aura screen 2"
+                loading="lazy">
             </button>
-            <button class="nx-gallery__item nx-gallery__phone nx-anim" data-img="assets/gallery/g6.png" aria-label="Abrir g6">
-              <img src="assets/gallery/g6.png" alt="Aura screen 3">
+
+            <button class="nx-gallery__item nx-gallery__phone nx-anim"
+                    data-img="assets/gallery/g6.png"
+                    aria-label="Abrir g6">
+              <img
+                src="assets/gallery/g6.png"
+                data-fb1="../assets/gallery/g6.png"
+                data-fb2="../../assets/gallery/g6.png"
+                alt="Aura screen 3"
+                loading="lazy">
             </button>
           </div>
         </div>
@@ -269,16 +314,69 @@
 
       els.forEach(el => io.observe(el));
 
-      // Modal gallery
+      // ====== IMG FALLBACK (g1/g2/g3 blindado) ======
+      function addFallback(img){
+        if (!img) return;
+
+        const fb1 = img.getAttribute('data-fb1');
+        const fb2 = img.getAttribute('data-fb2');
+
+        img.addEventListener('error', () => {
+          // 1) intenta fb1
+          if (fb1 && !img.dataset.triedFb1) {
+            img.dataset.triedFb1 = '1';
+            img.src = fb1;
+            return;
+          }
+          // 2) intenta fb2
+          if (fb2 && !img.dataset.triedFb2) {
+            img.dataset.triedFb2 = '1';
+            img.src = fb2;
+            return;
+          }
+        });
+      }
+
+      document.querySelectorAll('.nx-gallery__phone img').forEach(addFallback);
+
+      // ====== MODAL gallery (con fallback real antes de abrir) ======
       const modal = document.getElementById('nxModal');
       const modalImg = document.getElementById('nxModalImg');
 
-      function openModal(src){
-        modalImg.src = src;
-        modal.classList.add('is-open');
-        modal.setAttribute('aria-hidden','false');
-        document.body.style.overflow = 'hidden';
+      function tryLoad(list){
+        return new Promise((resolve, reject) => {
+          let idx = 0;
+          const probe = new Image();
+
+          const next = () => {
+            if (idx >= list.length) return reject(new Error('No se pudo cargar'));
+            const src = list[idx++];
+            probe.onload = () => resolve(src);
+            probe.onerror = next;
+            probe.src = src;
+          };
+
+          next();
+        });
       }
+
+      function openModalSmart(baseSrc){
+        const candidates = [
+          baseSrc,
+          `../${baseSrc}`,
+          `../../${baseSrc}`
+        ];
+
+        tryLoad(candidates).then((okSrc) => {
+          modalImg.src = okSrc;
+          modal.classList.add('is-open');
+          modal.setAttribute('aria-hidden','false');
+          document.body.style.overflow = 'hidden';
+        }).catch(() => {
+          console.warn('No se pudo abrir preview:', baseSrc);
+        });
+      }
+
       function closeModal(){
         modal.classList.remove('is-open');
         modal.setAttribute('aria-hidden','true');
@@ -287,7 +385,7 @@
       }
 
       document.querySelectorAll('.nx-gallery__item[data-img]').forEach(btn => {
-        btn.addEventListener('click', () => openModal(btn.dataset.img));
+        btn.addEventListener('click', () => openModalSmart(btn.dataset.img));
       });
 
       modal.addEventListener('click', (e) => {

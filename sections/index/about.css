@@ -418,11 +418,6 @@
   justify-items: center;
 }
 
-/* compact mode (default) */
-.nx-gallery--compact{
-  gap: 18px;
-}
-
 .nx-gallery__item{
   appearance: none;
   -webkit-appearance: none;
@@ -431,6 +426,7 @@
   background: none;
   cursor: pointer;
   text-align: left;
+  display: block;
 }
 
 /* ✅ tamaño controlado para que NO se vean gigantes */
@@ -542,10 +538,8 @@
 /* =========================================================
    ANIMACIONES ON-SCROLL
    ========================================================= */
-/* Visible por defecto */
 .nx-anim{ opacity: 1; transform: none; }
 
-/* Solo anima si existe nx-js */
 .nx-js .nx-anim{
   opacity: 0;
   transform: translateY(14px);
@@ -557,7 +551,6 @@
   transform: translateY(0);
 }
 
-/* stagger */
 .nx-cards3 > .nx-anim:nth-child(2){ transition-delay: .06s; }
 .nx-cards3 > .nx-anim:nth-child(3){ transition-delay: .12s; }
 .nx-gallery > .nx-anim:nth-child(2){ transition-delay: .06s; }
