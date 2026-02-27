@@ -1,9 +1,14 @@
-/* Path: css/landing.css  (HERO) */
+/* Path: css/landing.css (HERO) — FIX FINAL */
 
-/* HERO WRAPPER */
-/* antes tenías background en .nx-hero */
+/* =========================================================
+   HERO WRAPPER (FIX: NO ESPACIO FANTASMA)
+   ========================================================= */
 .nx-hero{
-  background: transparent; /* ✅ ahora lo manda el body */
+  position: relative;      /* ✅ ancla los ::before/::after */
+  overflow: hidden;        /* ✅ recorta el blur */
+  isolation: isolate;      /* ✅ evita que el glow afecte stacking fuera */
+  background: transparent; /* ✅ el fondo lo controla body */
+  padding: 72px 0 64px;    /* ✅ padding consistente (desktop también) */
 }
 
 /* soft premium glow (sin dots, sin grid) */
@@ -17,22 +22,27 @@
   filter: blur(50px);
   opacity: .55;
   pointer-events:none;
+  z-index: 0;              /* ✅ siempre detrás del contenido */
 }
+
 .nx-hero::before{
   top: -210px;
   left: -180px;
   background: radial-gradient(circle at 30% 30%, rgba(20,90,220,.55), transparent 62%);
 }
+
 .nx-hero::after{
   bottom: -240px;
   right: -220px;
   background: radial-gradient(circle at 40% 40%, rgba(60,150,255,.45), transparent 64%);
 }
 
-/* LAYOUT */
+/* =========================================================
+   LAYOUT
+   ========================================================= */
 .nx-hero__inner{
   position: relative;
-  z-index: 1;
+  z-index: 1; /* ✅ arriba de los glows */
   display: grid;
   grid-template-columns: 1.05fr .95fr;
   align-items: center;
@@ -48,6 +58,7 @@
   font-weight: 950;
   color: rgba(11,18,32,.94);
 }
+
 .nx-hero__titleGrad{
   display: inline-block;
   background: linear-gradient(90deg, rgba(20,90,220,1), rgba(60,140,255,1));
@@ -63,6 +74,7 @@
   line-height: 1.6;
   color: rgba(11,18,32,.72);
 }
+
 .nx-hero__subtitle strong{
   color: rgba(11,18,32,.92);
   font-weight: 900;
@@ -77,7 +89,9 @@
   flex-wrap: wrap;
 }
 
-/* Buttons (por si no existen en styles.css) */
+/* =========================================================
+   Buttons (si styles.css ya trae nx-btn, esto no lo rompe)
+   ========================================================= */
 .nx-btn{
   display: inline-flex;
   align-items: center;
@@ -90,7 +104,9 @@
   font-size: 13px;
   cursor: pointer;
   user-select: none;
+  transition: transform .16s ease;
 }
+
 .nx-btn__arrow{
   display: inline-flex;
   width: 26px;
@@ -101,22 +117,28 @@
   background: rgba(255,255,255,.18);
   border: 1px solid rgba(255,255,255,.22);
 }
+
 .nx-btn--primary{
   background: linear-gradient(90deg, rgba(20,90,220,1), rgba(60,140,255,1));
   color: #fff;
   border: 1px solid rgba(20,90,220,.22);
   box-shadow: 0 16px 34px rgba(20,90,220,.26);
 }
+
 .nx-btn--primary:hover{ transform: translateY(-1px); }
+
 .nx-btn--ghost{
   background: rgba(255,255,255,.55);
   border: 1px solid rgba(20,90,220,.14);
   color: rgba(11,18,32,.84);
   box-shadow: 0 10px 22px rgba(11,18,32,.08);
 }
+
 .nx-btn--ghost:hover{ transform: translateY(-1px); }
 
-/* RIGHT COLUMN */
+/* =========================================================
+   RIGHT COLUMN
+   ========================================================= */
 .nx-hero__right{
   display: flex;
   flex-direction: column;
@@ -168,12 +190,14 @@
 }
 
 .nx-appRow__txt{ min-width: 0; }
+
 .nx-appRow__name{
   font-weight: 950;
   color: rgba(11,18,32,.92);
   font-size: 15px;
   line-height: 1.1;
 }
+
 .nx-appRow__desc{
   margin-top: 2px;
   font-weight: 750;
@@ -197,18 +221,19 @@
   overflow: hidden;
 }
 
-/* ✅ Medi logo: que LLENE, sin bordes blancos, con zoom */
+/* Medi logo: llena */
 .nx-appRow__iconWrap--img{
   background: rgba(255,255,255,.6);
   border: 1px solid rgba(11,18,32,.08);
 }
+
 .nx-appRow__icon{
   width: 100%;
   height: 100%;
-  object-fit: cover;       /* ✅ llena */
+  object-fit: cover;
   object-position: center;
-  transform: scale(1.12);  /* ✅ zoom para “matar” sobrantes blancos */
-  border-radius: 12px;     /* ✅ redondeo suave */
+  transform: scale(1.12);
+  border-radius: 12px;
 }
 
 /* Aura / Beast placeholder */
@@ -216,10 +241,12 @@
   background: linear-gradient(135deg, rgba(150,90,255,.22), rgba(210,170,255,.30));
   border: 1px solid rgba(150,90,255,.22);
 }
+
 .nx-appRow__iconWrap--beast{
   background: linear-gradient(135deg, rgba(255,190,30,.20), rgba(255,230,140,.30));
   border: 1px solid rgba(255,190,30,.20);
 }
+
 .nx-appRow__letter{
   font-weight: 950;
   color: rgba(11,18,32,.84);
@@ -240,13 +267,14 @@
   border: 1px solid rgba(11,18,32,.06);
   white-space: nowrap;
 }
+
 .nx-status--ok{
   background: rgba(20,160,120,.12);
   border-color: rgba(20,160,120,.22);
   color: rgba(11,18,32,.84);
 }
 
-/* Shimmer bar (loader) */
+/* Shimmer bar */
 .nx-shimmerBar{
   margin-top: 8px;
   height: 8px;
@@ -263,6 +291,7 @@
   animation: nxShimmer 1.25s linear infinite;
   opacity: .55;
 }
+
 .nx-shimmerBar--short{ width: 180px; }
 
 @keyframes nxShimmer{
@@ -285,11 +314,13 @@
   padding: 12px 10px;
   text-align: center;
 }
+
 .nx-miniStat__t{
   font-weight: 950;
   color: rgba(11,18,32,.90);
   font-size: 13px;
 }
+
 .nx-miniStat__s{
   margin-top: 2px;
   font-weight: 850;
@@ -297,12 +328,12 @@
   font-size: 12px;
 }
 
-/* BELOW block (debajo del card) */
+/* BELOW block */
 .nx-hero__below{
   width: min(520px, 100%);
   display: flex;
   flex-direction: column;
-  align-items: center; /* ✅ centrado */
+  align-items: center;
   gap: 12px;
 }
 
@@ -313,6 +344,7 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .nx-platform{
   height: 38px;
   padding: 0 12px;
@@ -327,6 +359,7 @@
   font-size: 12.5px;
   color: rgba(11,18,32,.78);
 }
+
 .nx-platform__icon{
   width: 18px;
   height: 18px;
@@ -340,18 +373,21 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 }
+
 .nx-stat{
   border-radius: 18px;
   background: rgba(255,255,255,.62);
   border: 1px solid rgba(20,90,220,.12);
   padding: 12px 12px;
 }
+
 .nx-stat__n{
   font-weight: 950;
   font-size: 18px;
   color: rgba(11,18,32,.92);
   line-height: 1.1;
 }
+
 .nx-stat__l{
   margin-top: 2px;
   font-weight: 850;
@@ -366,6 +402,7 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .nx-pill{
   height: 34px;
   padding: 0 12px;
@@ -380,21 +417,32 @@
   box-shadow: 0 10px 20px rgba(11,18,32,.05);
 }
 
-/* Responsive */
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
 @media (max-width: 980px){
-  .nx-hero{ padding: 64px 0 64px; }
+  .nx-hero{
+    padding: 64px 0 64px; /* ok */
+  }
+
   .nx-hero__inner{
     grid-template-columns: 1fr;
     gap: 26px;
   }
+
   .nx-hero__left{ text-align: left; }
+
   .nx-hero__right{ align-items: stretch; }
+
   .nx-heroCard{ width: 100%; }
+
   .nx-hero__below{ width: 100%; }
 }
 
 @media (max-width: 520px){
   .nx-hero__stats{ grid-template-columns: 1fr; }
+
   .nx-heroCard__footer{ grid-template-columns: 1fr; }
+
   .nx-appRow__desc{ max-width: 210px; }
 }
