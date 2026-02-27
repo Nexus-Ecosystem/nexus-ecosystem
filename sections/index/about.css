@@ -605,11 +605,23 @@
 /* =========================================================
    ANIMACIONES ON-SCROLL (sin librerías)
    ========================================================= */
+/* ✅ Visible por defecto (si JS falla, no se oculta nada) */
 .nx-anim{
+  opacity: 1;
+  transform: none;
+}
+
+/* ✅ Solo anima si el body tiene .nx-js */
+.nx-js .nx-anim{
   opacity: 0;
   transform: translateY(14px);
   transition: opacity .55s ease, transform .55s ease;
   will-change: opacity, transform;
+}
+
+.nx-js .nx-anim.is-in{
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .nx-anim.is-in{
