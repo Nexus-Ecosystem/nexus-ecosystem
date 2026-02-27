@@ -1,29 +1,32 @@
 /* =========================================================
-   NEXUS — SOCIALS SECTION (PERRÓN + GLASS)
+   NEXUS — SOCIALS SECTION (PERRÓN + GLASS) — FINAL
    Path: sections/index/socials.css
+   Solo: TikTok / Facebook / YouTube / Instagram
+   Iconos: assets/socials/tiktok.png etc.
    ========================================================= */
 
 .nx-socialsSection{
   padding: 22px 0 48px;
 }
 
-/* Layout */
+/* Grid layout */
 .nx-socialsGrid{
   margin-top: 16px;
   display: grid;
-  grid-template-columns: 1.15fr .85fr;
+  grid-template-columns: 1fr;
   gap: 14px;
   align-items: start;
 }
 
-/* LEFT CARD */
+/* Card wrapper (usa tu .nx-glassCard global en el HTML) */
 .nx-socialsCard{
   padding: 18px;
 }
 
+/* Header */
 .nx-socialsCard__top{
   display:flex;
-  align-items:center;
+  align-items:flex-start;
   justify-content: space-between;
   gap: 10px;
   margin-bottom: 12px;
@@ -43,12 +46,29 @@
   font-size: 12.5px;
 }
 
-/* LIST */
+.nx-socialsBadge{
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 999px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  font-weight: 950;
+  font-size: 11px;
+  letter-spacing: .35px;
+  border: 1px solid rgba(31,106,225,.18);
+  background: rgba(31,106,225,.08);
+  color: rgba(11,18,32,.82);
+  white-space: nowrap;
+}
+
+/* Social list */
 .nx-socialList{
   display: grid;
   gap: 10px;
 }
 
+/* Link = item completo clickeable */
 .nx-socialItem{
   display:flex;
   align-items:center;
@@ -59,6 +79,8 @@
   border: 1px solid rgba(11,18,32,.06);
   box-shadow: 0 14px 34px rgba(11,18,32,.06);
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .nx-socialItem:hover{
@@ -67,38 +89,46 @@
   box-shadow: 0 22px 50px rgba(11,18,32,.10);
 }
 
+/* Icon wrap (para que no se vean huecos) */
 .nx-socialIcon{
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
   border-radius: 16px;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-weight: 950;
-  color: rgba(11,18,32,.92);
-  background: rgba(255,255,255,.60);
-  border: 1px solid rgba(255,255,255,.75);
+  background: rgba(255,255,255,.70);
+  border: 1px solid rgba(255,255,255,.78);
   box-shadow: 0 18px 40px rgba(11,18,32,.08);
   flex: 0 0 auto;
+  overflow: hidden; /* clave para que el PNG no salga */
 }
 
-.nx-socialIcon--tiktok{
-  background: linear-gradient(180deg, rgba(255,255,255,.70), rgba(255,255,255,.50));
-  border-color: rgba(20,90,220,.12);
-}
-.nx-socialIcon--instagram{
-  background: linear-gradient(180deg, rgba(255,255,255,.70), rgba(255,255,255,.50));
-  border-color: rgba(170,120,255,.14);
-}
-.nx-socialIcon--youtube{
-  background: linear-gradient(180deg, rgba(255,255,255,.70), rgba(255,255,255,.50));
-  border-color: rgba(255,90,90,.18);
-}
-.nx-socialIcon--x{
-  background: linear-gradient(180deg, rgba(255,255,255,.70), rgba(255,255,255,.50));
-  border-color: rgba(11,18,32,.12);
+/* ✅ La imagen del icono: llena el contenedor y se recorta bonito */
+.nx-socialIcon img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;         /* llena sin huecos */
+  object-position: center;   /* centra el logo */
+  border-radius: 16px;
+  transform: scale(1.08);    /* “zoom” leve para evitar bordes vacíos */
 }
 
+/* Variantes suaves por red (solo borde/halo) */
+.nx-socialItem--tiktok .nx-socialIcon{
+  border-color: rgba(20,90,220,.14);
+}
+.nx-socialItem--facebook .nx-socialIcon{
+  border-color: rgba(31,106,225,.18);
+}
+.nx-socialItem--youtube .nx-socialIcon{
+  border-color: rgba(255,90,90,.20);
+}
+.nx-socialItem--instagram .nx-socialIcon{
+  border-color: rgba(170,120,255,.18);
+}
+
+/* Text */
 .nx-socialText{
   min-width: 0;
 }
@@ -120,10 +150,11 @@
   text-overflow: ellipsis;
 }
 
+/* Go button */
 .nx-socialGo{
   margin-left: auto;
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: 999px;
   display:flex;
   align-items:center;
@@ -132,130 +163,35 @@
   border: 1px solid rgba(20,90,220,.12);
   color: rgba(11,18,32,.78);
   font-weight: 950;
+  transition: transform .16s ease;
+  flex: 0 0 auto;
 }
 
-/* FOOTER */
+.nx-socialItem:hover .nx-socialGo{
+  transform: translateX(2px);
+}
+
+/* Footer row */
 .nx-socialFooter{
+  margin-top: 12px;
   display:flex;
   align-items:center;
   justify-content: space-between;
   gap: 12px;
   flex-wrap: wrap;
 }
+
 .nx-socialFooter__t{
   font-weight: 950;
   color: rgba(11,18,32,.92);
   font-size: 13px;
 }
+
 .nx-socialFooter__s{
   margin-top: 3px;
   font-weight: 850;
   color: rgba(11,18,32,.60);
   font-size: 12.5px;
-}
-
-/* RIGHT COLUMN */
-.nx-socialsRight{
-  display:grid;
-  gap: 14px;
-}
-
-/* QUICK */
-.nx-socialQuick__title{
-  font-weight: 950;
-  color: rgba(11,18,32,.92);
-  font-size: 14px;
-  margin-bottom: 6px;
-}
-.nx-socialQuick__actions{
-  margin-top: 14px;
-  display:flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.nx-socialMiniGrid{
-  margin-top: 12px;
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-.nx-miniStat{
-  border-radius: 18px;
-  padding: 12px 12px;
-  background: rgba(255,255,255,.62);
-  border: 1px solid rgba(11,18,32,.06);
-}
-.nx-miniStat__k{
-  font-weight: 950;
-  font-size: 11px;
-  letter-spacing: .35px;
-  text-transform: uppercase;
-  color: rgba(11,18,32,.55);
-}
-.nx-miniStat__v{
-  margin-top: 4px;
-  font-weight: 950;
-  font-size: 13px;
-  color: rgba(11,18,32,.90);
-}
-
-/* NEWSLETTER */
-.nx-newsletter__kicker{
-  display:inline-flex;
-  height: 28px;
-  align-items:center;
-  padding: 0 10px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 950;
-  letter-spacing: .35px;
-  background: rgba(255,255,255,.55);
-  border: 1px solid rgba(255,255,255,.70);
-  color: rgba(11,18,32,.70);
-}
-
-.nx-newsletter__title{
-  margin-top: 10px;
-  font-weight: 950;
-  letter-spacing: -0.02em;
-  color: rgba(11,18,32,.92);
-  font-size: 16px;
-}
-
-.nx-newsletter__form{
-  margin-top: 12px;
-  display:flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.nx-input{
-  height: 46px;
-  padding: 0 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(11,18,32,.10);
-  background: rgba(255,255,255,.72);
-  outline: none;
-  font-weight: 850;
-  color: rgba(11,18,32,.86);
-  min-width: min(360px, 100%);
-}
-.nx-input::placeholder{ color: rgba(11,18,32,.45); }
-.nx-input:focus{
-  border-color: rgba(31,106,225,.28);
-  box-shadow: 0 0 0 4px rgba(31,106,225,.10);
-}
-
-.nx-newsletter__note{
-  margin-top: 10px;
-  padding: 10px 12px;
-  border-radius: 16px;
-  background: rgba(20,90,220,.06);
-  border: 1px solid rgba(20,90,220,.14);
-  font-weight: 850;
-  font-size: 12.5px;
-  color: rgba(11,18,32,.68);
 }
 
 /* A11y helper */
