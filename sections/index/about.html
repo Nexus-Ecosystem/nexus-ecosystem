@@ -25,7 +25,7 @@
         <div class="container nx-aboutHero__inner">
 
           <!-- LEFT CARD -->
-          <div class="nx-glassCard nx-aboutHero__leftCard">
+          <div class="nx-glassCard nx-aboutHero__leftCard nx-anim nx-anim--up">
             <div class="nx-kicker">Acerca de Nexus</div>
 
             <h1 class="nx-h1">¿Qué es Nexus Ecosystem?</h1>
@@ -40,40 +40,82 @@
               <span class="nx-chip"><span class="nx-chip__dot"></span> Roadmap vivo</span>
               <span class="nx-chip"><span class="nx-chip__dot"></span> Privacidad primero</span>
             </div>
+
+            <div class="nx-heroMini">
+              <div class="nx-heroMini__row">
+                <span class="nx-miniBadge">UI limpia</span>
+                <span class="nx-miniBadge">Animaciones sutiles</span>
+                <span class="nx-miniBadge">Arquitectura sólida</span>
+              </div>
+            </div>
           </div>
 
-          <!-- RIGHT CARD -->
-          <aside class="nx-glassCard nx-aboutHero__rightCard">
-            <div class="nx-cardTop">
-              <div class="nx-cardTitle">En números</div>
-              <div class="nx-badge nx-badge--live">Actualizado</div>
+          <!-- RIGHT COLUMN -->
+          <aside class="nx-aboutHero__rightCol">
+
+            <!-- NUMBERS CARD -->
+            <div class="nx-glassCard nx-aboutHero__rightCard nx-anim nx-anim--up">
+              <div class="nx-cardTop">
+                <div class="nx-cardTitle">En números</div>
+                <div class="nx-badge nx-badge--live">Actualizado</div>
+              </div>
+
+              <div class="nx-metricsGrid">
+                <div class="nx-metric">
+                  <div class="nx-metric__n">3+</div>
+                  <div class="nx-metric__l">Apps activas</div>
+                </div>
+
+                <div class="nx-metric">
+                  <div class="nx-metric__n">24/7</div>
+                  <div class="nx-metric__l">Soporte</div>
+                </div>
+
+                <div class="nx-metric">
+                  <div class="nx-metric__n">⚡</div>
+                  <div class="nx-metric__l">Performance</div>
+                </div>
+
+                <div class="nx-metric">
+                  <div class="nx-metric__n">🔒</div>
+                  <div class="nx-metric__l">Privacidad</div>
+                </div>
+              </div>
+
+              <div class="nx-note">
+                Construimos con calidad: UI limpia, animaciones sutiles y arquitectura sólida para escalar.
+              </div>
             </div>
 
-            <div class="nx-metricsGrid">
-              <div class="nx-metric">
-                <div class="nx-metric__n">3+</div>
-                <div class="nx-metric__l">Apps activas</div>
-              </div>
+            <!-- HERO SCREENSHOT CARD -->
+            <div class="nx-heroShot nx-anim nx-anim--up">
+              <div class="nx-heroShot__glass">
+                <div class="nx-heroShot__top">
+                  <div class="nx-cardTitle">Medi — Preview</div>
+                  <div class="nx-pillSoft">Real screens</div>
+                </div>
 
-              <div class="nx-metric">
-                <div class="nx-metric__n">24/7</div>
-                <div class="nx-metric__l">Soporte</div>
-              </div>
+                <div class="nx-heroShot__frame">
+                  <img src="assets/gallery/g1.png" alt="Medi preview principal">
+                </div>
 
-              <div class="nx-metric">
-                <div class="nx-metric__n">⚡</div>
-                <div class="nx-metric__l">Performance</div>
-              </div>
-
-              <div class="nx-metric">
-                <div class="nx-metric__n">🔒</div>
-                <div class="nx-metric__l">Privacidad</div>
+                <div class="nx-heroShot__meta">
+                  <div class="nx-heroShot__metaItem">
+                    <div class="nx-heroShot__metaN">+</div>
+                    <div class="nx-heroShot__metaL">Iteración continua</div>
+                  </div>
+                  <div class="nx-heroShot__metaItem">
+                    <div class="nx-heroShot__metaN">✓</div>
+                    <div class="nx-heroShot__metaL">App Store ready</div>
+                  </div>
+                  <div class="nx-heroShot__metaItem">
+                    <div class="nx-heroShot__metaN">⚡</div>
+                    <div class="nx-heroShot__metaL">Fluidez</div>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div class="nx-note">
-              Construimos con calidad: UI limpia, animaciones sutiles y arquitectura sólida para escalar.
-            </div>
           </aside>
 
         </div>
@@ -82,7 +124,7 @@
       <!-- VALUES -->
       <section class="nx-section">
         <div class="container">
-          <div class="nx-sectionHead">
+          <div class="nx-sectionHead nx-anim nx-anim--up">
             <div class="nx-kicker">Principios</div>
             <h2 class="nx-h2">Lo que define a Nexus</h2>
             <p class="nx-sub">
@@ -91,7 +133,7 @@
           </div>
 
           <div class="nx-cards3">
-            <article class="nx-glassCard nx-feature">
+            <article class="nx-glassCard nx-feature nx-anim nx-anim--up">
               <div class="nx-feature__icon">✨</div>
               <h3 class="nx-h3">Experiencia premium</h3>
               <p class="nx-p">
@@ -99,7 +141,7 @@
               </p>
             </article>
 
-            <article class="nx-glassCard nx-feature">
+            <article class="nx-glassCard nx-feature nx-anim nx-anim--up">
               <div class="nx-feature__icon">🧠</div>
               <h3 class="nx-h3">Útil desde el día 1</h3>
               <p class="nx-p">
@@ -107,7 +149,7 @@
               </p>
             </article>
 
-            <article class="nx-glassCard nx-feature">
+            <article class="nx-glassCard nx-feature nx-anim nx-anim--up">
               <div class="nx-feature__icon">🔒</div>
               <h3 class="nx-h3">Privacidad primero</h3>
               <p class="nx-p">
@@ -118,17 +160,49 @@
         </div>
       </section>
 
+      <!-- MEDI GALLERY -->
+      <section class="nx-section nx-gallerySection">
+        <div class="container">
+          <div class="nx-sectionHead nx-anim nx-anim--up">
+            <div class="nx-kicker">Galería</div>
+            <h2 class="nx-h2">Medi en acción</h2>
+            <p class="nx-sub">Screenshots reales (g1.png…g6.png). Click para ver mejor.</p>
+          </div>
+
+          <div class="nx-gallery">
+            <button class="nx-gallery__item nx-gallery__phone nx-anim nx-anim--up" data-img="assets/gallery/g1.png" aria-label="Abrir g1">
+              <img src="assets/gallery/g1.png" alt="Medi screen 1">
+            </button>
+            <button class="nx-gallery__item nx-gallery__phone nx-anim nx-anim--up" data-img="assets/gallery/g2.png" aria-label="Abrir g2">
+              <img src="assets/gallery/g2.png" alt="Medi screen 2">
+            </button>
+            <button class="nx-gallery__item nx-gallery__phone nx-anim nx-anim--up" data-img="assets/gallery/g3.png" aria-label="Abrir g3">
+              <img src="assets/gallery/g3.png" alt="Medi screen 3">
+            </button>
+            <button class="nx-gallery__item nx-gallery__phone nx-anim nx-anim--up" data-img="assets/gallery/g4.png" aria-label="Abrir g4">
+              <img src="assets/gallery/g4.png" alt="Medi screen 4">
+            </button>
+            <button class="nx-gallery__item nx-gallery__phone nx-anim nx-anim--up" data-img="assets/gallery/g5.png" aria-label="Abrir g5">
+              <img src="assets/gallery/g5.png" alt="Medi screen 5">
+            </button>
+            <button class="nx-gallery__item nx-gallery__phone nx-anim nx-anim--up" data-img="assets/gallery/g6.png" aria-label="Abrir g6">
+              <img src="assets/gallery/g6.png" alt="Medi screen 6">
+            </button>
+          </div>
+        </div>
+      </section>
+
       <!-- TIMELINE -->
       <section class="nx-section">
         <div class="container">
-          <div class="nx-sectionHead">
+          <div class="nx-sectionHead nx-anim nx-anim--up">
             <div class="nx-kicker">Historia</div>
             <h2 class="nx-h2">Construyendo el ecosistema</h2>
             <p class="nx-sub">Lanzamientos incrementales, mejoras continuas y expansión por etapas.</p>
           </div>
 
           <div class="nx-cards3">
-            <article class="nx-glassCard nx-timelineCard">
+            <article class="nx-glassCard nx-timelineCard nx-anim nx-anim--up">
               <div class="nx-timelineTop">
                 <span class="nx-dot nx-dot--medi"></span>
                 <div>
@@ -141,7 +215,7 @@
               </p>
             </article>
 
-            <article class="nx-glassCard nx-timelineCard">
+            <article class="nx-glassCard nx-timelineCard nx-anim nx-anim--up">
               <div class="nx-timelineTop">
                 <span class="nx-dot nx-dot--aura"></span>
                 <div>
@@ -154,7 +228,7 @@
               </p>
             </article>
 
-            <article class="nx-glassCard nx-timelineCard">
+            <article class="nx-glassCard nx-timelineCard nx-anim nx-anim--up">
               <div class="nx-timelineTop">
                 <span class="nx-dot nx-dot--beast"></span>
                 <div>
@@ -170,24 +244,34 @@
         </div>
       </section>
 
-      <!-- CTA -->
+      <!-- CTA (sin colaborar) -->
       <section class="nx-section nx-section--last">
         <div class="container">
-          <div class="nx-glassCard nx-ctaCard">
+          <div class="nx-glassCard nx-ctaCard nx-anim nx-anim--up">
             <div>
-              <h2 class="nx-h2 nx-ctaTitle">¿Quieres colaborar o pedir soporte?</h2>
-              <p class="nx-sub">Escríbenos y cuéntanos qué necesitas. Respondemos rápido y con soluciones claras.</p>
+              <h2 class="nx-h2 nx-ctaTitle">Explora Nexus Ecosystem</h2>
+              <p class="nx-sub">Apps modernas, conectadas y hechas para mejorar tu día a día.</p>
             </div>
 
             <div class="nx-ctaActions">
-              <a class="nx-btn nx-btn--primary" href="contacto.html">
-                Contacto <span class="nx-btn__arrow">→</span>
+              <a class="nx-btn nx-btn--primary" href="index.html#section-apps">
+                Ver apps <span class="nx-btn__arrow">→</span>
               </a>
               <a class="nx-btn nx-btn--ghost" href="support.html">Soporte</a>
+              <a class="nx-btn nx-btn--ghost" href="privacy.html">Privacidad</a>
             </div>
           </div>
         </div>
       </section>
+
+      <!-- MODAL PREVIEW (sin librerías) -->
+      <div class="nx-modal" id="nxModal" aria-hidden="true">
+        <div class="nx-modal__backdrop" data-close="1"></div>
+        <div class="nx-modal__panel" role="dialog" aria-modal="true" aria-label="Vista previa">
+          <button class="nx-modal__close" data-close="1" aria-label="Cerrar">✕</button>
+          <img class="nx-modal__img" id="nxModalImg" src="" alt="Preview">
+        </div>
+      </div>
 
     </section>
   </main>
@@ -196,5 +280,49 @@
 
   <script src="js/i18n.js" defer></script>
   <script src="js/layout.js" defer></script>
+
+  <!-- Animaciones + modal (van aquí) -->
+  <script>
+    // 1) On-scroll animations
+    const els = document.querySelectorAll('.nx-anim');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(el => io.observe(el));
+
+    // 2) Gallery modal
+    const modal = document.getElementById('nxModal');
+    const modalImg = document.getElementById('nxModalImg');
+
+    function openModal(src){
+      modalImg.src = src;
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(){
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden','true');
+      modalImg.src = '';
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.nx-gallery__item[data-img]').forEach(btn => {
+      btn.addEventListener('click', () => openModal(btn.dataset.img));
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target && e.target.dataset && e.target.dataset.close) closeModal();
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+    });
+  </script>
 </body>
 </html>
