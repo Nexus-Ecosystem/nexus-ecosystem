@@ -2,6 +2,8 @@
    GLOBAL BACKGROUND (VISIBLE)
    ========================= */
    @import url("../sections/index/hero.css");
+   @import url("../sections/index/apps.css");
+
 
 
 :root{
