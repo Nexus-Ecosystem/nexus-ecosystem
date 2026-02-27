@@ -1,27 +1,36 @@
 // Path: js/layout.js
 
 /* =========================================================
-   NEXUS — LAYOUT LOADER + NAV PILL + LANG + SCROLL FIX
+   NEXUS — LAYOUT LOADER (FIX SCROLL + NAV PILL + LANG)
+   Evita “anclaje” al cargar parciales con fetch
    ========================================================= */
 
-(function () {
+(() => {
   "use strict";
 
   /* =========================
-     0) SCROLL FIX (refresh no baja)
+     0) SCROLL CONTROL (anti-jump)
      ========================= */
+  const hadHash = !!(location.hash && location.hash.length > 1);
+
+  function lockScroll() {
+    // Congela el scroll durante carga (evita saltos)
+    document.documentElement.style.scrollBehavior = "auto";
+    document.body.style.overflowAnchor = "none"; // 🔑 evita el “anclaje” al crecer el DOM
+  }
+
+  function unlockScroll() {
+    document.body.style.overflowAnchor = "";
+  }
+
+  function forceTopIfNoHash() {
+    if (!hadHash) {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    }
+  }
+
   try {
     if ("scrollRestoration" in history) history.scrollRestoration = "manual";
-
-    // Al recargar / navegar, fuerza top (evita que el browser recuerde posición)
-    window.addEventListener("beforeunload", () => {
-      window.scrollTo(0, 0);
-    });
-
-    // Al terminar de cargar DOM, también arriba
-    document.addEventListener("DOMContentLoaded", () => {
-      window.scrollTo(0, 0);
-    });
   } catch (_) {}
 
   /* =========================
@@ -39,14 +48,13 @@
       }
       el.innerHTML = await res.text();
       return true;
-    } catch (err) {
+    } catch (_) {
       el.innerHTML = `<!-- Error loading: ${file} -->`;
       return false;
     }
   }
 
   function normalizeFileName(pathname) {
-    // soporta "/" (sin archivo) y rutas nested
     const raw = (pathname || "").split("?")[0].split("#")[0];
     const parts = raw.split("/").filter(Boolean);
     const file = (parts[parts.length - 1] || "index.html").toLowerCase();
@@ -56,21 +64,19 @@
   function getPageKey() {
     const file = normalizeFileName(location.pathname);
 
-    // pages principales
     if (file === "index.html") return "index";
     if (file === "medi.html") return "medi";
     if (file === "aura-zen.html") return "aura";
     if (file === "beast.html") return "beast";
     if (file === "support.html") return "support";
 
-    // si creas más páginas y quieres que tengan secciones:
+    // Si más adelante haces about.html con secciones:
     // if (file === "about.html") return "index";
 
     return "index";
   }
 
   async function loadPageSections(page) {
-    // ✅ TU ESTRUCTURA REAL: sections/{page}/hero.html, about.html, apps.html, socials.html
     const hasHero = !!document.getElementById("section-hero");
     const hasAbout = !!document.getElementById("section-about");
     const hasApps = !!document.getElementById("section-apps");
@@ -86,6 +92,9 @@
      2) BOOT
      ========================= */
   (async () => {
+    lockScroll();
+    forceTopIfNoHash(); // top desde el inicio si no hay #anchor
+
     // Header/Footer siempre
     await loadPartial("app-header", "header.html");
     await loadPartial("app-footer", "footer.html");
@@ -98,7 +107,7 @@
     const page = getPageKey();
     await loadPageSections(page);
 
-    // ✅ Inicializa UI cuando ya está todo en DOM
+    // UI init (cuando ya existe TODO)
     requestAnimationFrame(() => {
       if (typeof initNavPill === "function") initNavPill();
       if (typeof initLangDropdown === "function") initLangDropdown();
@@ -108,9 +117,20 @@
         window.NXI18N.apply();
       }
 
-      // ✅ Recalc pill después de i18n (por si cambió ancho del texto)
+      // Recalc pill luego de i18n
       requestAnimationFrame(() => {
         if (typeof window.__nxRecalcNavPill === "function") window.__nxRecalcNavPill();
+
+        // 🔥 ahora sí: libera scroll y ajusta a top o hash
+        unlockScroll();
+
+        // Si hay hash, deja que el navegador vaya a ese anchor
+        if (hadHash) {
+          const el = document.querySelector(location.hash);
+          if (el) el.scrollIntoView({ behavior: "auto", block: "start" });
+        } else {
+          window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+        }
       });
     });
   })();
@@ -166,7 +186,7 @@ function initNavPill() {
       pill.style.width = `${w}px`;
       pill.style.background = t.bg;
       pill.style.borderColor = t.border;
-      pill.offsetHeight; // flush
+      pill.offsetHeight;
       pill.style.transition = prev;
     } else {
       pill.style.transform = `translateX(${x}px)`;
@@ -179,20 +199,16 @@ function initNavPill() {
     el.classList.add("active");
   }
 
-  // ✅ inicial: marca activo según la página ACTUAL (sin animación)
-  const current = (function () {
-    const raw = (location.pathname.split("/").pop() || "index.html").toLowerCase();
-    return raw === "" ? "index.html" : raw;
-  })();
+  const current = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+  const currentResolved = current === "" ? "index.html" : current;
 
   const initial =
-    links.find(a => (a.getAttribute("href") || "").toLowerCase() === current) ||
-    // si estás en "/" sin index.html explícito
-    (current === "index.html" ? (links.find(a => (a.getAttribute("href") || "").toLowerCase() === "index.html") || links[0]) : links[0]);
+    links.find(a => (a.getAttribute("href") || "").toLowerCase() === currentResolved) ||
+    links.find(a => (a.getAttribute("href") || "").toLowerCase() === "index.html") ||
+    links[0];
 
   movePill(initial, false);
 
-  // ✅ click: anima y LUEGO navega
   links.forEach(link => {
     link.addEventListener("click", (e) => {
       const href = (link.getAttribute("href") || "").trim();
@@ -203,6 +219,8 @@ function initNavPill() {
       if (isHtmlNav) {
         e.preventDefault();
         movePill(link, true);
+
+        // evitar “saltos” en navegación
         setTimeout(() => {
           window.location.href = href;
         }, 180);
@@ -217,7 +235,6 @@ function initNavPill() {
     movePill(active, false);
   };
 
-  // expone recalc para que layout lo llame después de i18n
   window.__nxRecalcNavPill = recalc;
 
   window.addEventListener("resize", recalc);
@@ -284,7 +301,6 @@ function initLangDropdown() {
 
       close();
 
-      // ✅ por si cambia ancho en nav, reacomoda pill
       requestAnimationFrame(() => {
         if (typeof window.__nxRecalcNavPill === "function") window.__nxRecalcNavPill();
       });
