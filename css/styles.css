@@ -1,90 +1,240 @@
 /* =========================================================
-   NEXUS ECOSYSTEM — GLOBAL + APPS + FOOTER (CORREGIDO)
+   NEXUS ECOSYSTEM — GLOBAL STYLES (CORREGIDO)
+   Base + Header (Nav + Language) + Footer
    ========================================================= */
 
 /* =========================
-   1) ROOT & ESTRUCTURA
+   1) ROOT VARIABLES
    ========================= */
 :root {
+  /* Brand */
+  --nexus-blue-dark: #0B3C5D;
   --nexus-blue: #1F6AE1;
+  --nexus-blue-light: #6EC1FF;
+
+  /* Text */
   --text-main: #0B1220;
+  --text-muted: rgba(11,18,32,.68);
+
+  /* Layout */
+  --container: 1200px;
+  --radius-xl: 28px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  /* Header */
   --header-h: 86px;
+
+  /* Footer */
   --footer-bg: #0B1220;
   --footer-border: rgba(255,255,255,.12);
   --footer-text: rgba(255,255,255,.82);
   --footer-muted: rgba(255,255,255,.58);
-  --radius-pill: 999px;
-  --nav-link-h: 38px;
+
+  /* Nav metrics */
   --nav-pad: 6px;
+  --nav-link-h: 38px;
 }
 
-*, *::before, *::after { box-sizing: border-box; }
+/* =========================
+   2) RESET / BASE
+   ========================= */
+*,
+*::before,
+*::after { box-sizing: border-box; }
 
-html {
+html { 
   height: 100%;
-  scroll-padding-top: calc(var(--header-h) + 14px);
+  scroll-padding-top: calc(var(--header-h) + 14px); 
 }
 
 body {
   margin: 0;
   padding: 0;
-  min-height: 100vh; /* Ocupa el alto total */
-  display: flex;
-  flex-direction: column; /* Organiza header, main y footer en columna */
-  font-family: 'Roboto', system-ui, sans-serif;
+  overflow-x: hidden;
+  font-family: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   color: var(--text-main);
   background: #fff;
-  overflow-x: hidden;
+  line-height: 1.25;
+
+  /* ✅ CORRECCIÓN ESTRUCTURAL: Flexbox real */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ocupa el 100% de la pantalla */
 }
 
-/* ✅ LA CLAVE: El contenido crece para empujar al footer */
+/* ✅ CORRECCIÓN: El main es el que crece para empujar al footer */
 #main-content {
-  flex: 1 0 auto; 
-  padding-top: calc(var(--header-h) + 20px);
+  flex: 1 0 auto;
+  padding-top: calc(var(--header-h) + 14px); /* El padding se mueve del body al main */
 }
 
-/* ✅ Contenedor del footer: evita que se encoja y añade el aire de 100px */
-#app-footer {
-  flex-shrink: 0;
-  margin-top: 100px; 
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
 /* =========================================================
-   2) ICONOS DE APPS (ZOOM FIX)
+   3) HEADER — GLASS CAPSULE
    ========================================================= */
-.nx-appCard__iconWrap {
-  width: 56px !important;
-  height: 56px !important;
-  border-radius: 14px;
-  overflow: hidden;      /* Corta la imagen para que respete el redondeo */
-  padding: 0 !important; /* ELIMINA EL SOBRANTE BLANCO */
+.nx-header {
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  z-index: 9999;
+  background: rgba(255,255,255,.16);
+  border: 1px solid rgba(255,255,255,.22);
+  backdrop-filter: blur(18px) saturate(170%);
+  -webkit-backdrop-filter: blur(18px) saturate(170%);
+  box-shadow: 0 18px 40px rgba(11,18,32,.10), 0 1px 0 rgba(255,255,255,.18) inset;
+  border-radius: var(--radius-pill);
+}
+
+.nx-header__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 14px 18px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.nx-header__right {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.nx-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 210px;
+}
+
+.nx-brand__logo {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,.16));
+}
+
+.nx-brand__name {
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: rgba(11,18,32,.92);
+}
+
+.nx-nav {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: var(--nav-pad);
+  border-radius: var(--radius-pill);
+  background: rgba(255,255,255,.16);
+  border: 1px solid rgba(255,255,255,.18);
+  overflow: hidden;
+}
+
+.nx-nav a {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  background: #fff;
-  flex: 0 0 auto;
-  box-shadow: 0 8px 20px rgba(11,18,32,0.08);
+  height: var(--nav-link-h);
+  padding: 0 14px;
+  border-radius: var(--radius-pill);
+  line-height: var(--nav-link-h);
+  font-size: 13px;
+  font-weight: 850;
+  white-space: nowrap;
+  color: rgba(11,18,32,.78);
+  transition: color .18s ease, transform .18s ease;
 }
 
-.nx-appCard__icon {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover;    /* ZOOM TOTAL: La imagen besa los bordes */
-  display: block;
+.nx-nav a:hover {
+  color: rgba(11,18,32,.92);
+  transform: translateY(-1px);
 }
 
-/* =========================================================
-   3) FOOTER — NX (DISEÑO PREMIUM)
-   ========================================================= */
+.nx-nav__pill {
+  position: absolute;
+  top: var(--nav-pad);
+  left: var(--nav-pad);
+  height: var(--nav-link-h);
+  width: 0;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, rgba(31,106,225,.16), rgba(110,193,255,.18));
+  border: 1px solid rgba(31,106,225,.28);
+  z-index: 1;
+  pointer-events: none;
+  transition: transform .28s cubic-bezier(.4,0,.2,1), width .28s cubic-bezier(.4,0,.2,1);
+}
+
+/* =========================
+   LANGUAGE DROPDOWN
+   ========================= */
+.nx-lang__btn {
+  height: var(--nav-link-h);
+  padding: 0 12px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255,255,255,.14);
+  border: 1px solid rgba(255,255,255,.18);
+  color: rgba(11,18,32,.85);
+  font-weight: 800;
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: 0 10px 26px rgba(11,18,32,.08), 0 1px 0 rgba(255,255,255,.18) inset;
+  backdrop-filter: blur(12px) saturate(160%);
+}
+
+.nx-lang__menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 180px;
+  padding: 10px;
+  border-radius: 18px;
+  background: rgba(245,246,248,.62);
+  border: 1px solid rgba(255,255,255,.55);
+  box-shadow: 0 22px 50px rgba(11,18,32,.14), 0 1px 0 rgba(255,255,255,.40) inset;
+  backdrop-filter: blur(18px) saturate(170%);
+  display: none;
+}
+
+.nx-lang.is-open .nx-lang__menu { display: block; }
+
+/* =========================
+   5) FOOTER — NX
+   ========================= */
+#app-footer {
+  flex-shrink: 0; /* Asegura que el footer no se colapse */
+  margin-top: 100px; /* Separación de 100px arriba */
+}
+
 .nx-footer {
   background:
     radial-gradient(900px 320px at 18% 0%, rgba(31,106,225,.20), transparent 58%),
     radial-gradient(900px 320px at 82% 0%, rgba(110,193,255,.14), transparent 60%),
     var(--footer-bg);
+
   color: var(--footer-text);
-  padding: 60px 18px 20px;
+  padding: 48px 18px 20px;
   border-top: 1px solid var(--footer-border);
-  width: 100%;
 }
 
 .nx-footer__inner {
@@ -92,70 +242,94 @@ body {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1.4fr 1.6fr;
-  gap: 32px;
+  gap: 28px;
+}
+
+.nx-footer__brand {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
 }
 
 .nx-footer__logo {
   width: 42px;
   height: 42px;
+  object-fit: contain;
   filter: drop-shadow(0 10px 18px rgba(0,0,0,.25));
 }
 
 .nx-footer__name {
+  margin: 0;
   font-size: 18px;
   font-weight: 850;
-  color: #fff;
+  line-height: 1.1;
 }
 
 .nx-footer__desc {
+  margin: 6px 0 0;
   font-size: 14px;
+  line-height: 1.45;
   color: var(--footer-muted);
+  max-width: 420px;
+}
+
+.nx-footer__mail a {
+  display: inline-block;
   margin-top: 8px;
-  line-height: 1.5;
+  font-size: 14px;
+  color: rgba(255,255,255,.85);
 }
 
 .nx-footer__cols {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(3, minmax(160px, 1fr));
+  gap: 18px;
 }
 
 .nx-footer__cols h4 {
+  margin: 0 0 10px;
   font-size: 13px;
-  color: #fff;
+  letter-spacing: .7px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 16px;
+  color: rgba(255,255,255,.85);
 }
 
 .nx-footer__cols a {
   display: block;
+  padding: 4px 0;
   font-size: 14px;
   color: var(--footer-muted);
-  margin-bottom: 10px;
-  transition: color 0.2s;
+  transition: color .15s ease, transform .15s ease;
 }
 
-.nx-footer__cols a:hover { color: #fff; }
+.nx-footer__cols a:hover {
+  color: #fff;
+  transform: translateY(-1px);
+}
 
 .nx-footer__bottom {
   max-width: 1120px;
-  margin: 40px auto 0;
-  padding-top: 20px;
+  margin: 22px auto 0;
+  padding-top: 16px;
   border-top: 1px solid rgba(255,255,255,.10);
   text-align: center;
   font-size: 13px;
-  color: rgba(255,255,255,.3);
+  color: rgba(255,255,255,.45);
 }
 
 /* =========================
-   4) RESPONSIVE
+   RESPONSIVE
    ========================= */
 @media (max-width: 940px) {
   .nx-footer__inner { grid-template-columns: 1fr; }
-  .nx-footer__cols { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+  .nx-footer__cols { grid-template-columns: 1fr; gap: 14px; }
 }
 
 @media (max-width: 820px) {
-  #main-content { padding-top: 140px; } /* Más espacio para el header colapsado */
+  :root { --header-h: 120px; }
+  .nx-header { top: 10px; left: 10px; right: 10px; border-radius: 22px; }
+  .nx-header__inner { flex-direction: column; gap: 10px; align-items: stretch; }
+  .nx-brand { justify-content: center; min-width: auto; }
+  .nx-header__right { justify-content: center; flex-wrap: wrap; gap: 10px; }
+  .nx-nav { justify-content: center; flex-wrap: wrap; }
 }
