@@ -1,17 +1,17 @@
-/* Path: css/landing.css (HERO) — FIX FINAL */
+/* Path: css/landing.css (HERO) — FINAL SIN CHIPS */
 
 /* =========================================================
-   HERO WRAPPER (FIX: NO ESPACIO FANTASMA)
+   HERO WRAPPER
    ========================================================= */
 .nx-hero{
-  position: relative;      /* ✅ ancla los ::before/::after */
-  overflow: hidden;        /* ✅ recorta el blur */
-  isolation: isolate;      /* ✅ evita que el glow afecte stacking fuera */
-  background: transparent; /* ✅ el fondo lo controla body */
-  padding: 72px 0 64px;    /* ✅ padding consistente (desktop también) */
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: transparent;
+  padding: 72px 0 64px;
 }
 
-/* soft premium glow (sin dots, sin grid) */
+/* soft premium glow */
 .nx-hero::before,
 .nx-hero::after{
   content:"";
@@ -22,15 +22,13 @@
   filter: blur(50px);
   opacity: .55;
   pointer-events:none;
-  z-index: 0;              /* ✅ siempre detrás del contenido */
+  z-index: 0;
 }
-
 .nx-hero::before{
   top: -210px;
   left: -180px;
   background: radial-gradient(circle at 30% 30%, rgba(20,90,220,.55), transparent 62%);
 }
-
 .nx-hero::after{
   bottom: -240px;
   right: -220px;
@@ -42,7 +40,7 @@
    ========================================================= */
 .nx-hero__inner{
   position: relative;
-  z-index: 1; /* ✅ arriba de los glows */
+  z-index: 1;
   display: grid;
   grid-template-columns: 1.05fr .95fr;
   align-items: center;
@@ -74,7 +72,6 @@
   line-height: 1.6;
   color: rgba(11,18,32,.72);
 }
-
 .nx-hero__subtitle strong{
   color: rgba(11,18,32,.92);
   font-weight: 900;
@@ -90,7 +87,7 @@
 }
 
 /* =========================================================
-   Buttons (si styles.css ya trae nx-btn, esto no lo rompe)
+   Buttons (safe)
    ========================================================= */
 .nx-btn{
   display: inline-flex;
@@ -105,6 +102,7 @@
   cursor: pointer;
   user-select: none;
   transition: transform .16s ease;
+  text-decoration: none;
 }
 
 .nx-btn__arrow{
@@ -124,7 +122,6 @@
   border: 1px solid rgba(20,90,220,.22);
   box-shadow: 0 16px 34px rgba(20,90,220,.26);
 }
-
 .nx-btn--primary:hover{ transform: translateY(-1px); }
 
 .nx-btn--ghost{
@@ -133,7 +130,6 @@
   color: rgba(11,18,32,.84);
   box-shadow: 0 10px 22px rgba(11,18,32,.08);
 }
-
 .nx-btn--ghost:hover{ transform: translateY(-1px); }
 
 /* =========================================================
@@ -146,18 +142,36 @@
   gap: 14px;
 }
 
-/* CARD */
+/* CARD (ajustada para no verse gigante) */
 .nx-heroCard{
   width: min(520px, 100%);
   border-radius: 26px;
   background: rgba(255,255,255,.66);
   border: 1px solid rgba(255,255,255,.60);
   box-shadow:
-    0 26px 70px rgba(11,18,32,.14),
+    0 22px 56px rgba(11,18,32,.12),
     0 1px 0 rgba(255,255,255,.55) inset;
   backdrop-filter: blur(18px) saturate(160%);
   -webkit-backdrop-filter: blur(18px) saturate(160%);
   padding: 14px;
+
+  /* animación sutil */
+  animation: nxFloat 6.5s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.nx-heroCard:hover{
+  animation-play-state: paused;
+  transform: translateY(-4px);
+  box-shadow:
+    0 30px 80px rgba(11,18,32,.18),
+    0 1px 0 rgba(255,255,255,.55) inset;
+}
+
+@keyframes nxFloat{
+  0%{ transform: translateY(0); }
+  50%{ transform: translateY(-6px); }
+  100%{ transform: translateY(0); }
 }
 
 .nx-heroCard__list{
@@ -221,7 +235,6 @@
   overflow: hidden;
 }
 
-/* Medi logo: llena */
 .nx-appRow__iconWrap--img{
   background: rgba(255,255,255,.6);
   border: 1px solid rgba(11,18,32,.08);
@@ -234,12 +247,6 @@
   object-position: center;
   transform: scale(1.12);
   border-radius: 12px;
-}
-
-/* Aura / Beast placeholder */
-.nx-appRow__iconWrap--aura{
-  background: linear-gradient(135deg, rgba(150,90,255,.22), rgba(210,170,255,.30));
-  border: 1px solid rgba(150,90,255,.22);
 }
 
 .nx-appRow__iconWrap--beast{
@@ -395,42 +402,18 @@
   color: rgba(11,18,32,.55);
 }
 
-/* Value pills */
-.nx-hero__value{
-  display:flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.nx-pill{
-  height: 34px;
-  padding: 0 12px;
-  border-radius: 999px;
-  display:flex;
-  align-items:center;
-  background: rgba(255,255,255,.62);
-  border: 1px solid rgba(20,90,220,.10);
-  color: rgba(11,18,32,.74);
-  font-weight: 900;
-  font-size: 12.5px;
-  box-shadow: 0 10px 20px rgba(11,18,32,.05);
-}
-
 /* =========================================================
    RESPONSIVE
    ========================================================= */
 @media (max-width: 980px){
   .nx-hero{
-    padding: 64px 0 64px; /* ok */
+    padding: 64px 0 64px;
   }
 
   .nx-hero__inner{
     grid-template-columns: 1fr;
     gap: 26px;
   }
-
-  .nx-hero__left{ text-align: left; }
 
   .nx-hero__right{ align-items: stretch; }
 
