@@ -111,6 +111,7 @@
     requestAnimationFrame(() => {
       if (typeof initNavPill === "function") initNavPill();
       if (typeof initLangDropdown === "function") initLangDropdown();
+      if (typeof initMobileMenu === "function") initMobileMenu();
 
       // i18n: aplicar DESPUÉS de existir header + secciones
       if (window.NXI18N && typeof window.NXI18N.apply === "function") {
@@ -312,4 +313,42 @@ function initLangDropdown() {
   } else {
     code.textContent = "ES";
   }
+}
+
+function initMobileMenu() {
+  const burger = document.getElementById("nxBurger");
+  const menu = document.getElementById("nxMobileMenu");
+  if (!burger || !menu) return;
+
+  const open = () => {
+    menu.classList.add("is-open");
+    menu.setAttribute("aria-hidden", "false");
+    burger.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+  };
+
+  const close = () => {
+    menu.classList.remove("is-open");
+    menu.setAttribute("aria-hidden", "true");
+    burger.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  };
+
+  burger.addEventListener("click", (e) => {
+    e.preventDefault();
+    menu.classList.contains("is-open") ? close() : open();
+  });
+
+  menu.addEventListener("click", (e) => {
+    if (e.target?.dataset?.close) close();
+  });
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && menu.classList.contains("is-open")) close();
+  });
+
+  // ✅ si das click en un link, cierra el menú
+  menu.querySelectorAll("a[href]").forEach(a => {
+    a.addEventListener("click", () => close());
+  });
 }

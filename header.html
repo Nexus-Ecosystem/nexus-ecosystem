@@ -6,10 +6,10 @@
       <span class="nx-brand__name">Nexus Ecosystem</span>
     </a>
 
-    <nav class="nx-nav" id="nxNav">
+    <!-- ✅ NAV DESKTOP -->
+    <nav class="nx-nav nx-nav--desktop" id="nxNav" aria-label="Navegación">
       <span class="nx-nav__pill" id="nxPill"></span>
-
-<a href="index.html" data-color="nexus">Inicio</a>
+      <a href="index.html" data-color="nexus">Inicio</a>
       <a href="medi.html" data-color="medi">Medi</a>
       <a href="aura-zen.html" data-color="aura">Aura Zen</a>
       <a href="beast.html" data-color="beast">Beast</a>
@@ -17,7 +17,15 @@
     </nav>
 
     <div class="nx-header__right">
-      <!-- ✅ IDs + data-lang para que funcione el dropdown -->
+
+      <!-- ✅ HAMBURGUESA (solo móvil) -->
+      <button class="nx-burger" id="nxBurger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nxMobileMenu">
+        <span class="nx-burger__line"></span>
+        <span class="nx-burger__line"></span>
+        <span class="nx-burger__line"></span>
+      </button>
+
+      <!-- ✅ Language -->
       <div class="nx-lang" id="nxLang">
         <button class="nx-lang__btn" id="nxLangBtn" type="button" aria-expanded="false" aria-haspopup="menu">
           <span aria-hidden="true">🌐</span>
@@ -30,7 +38,30 @@
           <button class="nx-lang__item" type="button" role="menuitem" data-lang="pt">Português</button>
         </div>
       </div>
-    </div>
 
+    </div>
   </div>
+
+  <!-- ✅ MENÚ MÓVIL (drawer) -->
+  <div class="nx-mobileMenu" id="nxMobileMenu" aria-hidden="true">
+    <div class="nx-mobileMenu__backdrop" data-close="1"></div>
+
+    <div class="nx-mobileMenu__panel" role="dialog" aria-modal="true" aria-label="Menú">
+      <div class="nx-mobileMenu__top">
+        <div class="nx-mobileMenu__title">Menú</div>
+        <button class="nx-mobileMenu__close" type="button" data-close="1" aria-label="Cerrar">✕</button>
+      </div>
+
+      <nav class="nx-mobileMenu__nav" aria-label="Navegación móvil">
+        <a href="index.html" data-color="nexus">Inicio</a>
+        <a href="medi.html" data-color="medi">Medi</a>
+        <a href="aura-zen.html" data-color="aura">Aura Zen</a>
+        <a href="beast.html" data-color="beast">Beast</a>
+        <a href="support.html" data-color="support">Soporte</a>
+      </nav>
+
+      <div class="nx-mobileMenu__hint">Tip: puedes cambiar idioma desde 🌐 arriba.</div>
+    </div>
+  </div>
+
 </header>
