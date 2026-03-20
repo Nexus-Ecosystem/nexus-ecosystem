@@ -120,31 +120,30 @@
     await loadPageSections(page);
 
     // UI init (cuando ya existe TODO)
-    requestAnimationFrame(() => {
-      if (typeof initNavPill === "function") initNavPill();
-      if (typeof initLangDropdown === "function") initLangDropdown();
-      if (typeof initMobileMenu === "function") initMobileMenu();
+requestAnimationFrame(() => {
+  if (typeof initNavPill === "function") initNavPill();
+  if (typeof initLangDropdown === "function") initLangDropdown();
+  if (typeof initMobileMenu === "function") initMobileMenu();
+  if (typeof initAppsCarousel === "function") initAppsCarousel();
 
-      // i18n: aplicar DESPUÉS de existir header + secciones
-      if (window.NXI18N && typeof window.NXI18N.apply === "function") {
-        window.NXI18N.apply();
-      }
+  if (window.NXI18N && typeof window.NXI18N.apply === "function") {
+    window.NXI18N.apply();
+  }
 
-      // Recalc pill luego de i18n + fonts/layout
-      requestAnimationFrame(() => {
-        if (typeof window.__nxRecalcNavPill === "function") window.__nxRecalcNavPill();
+  requestAnimationFrame(() => {
+    if (typeof window.__nxRecalcNavPill === "function") window.__nxRecalcNavPill();
+    if (typeof initAppsCarousel === "function") initAppsCarousel();
 
-        // Libera scroll y ajusta a top o hash
-        unlockScroll();
+    unlockScroll();
 
-        if (hadHash) {
-          const target = document.querySelector(location.hash);
-          if (target) target.scrollIntoView({ behavior: "auto", block: "start" });
-        } else {
-          window.scrollTo(0, 0);
-        }
-      });
-    });
+    if (hadHash) {
+      const target = document.querySelector(location.hash);
+      if (target) target.scrollIntoView({ behavior: "auto", block: "start" });
+    } else {
+      window.scrollTo(0, 0);
+    }
+  });
+});
   })();
 })();
 
@@ -387,4 +386,118 @@ function initMobileMenu() {
   menu.querySelectorAll("a[href]").forEach(a => {
     a.addEventListener("click", () => close());
   });
+}
+
+/* =========================
+   APPS CAROUSEL
+   ========================= */
+function initAppsCarousel() {
+  const viewport = document.getElementById("nxAppsViewport");
+  const track = document.getElementById("nxAppsTrack");
+  const cards = Array.from(document.querySelectorAll(".nx-appCard"));
+  const prevBtn = document.querySelector(".nx-appsCarousel__nav--prev");
+  const nextBtn = document.querySelector(".nx-appsCarousel__nav--next");
+
+  if (!viewport || !track || !cards.length || !prevBtn || !nextBtn) return;
+
+  if (viewport.dataset.carouselBound === "true") {
+    updateCurrentFromScroll();
+    updateButtons();
+    return;
+  }
+
+  viewport.dataset.carouselBound = "true";
+
+  let currentIndex = 0;
+  let scrollTimeout = null;
+
+  function getGap() {
+    if (cards.length < 2) return 0;
+    return cards[1].offsetLeft - cards[0].offsetLeft - cards[0].offsetWidth;
+  }
+
+  function getStep() {
+    if (!cards.length) return 0;
+    return cards[0].offsetWidth + getGap();
+  }
+
+  function getVisibleCardsCount() {
+    const step = getStep();
+    if (!step) return 1;
+    return Math.max(1, Math.floor((viewport.clientWidth + getGap()) / step));
+  }
+
+  function getLastStartIndex() {
+    return Math.max(0, cards.length - getVisibleCardsCount());
+  }
+
+  function getMaxScrollLeft() {
+    return Math.max(0, viewport.scrollWidth - viewport.clientWidth);
+  }
+
+  function getCardLeft(index) {
+    const safeIndex = Math.max(0, Math.min(index, getLastStartIndex()));
+    const rawLeft = cards[safeIndex].offsetLeft - viewport.offsetLeft;
+    return Math.min(rawLeft, getMaxScrollLeft());
+  }
+
+  function updateButtons() {
+    prevBtn.disabled = currentIndex <= 0;
+    nextBtn.disabled = currentIndex >= getLastStartIndex();
+  }
+
+  function updateCurrentFromScroll() {
+    const scrollLeft = viewport.scrollLeft;
+    let closestIndex = 0;
+    let closestDistance = Infinity;
+
+    for (let i = 0; i <= getLastStartIndex(); i++) {
+      const targetLeft = getCardLeft(i);
+      const distance = Math.abs(targetLeft - scrollLeft);
+
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestIndex = i;
+      }
+    }
+
+    currentIndex = closestIndex;
+    updateButtons();
+  }
+
+  function goToCard(index) {
+    currentIndex = Math.max(0, Math.min(index, getLastStartIndex()));
+
+    viewport.scrollTo({
+      left: getCardLeft(currentIndex),
+      behavior: "smooth"
+    });
+
+    updateButtons();
+  }
+
+  prevBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    goToCard(currentIndex - 1);
+  });
+
+  nextBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    goToCard(currentIndex + 1);
+  });
+
+  viewport.addEventListener("scroll", function () {
+    if (scrollTimeout) clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(updateCurrentFromScroll, 80);
+  });
+
+  window.addEventListener("resize", function () {
+    currentIndex = Math.min(currentIndex, getLastStartIndex());
+    goToCard(currentIndex);
+  });
+
+  updateCurrentFromScroll();
+  updateButtons();
 }

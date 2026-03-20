@@ -3,23 +3,589 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Soporte — Nexus Ecosystem</title>
+  <title>Nexus Ecosystem — Soporte</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
+  <link rel="stylesheet" href="css/landing.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet"/>
 
-  <!-- HEADER -->
+  <style>
+    :root{
+      --page-bg: #F6F8FC;
+      --card-bg: #FFFFFF;
+      --border-soft: rgba(11,60,93,0.08);
+      --shadow: 0 18px 60px rgba(8,28,58,0.10);
+      --muted: rgba(8,28,58,0.70);
+    }
+
+    *{ box-sizing:border-box; }
+
+    html, body{
+      margin:0;
+      padding:0;
+      min-height: 100%;
+      overflow-x:hidden;
+      background: var(--page-bg);
+      font-family:'Roboto', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color:#111827;
+    }
+
+    .support-hero{
+      position: relative;
+      min-height: 360px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 72px 24px;
+      background-image:
+        linear-gradient(180deg, rgba(0,0,0,.62) 0%, rgba(0,0,0,.55) 45%, rgba(0,0,0,.62) 100%),
+        url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=2200&q=70");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      overflow:hidden;
+    }
+
+    .support-hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(900px 380px at 15% 10%, rgba(31,106,225,.30), transparent 60%),
+        radial-gradient(900px 380px at 85% 0%, rgba(110,193,255,.22), transparent 62%);
+      pointer-events:none;
+      mix-blend-mode: screen;
+      opacity: .55;
+    }
+
+    .support-hero-inner{
+      position: relative;
+      z-index: 2;
+      max-width: 980px;
+      text-align:center;
+      color: #fff;
+    }
+
+    .support-hero h1{
+      margin: 0 0 10px;
+      font-size: clamp(34px, 4.7vw, 54px);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+    }
+
+    .support-hero p{
+      margin: 0 auto 18px;
+      max-width: 760px;
+      font-size: 16.5px;
+      line-height: 1.75;
+      color: rgba(255,255,255,.86);
+    }
+
+    .support-hero-actions{
+      margin-top: 18px;
+      display:flex;
+      gap: 12px;
+      justify-content:center;
+      flex-wrap: wrap;
+    }
+
+    .btn{
+      appearance:none;
+      border: none;
+      cursor:pointer;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 14px;
+      font-weight: 900;
+      letter-spacing: .2px;
+      transition: transform .14s ease, box-shadow .14s ease, background .14s ease, border-color .14s ease;
+      user-select:none;
+      white-space: nowrap;
+    }
+
+    .btn-primary{
+      background: linear-gradient(135deg, rgba(31,106,225,1), rgba(110,193,255,1));
+      color: #071225;
+      box-shadow: 0 18px 46px rgba(31,106,225,.35);
+    }
+
+    .btn-primary:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 24px 60px rgba(31,106,225,.40);
+    }
+
+    .btn-ghost{
+      background: rgba(255,255,255,.10);
+      color: rgba(255,255,255,.92);
+      border: 1px solid rgba(255,255,255,.18);
+      backdrop-filter: blur(10px) saturate(140%);
+      -webkit-backdrop-filter: blur(10px) saturate(140%);
+    }
+
+    .btn-ghost:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.14);
+    }
+
+    .btn-light{
+      background: rgba(255,255,255,.92);
+      color: #081C3A;
+      border: 1px solid rgba(8,28,58,.14);
+      box-shadow: 0 16px 46px rgba(8,28,58,.10);
+      backdrop-filter: blur(10px) saturate(140%);
+      -webkit-backdrop-filter: blur(10px) saturate(140%);
+    }
+
+    .btn-light:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 22px 62px rgba(8,28,58,.14);
+      border-color: rgba(8,28,58,.18);
+    }
+
+    .container{
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .support-intro{
+      padding: 56px 0 10px;
+    }
+
+    .support-intro-card{
+      background: var(--card-bg);
+      border: 1px solid var(--border-soft);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      padding: 34px 32px;
+      text-align:center;
+    }
+
+    .support-intro-card h2{
+      margin: 0 0 12px;
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 900;
+      color: #081C3A;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .support-intro-card p{
+      margin: 0 auto;
+      max-width: 880px;
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 16.5px;
+    }
+
+    .support-highlights{
+      padding: 26px 0 46px;
+    }
+
+    .hl-grid{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .hl{
+      background: rgba(255,255,255,.86);
+      border: 1px solid var(--border-soft);
+      border-radius: 18px;
+      padding: 18px 18px;
+      box-shadow: 0 14px 40px rgba(8,28,58,0.06);
+      display:flex;
+      gap: 12px;
+      align-items:flex-start;
+      min-height: 92px;
+    }
+
+    .hl-icon{
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(31,106,225,.10), rgba(110,193,255,.14));
+      border: 1px solid rgba(31,106,225,.16);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: #0A2A66;
+      flex: 0 0 auto;
+      box-shadow: 0 10px 22px rgba(31,106,225,.10);
+    }
+
+    .hl-icon svg{
+      width: 20px;
+      height: 20px;
+      display:block;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      opacity: .95;
+    }
+
+    .hl b{
+      display:block;
+      color:#081C3A;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    .hl span{
+      color: rgba(8,28,58,.70);
+      line-height: 1.55;
+      font-size: 14.5px;
+    }
+
+    @media (max-width: 980px){
+      .hl-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 560px){
+      .hl-grid{ grid-template-columns: 1fr; }
+    }
+
+    .support-faq{
+      padding: 10px 0 70px;
+    }
+
+    .section-head{
+      text-align:center;
+      margin: 0 0 18px;
+    }
+
+    .section-head h3{
+      margin: 0 0 8px;
+      font-size: 28px;
+      font-weight: 900;
+      color:#081C3A;
+      letter-spacing:-0.02em;
+    }
+
+    .section-head p{
+      margin: 0 auto;
+      max-width: 860px;
+      color: rgba(8,28,58,.72);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    .faq-grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .faq-item{
+      background: #fff;
+      border: 1px solid var(--border-soft);
+      border-radius: 18px;
+      padding: 18px 18px;
+      box-shadow: 0 14px 40px rgba(8,28,58,0.06);
+    }
+
+    .faq-item h4{
+      margin: 0 0 10px;
+      font-size: 16px;
+      font-weight: 900;
+      color:#081C3A;
+      line-height: 1.25;
+    }
+
+    .faq-item p{
+      margin: 0;
+      color: rgba(8,28,58,.72);
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    @media (max-width: 980px){
+      .faq-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 640px){
+      .faq-grid{ grid-template-columns: 1fr; }
+    }
+
+    .support-contact{
+      padding: 0 0 90px;
+    }
+
+    .contact-card{
+      background:
+        radial-gradient(900px 380px at 20% 0%, rgba(31,106,225,.10), transparent 60%),
+        radial-gradient(900px 380px at 80% 0%, rgba(110,193,255,.10), transparent 62%),
+        linear-gradient(180deg, #EEF2F7 0%, #E7EDF5 100%);
+      border: 1px solid rgba(8,28,58,.10);
+      border-radius: 22px;
+      box-shadow: 0 22px 70px rgba(8,28,58,.10);
+      padding: 28px 26px;
+      text-align:center;
+    }
+
+    .contact-card h3{
+      margin: 0 0 8px;
+      font-size: 22px;
+      font-weight: 900;
+      color:#081C3A;
+    }
+
+    .contact-card p{
+      margin: 0 auto 16px;
+      max-width: 860px;
+      color: rgba(8,28,58,.74);
+      line-height: 1.8;
+      font-size: 15.5px;
+    }
+
+    .contact-actions{
+      display:flex;
+      justify-content:center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .btn-email{
+      background: #081C3A;
+      color: #fff;
+      box-shadow: 0 18px 50px rgba(8,28,58,.18);
+    }
+
+    .btn-email:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 26px 64px rgba(8,28,58,.22);
+    }
+
+    .email-inline{
+      display:inline-block;
+      margin-top: 10px;
+      color: rgba(8,28,58,.62);
+      font-size: 14px;
+      word-break: break-word;
+    }
+
+    .reveal{
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity .55s ease, transform .55s ease;
+      will-change: opacity, transform;
+    }
+
+    .reveal.is-visible{
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
   <div id="app-header"></div>
 
-  <main class="container">
-    <h1>Soporte</h1>
-    <p>Ayuda, contacto y soporte técnico.</p>
+  <main>
+    <section class="support-hero">
+      <div class="support-hero-inner">
+        <h1 class="reveal">¿Necesitas ayuda?</h1>
+        <p class="reveal">
+          Encuentra respuestas rápidas sobre nuestras apps o contáctanos directamente
+          para soporte personalizado. Te ayudamos a resolver dudas sin vueltas.
+        </p>
+
+        <div class="support-hero-actions reveal">
+          <a class="btn btn-primary" href="#faq">Ver preguntas frecuentes</a>
+          <a class="btn btn-ghost"
+             href="mailto:nexus.ecosystem.soporte@gmail.com?subject=Soporte%20Nexus%20Ecosystem&body=Hola%2C%20necesito%20ayuda%20con%3A%0A%0A-%20App%3A%20Medi%0A-%20Dispositivo%3A%20%0A-%20Versi%C3%B3n%20de%20la%20app%3A%20%0A-%20Descripci%C3%B3n%20del%20problema%3A%20%0A%0AGracias.">
+            Contactar por correo
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="support-intro">
+      <div class="container">
+        <div class="support-intro-card reveal">
+          <h2>Soporte Nexus Ecosystem</h2>
+          <p>
+            Nuestro soporte está pensado para ayudarte rápido: dudas de uso, sincronización, respaldos,
+            reportes y cualquier tema relacionado con nuestras apps. Si algo no se ve bien, si falta un dato
+            o si quieres confirmar cómo funciona una función, aquí lo resolvemos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="support-highlights">
+      <div class="container">
+        <div class="hl-grid">
+          <div class="hl reveal">
+            <div class="hl-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M13 2L3 14h8l-1 8 11-14h-8l0-6z"></path>
+              </svg>
+            </div>
+            <div>
+              <b>Respuesta rápida</b>
+              <span>Te guiamos con pasos claros para resolverlo sin perder tiempo.</span>
+            </div>
+          </div>
+
+          <div class="hl reveal">
+            <div class="hl-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M7 11V8a5 5 0 0 1 10 0v3"></path>
+                <path d="M6 11h12v10H6z"></path>
+              </svg>
+            </div>
+            <div>
+              <b>Privacidad primero</b>
+              <span>Diseñamos experiencias que cuidan tus datos y tu tranquilidad.</span>
+            </div>
+          </div>
+
+          <div class="hl reveal">
+            <div class="hl-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M7 18h10a4 4 0 0 0 0-8 6 6 0 0 0-11.5 1.5A3.5 3.5 0 0 0 7 18z"></path>
+              </svg>
+            </div>
+            <div>
+              <b>Respaldo & sincronización</b>
+              <span>Te explicamos cómo mantener tu información segura y disponible.</span>
+            </div>
+          </div>
+
+          <div class="hl reveal">
+            <div class="hl-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M9 3h6v4a2 2 0 1 0 0 4v4H9v-4a2 2 0 1 1 0-4V3z"></path>
+                <path d="M3 9h4a2 2 0 1 1 4 0h4v6H3V9z"></path>
+              </svg>
+            </div>
+            <div>
+              <b>Guías simples</b>
+              <span>Soluciones paso a paso para problemas comunes sin tecnicismos.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="support-faq" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <h3>Preguntas frecuentes</h3>
+          <p>
+            Respuestas rápidas para lo más común. Si no encuentras lo que buscas,
+            abajo tienes el botón para contactarnos directo por correo.
+          </p>
+        </div>
+
+        <div class="faq-grid">
+          <article class="faq-item reveal">
+            <h4>¿Necesito registrarme?</h4>
+            <p>
+              No necesariamente. En muchas funciones, puedes usar la app sin cuenta.
+              La información se guarda en tu dispositivo y, según la app, puede sincronizar con servicios del sistema.
+            </p>
+          </article>
+
+          <article class="faq-item reveal">
+            <h4>¿Cómo respaldo mis datos?</h4>
+            <p>
+              Depende de la app y de tu configuración del sistema. En general,
+              recomendamos mantener habilitado el respaldo del dispositivo y confirmar espacio disponible.
+            </p>
+          </article>
+
+          <article class="faq-item reveal">
+            <h4>¿Puedo usar la app en otro teléfono?</h4>
+            <p>
+              Sí. Normalmente, al restaurar tu respaldo en el nuevo dispositivo,
+              la información vuelve. Si algo no se restauró, te ayudamos a revisarlo paso a paso.
+            </p>
+          </article>
+
+          <article class="faq-item reveal">
+            <h4>¿Dónde se guardan mis datos?</h4>
+            <p>
+              Principalmente en tu dispositivo. Si una función usa sincronización,
+              depende de la configuración del sistema y permisos. No vendemos tus datos.
+            </p>
+          </article>
+
+          <article class="faq-item reveal">
+            <h4>¿La app tiene anuncios?</h4>
+            <p>
+              Algunas pantallas pueden incluir anuncios para sostener el desarrollo.
+              Buscamos que no interfieran con tu experiencia y sean lo menos invasivos posible.
+            </p>
+          </article>
+
+          <article class="faq-item reveal">
+            <h4>¿Hay compras dentro de la app?</h4>
+            <p>
+              Algunas funciones avanzadas pueden estar detrás de una compra o suscripción.
+              Las funciones base siempre buscan ser útiles sin obligarte a pagar.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="support-contact">
+      <div class="container">
+        <div class="contact-card reveal">
+          <h3>¿No encontraste lo que buscabas?</h3>
+          <p>
+            Escríbenos y cuéntanos qué pasó. Si puedes, incluye el nombre de la app,
+            el modelo de tu dispositivo y una descripción corta del problema.
+          </p>
+
+          <div class="contact-actions">
+            <a class="btn btn-email"
+               href="mailto:nexus.ecosystem.soporte@gmail.com?subject=Soporte%20Nexus%20Ecosystem&body=Hola%2C%20necesito%20ayuda%20con%3A%0A%0A-%20App%3A%20Medi%0A-%20Dispositivo%3A%20%0A-%20Versi%C3%B3n%20de%20la%20app%3A%20%0A-%20Descripci%C3%B3n%20del%20problema%3A%20%0A%0AGracias.">
+              Contactar Soporte
+            </a>
+
+            <a class="btn btn-light" href="./index.html">Volver al inicio</a>
+          </div>
+
+          <div class="email-inline">
+            Correo: <b>nexus.ecosystem.soporte@gmail.com</b>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- FOOTER -->
   <div id="app-footer"></div>
 
   <script src="js/layout.js"></script>
+
+  <script>
+    (function(){
+      const els = document.querySelectorAll(".reveal");
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){
+            e.target.classList.add("is-visible");
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.16, rootMargin: "0px 0px -10% 0px" });
+
+      els.forEach(el=>io.observe(el));
+    })();
+  </script>
 </body>
 </html>

@@ -3,23 +3,668 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   <title>Medi — Nexus Ecosystem</title>
 
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
+  <link rel="icon" type="image/png" href="assets/nexus_icon.png">
 
-  <!-- HEADER -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/medi-page.css">
+</head>
+
+<body>
   <div id="app-header"></div>
 
-  <main class="container">
-    <h1>Medi</h1>
-    <p>Gestión inteligente de medicamentos.</p>
+  <main id="main-content">
+    <section class="md-page">
+
+      <!-- HERO -->
+      <section class="md-hero">
+        <div class="container md-hero__inner">
+
+          <div class="md-hero__left md-anim">
+            <div class="md-kicker">Medi</div>
+
+            <div class="md-appHead">
+              <div class="md-appHead__iconWrap">
+                <img src="assets/medi.png" alt="Icono de Medi" class="md-appHead__icon">
+              </div>
+
+              <div class="md-appHead__meta">
+                <h1 class="md-h1">Tu espacio para recordatorios, recetas, medicamentos y seguimiento de salud.</h1>
+                <p class="md-lead">
+                  Medi reúne herramientas prácticas para acompañar tu día a día: recordatorios, control de medicamentos,
+                  resguardo de recetas, seguimiento de glucosa y presión, medición de latidos por minuto y reportes descargables
+                  dentro de una experiencia clara, rápida y visualmente cuidada.
+                </p>
+              </div>
+            </div>
+
+            <div class="md-chipRow">
+              <span class="md-chip"><span class="md-chip__dot"></span> iOS & Android</span>
+              <span class="md-chip"><span class="md-chip__dot"></span> Recordatorios</span>
+              <span class="md-chip"><span class="md-chip__dot"></span> Medicamentos</span>
+              <span class="md-chip"><span class="md-chip__dot"></span> Glucosa y presión</span>
+              <span class="md-chip"><span class="md-chip__dot"></span> Latidos por minuto</span>
+              <span class="md-chip"><span class="md-chip__dot"></span> Reportes</span>
+            </div>
+
+            <div class="md-storeRow">
+              <a
+                href="https://apps.apple.com/mx/app/medi-recordatorios/id6756452930"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="md-store"
+                aria-label="Descargar Medi en App Store"
+              >
+                <img src="assets/tienda_ios.png" alt="Descargar en App Store" class="md-store__img">
+              </a>
+
+              <a
+                href="https://play.google.com/store/apps/details?id=com.nexussytem.medi&pcampaignid=web_share"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="md-store"
+                aria-label="Descargar Medi en Google Play"
+              >
+                <img src="assets/tienda_android.png" alt="Descargar en Google Play" class="md-store__img">
+              </a>
+            </div>
+
+            <div class="md-heroFacts">
+              <div class="md-heroFacts__item">
+                <div class="md-heroFacts__label">Diseñada para</div>
+                <div class="md-heroFacts__value">Seguimiento y organización de salud diaria</div>
+              </div>
+
+              <div class="md-heroFacts__item">
+                <div class="md-heroFacts__label">Experiencia</div>
+                <div class="md-heroFacts__value">Clara, moderna y fácil de consultar</div>
+              </div>
+
+              <div class="md-heroFacts__item">
+                <div class="md-heroFacts__label">Disponible</div>
+                <div class="md-heroFacts__value">iOS y Android</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="md-hero__right md-anim">
+            <div class="md-heroPreviewStack">
+              <div class="md-heroMock md-heroMock--main">
+                <img
+                  src="assets/gallery/medi/hero-medi.png"
+                  alt="Vista principal de Medi"
+                  class="md-heroMock__img"
+                />
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- OVERVIEW -->
+      <section class="md-section">
+        <div class="container">
+          <div class="md-sectionHead md-anim">
+            <div class="md-kicker">Visión general</div>
+            <h2 class="md-h2">Una sola app para acompañar diferentes partes de tu salud diaria</h2>
+            <p class="md-sub">
+              Medi no se limita a recordatorios. Está pensada como una herramienta práctica para registrar,
+              organizar, consultar y exportar información importante en una sola experiencia.
+            </p>
+          </div>
+
+          <div class="md-overviewGrid">
+            <article class="md-overviewCard md-anim">
+              <div class="md-overviewCard__icon">💊</div>
+              <h3 class="md-h3">Medicamentos y recetas</h3>
+              <p class="md-p">
+                Guarda medicamentos, registra información importante y conserva tus recetas para tenerlas siempre a la mano.
+              </p>
+            </article>
+
+            <article class="md-overviewCard md-anim">
+              <div class="md-overviewCard__icon">⏰</div>
+              <h3 class="md-h3">Recordatorios diarios</h3>
+              <p class="md-p">
+                Programa horarios y recibe recordatorios claros para acompañar tus rutinas de salud sin complicaciones.
+              </p>
+            </article>
+
+            <article class="md-overviewCard md-anim">
+              <div class="md-overviewCard__icon">📈</div>
+              <h3 class="md-h3">Seguimiento y reportes</h3>
+              <p class="md-p">
+                Lleva registro de glucosa, presión y otros datos importantes, y consulta o descarga reportes cuando lo necesites.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURES -->
+      <section class="md-section md-section--soft">
+        <div class="container">
+          <div class="md-sectionHead md-anim">
+            <div class="md-kicker">Funciones</div>
+            <h2 class="md-h2">Lo que hace Medi</h2>
+            <p class="md-sub">
+              Cada función está pensada para que la información sea más fácil de registrar, revisar y usar en el día a día.
+            </p>
+          </div>
+
+          <div class="md-featuresGrid">
+            <article class="md-feature md-anim">
+              <div class="md-feature__icon">⏰</div>
+              <h3 class="md-h3">Recordatorios inteligentes</h3>
+              <p class="md-p">
+                Configura horarios y organiza tomas de manera simple para mantener una mejor constancia diaria.
+              </p>
+            </article>
+
+            <article class="md-feature md-anim">
+              <div class="md-feature__icon">🧾</div>
+              <h3 class="md-h3">Resguardo de recetas</h3>
+              <p class="md-p">
+                Conserva tus recetas y documentos importantes en un espacio pensado para consultarlos cuando los necesites.
+              </p>
+            </article>
+
+            <article class="md-feature md-anim">
+              <div class="md-feature__icon">❤️</div>
+              <h3 class="md-h3">Latidos por minuto</h3>
+              <p class="md-p">
+                Usa la herramienta integrada para revisar tus latidos por minuto y mantener un seguimiento rápido desde la app.
+              </p>
+            </article>
+
+            <article class="md-feature md-anim">
+              <div class="md-feature__icon">🩸</div>
+              <h3 class="md-h3">Glucosa y presión</h3>
+              <p class="md-p">
+                Registra valores importantes como glucosa o presión para tener una consulta más ordenada de tu información.
+              </p>
+            </article>
+
+            <article class="md-feature md-anim">
+              <div class="md-feature__icon">📄</div>
+              <h3 class="md-h3">Reportes descargables</h3>
+              <p class="md-p">
+                Exporta información en reportes para conservar tu seguimiento de forma más práctica y accesible.
+              </p>
+            </article>
+
+            <article class="md-feature md-anim">
+              <div class="md-feature__icon">✨</div>
+              <h3 class="md-h3">Experiencia limpia</h3>
+              <p class="md-p">
+                Una interfaz visualmente clara, moderna y ligera que ayuda a consultar la información sin ruido innecesario.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- BENEFITS -->
+      <section class="md-section">
+        <div class="container">
+          <div class="md-benefits md-anim">
+            <div class="md-benefits__left">
+              <div class="md-kicker">Diseño</div>
+              <h2 class="md-h2">Salud y organización dentro de una experiencia clara.</h2>
+              <p class="md-sub md-sub--left">
+                Medi combina utilidad diaria con una presentación visual más limpia, para que registrar y consultar datos se sienta rápido, ordenado y natural.
+              </p>
+            </div>
+
+            <div class="md-benefits__right">
+              <div class="md-benefitLine">
+                <span class="md-benefitLine__dot"></span>
+                <div>
+                  <div class="md-benefitLine__title">Información a la mano</div>
+                  <div class="md-benefitLine__text">Tus medicamentos, recetas y registros en un solo espacio visualmente ordenado.</div>
+                </div>
+              </div>
+
+              <div class="md-benefitLine">
+                <span class="md-benefitLine__dot"></span>
+                <div>
+                  <div class="md-benefitLine__title">Seguimiento más práctico</div>
+                  <div class="md-benefitLine__text">Consulta datos importantes de forma más rápida y sin depender de varios lugares distintos.</div>
+                </div>
+              </div>
+
+              <div class="md-benefitLine">
+                <span class="md-benefitLine__dot"></span>
+                <div>
+                  <div class="md-benefitLine__title">Visualmente cuidada</div>
+                  <div class="md-benefitLine__text">Una interfaz moderna que busca sentirse útil, clara y agradable en el uso diario.</div>
+                </div>
+              </div>
+
+              <div class="md-benefitLine">
+                <span class="md-benefitLine__dot"></span>
+                <div>
+                  <div class="md-benefitLine__title">Pensada para crecer</div>
+                  <div class="md-benefitLine__text">Medi forma parte de un ecosistema de productos diseñados con consistencia visual y funcional.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SHOWCASE / STACK CAROUSEL -->
+      <section class="md-section">
+        <div class="container">
+          <div class="md-sectionHead md-anim">
+            <div class="md-kicker">Galería</div>
+            <h2 class="md-h2">Medi en acción</h2>
+            <p class="md-sub">
+              Pantallas reales que muestran distintas partes de la experiencia de Medi.
+            </p>
+          </div>
+
+          <div class="md-showcase md-anim">
+            <button class="md-showcase__nav md-showcase__nav--prev" type="button" aria-label="Anterior">
+              ‹
+            </button>
+
+            <div class="md-showcase__viewport">
+              <div class="md-showcase__track" id="mdShowcaseTrack">
+                <button class="md-showcase__card" type="button" data-index="0" data-img="assets/gallery/medi/m1.png" aria-label="Captura 1">
+                  <img src="assets/gallery/medi/m1.png" alt="Captura 1 de Medi">
+                </button>
+
+                <button class="md-showcase__card" type="button" data-index="1" data-img="assets/gallery/medi/m2.png" aria-label="Captura 2">
+                  <img src="assets/gallery/medi/m2.png" alt="Captura 2 de Medi">
+                </button>
+
+                <button class="md-showcase__card" type="button" data-index="2" data-img="assets/gallery/medi/m3.png" aria-label="Captura 3">
+                  <img src="assets/gallery/medi/m3.png" alt="Captura 3 de Medi">
+                </button>
+
+                <button class="md-showcase__card" type="button" data-index="3" data-img="assets/gallery/medi/m4.png" aria-label="Captura 4">
+                  <img src="assets/gallery/medi/m4.png" alt="Captura 4 de Medi">
+                </button>
+              </div>
+            </div>
+
+            <button class="md-showcase__nav md-showcase__nav--next" type="button" aria-label="Siguiente">
+              ›
+            </button>
+          </div>
+
+          <div class="md-showcase__dots" id="mdShowcaseDots">
+            <button class="md-showcase__dot" type="button" data-index="0" aria-label="Ir a imagen 1"></button>
+            <button class="md-showcase__dot" type="button" data-index="1" aria-label="Ir a imagen 2"></button>
+            <button class="md-showcase__dot" type="button" data-index="2" aria-label="Ir a imagen 3"></button>
+            <button class="md-showcase__dot" type="button" data-index="3" aria-label="Ir a imagen 4"></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIDEO SHORTS -->
+      <section class="md-section md-section--soft">
+        <div class="container">
+          <div class="md-sectionHead md-anim">
+            <div class="md-kicker">Videos</div>
+            <h2 class="md-h2">Medi en video</h2>
+            <p class="md-sub">
+              Reels verticales y demos rápidas para mostrar la app en acción.
+            </p>
+          </div>
+
+          <div class="md-videoBlock md-anim">
+            <div class="md-videoPlayerWrap">
+              <div id="mdYoutubePlayer" class="md-videoPlayer"></div>
+            </div>
+
+<div class="md-videoSidebar">
+  <div class="md-videoSidebar__head">
+    <h3 class="md-h3">Lista de videos</h3>
+    <div class="md-videoControls">
+      <button id="mdVideoPrev" type="button" class="md-videoBtn" aria-label="Video anterior">‹</button>
+      <button id="mdVideoNext" type="button" class="md-videoBtn" aria-label="Video siguiente">›</button>
+    </div>
+  </div>
+
+  <div class="md-videoList" id="mdVideoList">
+    <button class="md-videoItem is-active" type="button" data-video-id="9WapmKKQPvk">
+      <span class="md-videoItem__number">1.-</span>
+      <span class="md-videoItem__content">
+        <span class="md-videoItem__title">Controla tu salud desde una sola app</span>
+        <span class="md-videoItem__meta">Descubre Medi en acción</span>
+      </span>
+    </button>
+
+    <button class="md-videoItem" type="button" data-video-id="a5Vlr6vdiEw">
+      <span class="md-videoItem__number">2.-</span>
+      <span class="md-videoItem__content">
+        <span class="md-videoItem__title">Cómo crear recordatorios inteligentes</span>
+        <span class="md-videoItem__meta">No olvides nunca tus medicamentos</span>
+      </span>
+    </button>
+
+    <button class="md-videoItem" type="button" data-video-id="hVJudWSWFus">
+      <span class="md-videoItem__number">3.-</span>
+      <span class="md-videoItem__content">
+        <span class="md-videoItem__title">Todo lo que puedes hacer con Medi</span>
+        <span class="md-videoItem__meta">Funciones clave en segundos</span>
+      </span>
+    </button>
+
+        <button class="md-videoItem" type="button" data-video-id="HQ79Y74gbxk">
+      <span class="md-videoItem__number">4.-</span>
+      <span class="md-videoItem__content">
+<span class="md-videoItem__title">Registra y monitorea tu bienestar</span>
+<span class="md-videoItem__meta">Seguimiento fácil y rápido</span>
+      </span>
+    </button>
+
+            <button class="md-videoItem" type="button" data-video-id="YM_uhxZUHKs">
+      <span class="md-videoItem__number">5.-</span>
+      <span class="md-videoItem__content">
+<span class="md-videoItem__title">Tu salud organizada sin esfuerzo</span>
+<span class="md-videoItem__meta">Menos estrés, más control</span>
+      </span>
+    </button>
+
+            <button class="md-videoItem" type="button" data-video-id="II1FOVEO5so">
+      <span class="md-videoItem__number">6.-</span>
+      <span class="md-videoItem__content">
+<span class="md-videoItem__title">Una app pensada para tu día a día</span>
+<span class="md-videoItem__meta">Simple, rápida y útil</span>
+      </span>
+    </button>
+
+            <button class="md-videoItem" type="button" data-video-id="hD9Tu-qAkj0">
+      <span class="md-videoItem__number">7.-</span>
+      <span class="md-videoItem__content">
+     <span class="md-videoItem__title">Mejora tus hábitos de salud</span>
+<span class="md-videoItem__meta">Pequeños cambios, grandes resultados</span>
+
+      </span>
+    </button>
+
+            <button class="md-videoItem" type="button" data-video-id="BegyqgW9_Bw">
+      <span class="md-videoItem__number">8.-</span>
+      <span class="md-videoItem__content">
+<span class="md-videoItem__title">Nunca olvides lo importante</span>
+<span class="md-videoItem__meta">Recordatorios inteligentes</span>
+
+      </span>
+    </button>
+
+            <button class="md-videoItem" type="button" data-video-id="jrlHInNAOO4">
+      <span class="md-videoItem__number">9.-</span>
+      <span class="md-videoItem__content">
+<span class="md-videoItem__title">Tecnología que cuida de ti</span>
+<span class="md-videoItem__meta">Salud digital al alcance</span>
+      </span>
+    </button>
+
+            <button class="md-videoItem" type="button" data-video-id="yQ6Af7opaMA">
+      <span class="md-videoItem__number">10.-</span>
+      <span class="md-videoItem__content">
+<span class="md-videoItem__title">Empieza hoy a cuidarte mejor</span>
+<span class="md-videoItem__meta">Descarga Medi ahora</span>
+      </span>
+    </button>
+  </div>
+</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="md-section md-section--last">
+        <div class="container">
+          <div class="md-cta md-anim">
+            <div class="md-cta__copy">
+              <div class="md-kicker">Descargar</div>
+              <h2 class="md-h2">Empieza a usar Medi</h2>
+              <p class="md-sub md-sub--left">
+                Disponible en iOS y Android para acompañar tu salud diaria con una experiencia útil, visualmente clara y moderna.
+              </p>
+            </div>
+
+            <div class="md-cta__actions">
+              <a
+                href="https://apps.apple.com/mx/app/medi-recordatorios/id6756452930"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="md-store"
+              >
+                <img src="assets/tienda_ios.png" alt="Descargar en App Store" class="md-store__img">
+              </a>
+
+              <a
+                href="https://play.google.com/store/apps/details?id=com.nexussytem.medi&pcampaignid=web_share"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="md-store"
+              >
+                <img src="assets/tienda_android.png" alt="Descargar en Google Play" class="md-store__img">
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODAL -->
+      <div class="md-modal" id="mdModal" aria-hidden="true">
+        <div class="md-modal__backdrop" data-close="1"></div>
+        <div class="md-modal__panel" role="dialog" aria-modal="true" aria-label="Vista previa de Medi">
+          <button class="md-modal__close" type="button" data-close="1" aria-label="Cerrar">✕</button>
+          <img class="md-modal__img" id="mdModalImg" src="" alt="Preview Medi">
+        </div>
+      </div>
+
+    </section>
   </main>
 
-  <!-- FOOTER -->
   <div id="app-footer"></div>
 
-  <script src="js/layout.js"></script>
+  <script src="js/i18n.js" defer></script>
+  <script src="js/layout.js" defer></script>
+  <script src="https://www.youtube.com/iframe_api"></script>
+
+  <script>
+    let mdYoutubePlayer = null;
+    let mdCurrentVideoIndex = 0;
+
+    function onYouTubeIframeAPIReady() {
+      const config = window.__mdVideoConfig;
+      if (!config || !config.videoIds || !config.videoIds.length) return;
+
+      mdYoutubePlayer = new YT.Player('mdYoutubePlayer', {
+        width: '380',
+        height: '720',
+        videoId: config.videoIds[0],
+        playerVars: {
+          autoplay: 1,
+          mute: 1,
+          controls: 1,
+          rel: 0,
+          playsinline: 1,
+          modestbranding: 1
+        },
+        events: {
+          onReady: function(event) {
+            config.renderVideoList();
+            event.target.playVideo();
+          },
+          onStateChange: function(event) {
+            if (event.data === YT.PlayerState.ENDED) {
+              config.playVideoAt(mdCurrentVideoIndex + 1);
+            }
+          }
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.add('md-js');
+
+      const els = document.querySelectorAll('.md-anim');
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      els.forEach((el) => io.observe(el));
+
+      const modal = document.getElementById('mdModal');
+      const modalImg = document.getElementById('mdModalImg');
+
+      function openModal(src) {
+        modalImg.src = src;
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        modalImg.src = '';
+        document.body.style.overflow = '';
+      }
+
+      modal.addEventListener('click', (e) => {
+        if (e.target && e.target.dataset && e.target.dataset.close) {
+          closeModal();
+        }
+      });
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+          closeModal();
+        }
+      });
+
+      // stack carousel
+      const cards = Array.from(document.querySelectorAll('.md-showcase__card'));
+      const prevBtn = document.querySelector('.md-showcase__nav--prev');
+      const nextBtn = document.querySelector('.md-showcase__nav--next');
+      const dots = Array.from(document.querySelectorAll('.md-showcase__dot'));
+
+      let current = 1;
+
+      function getPrevIndex(index) {
+        return (index - 1 + cards.length) % cards.length;
+      }
+
+      function getNextIndex(index) {
+        return (index + 1) % cards.length;
+      }
+
+      function renderCarousel() {
+        cards.forEach((card, index) => {
+          card.classList.remove('is-left', 'is-active', 'is-right', 'is-hidden');
+
+          if (index === current) {
+            card.classList.add('is-active');
+          } else if (index === getPrevIndex(current)) {
+            card.classList.add('is-left');
+          } else if (index === getNextIndex(current)) {
+            card.classList.add('is-right');
+          } else {
+            card.classList.add('is-hidden');
+          }
+        });
+
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('is-active', index === current);
+        });
+      }
+
+      prevBtn && prevBtn.addEventListener('click', () => {
+        current = getPrevIndex(current);
+        renderCarousel();
+      });
+
+      nextBtn && nextBtn.addEventListener('click', () => {
+        current = getNextIndex(current);
+        renderCarousel();
+      });
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          current = index;
+          renderCarousel();
+        });
+      });
+
+      cards.forEach((card, index) => {
+        card.addEventListener('click', () => {
+          if (index === current) {
+            openModal(card.dataset.img);
+          } else {
+            current = index;
+            renderCarousel();
+          }
+        });
+      });
+
+      renderCarousel();
+
+      // videos
+      const videoItems = Array.from(document.querySelectorAll('.md-videoItem'));
+      const videoPrevBtn = document.getElementById('mdVideoPrev');
+      const videoNextBtn = document.getElementById('mdVideoNext');
+      const videoIds = videoItems
+        .map((item) => item.dataset.videoId)
+        .filter(Boolean);
+
+      function renderVideoList() {
+        videoItems.forEach((item, index) => {
+          item.classList.toggle('is-active', index === mdCurrentVideoIndex);
+        });
+      }
+
+      function playVideoAt(index) {
+        if (!videoIds.length) return;
+
+        mdCurrentVideoIndex = (index + videoIds.length) % videoIds.length;
+        renderVideoList();
+
+        if (mdYoutubePlayer && typeof mdYoutubePlayer.loadVideoById === 'function') {
+          mdYoutubePlayer.loadVideoById(videoIds[mdCurrentVideoIndex]);
+        }
+      }
+
+      videoItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+          playVideoAt(index);
+        });
+      });
+
+      videoPrevBtn && videoPrevBtn.addEventListener('click', () => {
+        playVideoAt(mdCurrentVideoIndex - 1);
+      });
+
+      videoNextBtn && videoNextBtn.addEventListener('click', () => {
+        playVideoAt(mdCurrentVideoIndex + 1);
+      });
+
+      window.__mdVideoConfig = {
+        videoIds,
+        renderVideoList,
+        playVideoAt
+      };
+    });
+  </script>
 </body>
 </html>

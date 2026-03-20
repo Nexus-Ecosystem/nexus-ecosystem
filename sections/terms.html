@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Términos y Condiciones — Nexus Ecosystem</title>
+
+  <link rel="icon" type="image/png" href="../assets/nexus_icon.png">
+  <link rel="stylesheet" href="../css/styles.css">
+
+  <style>
+    body {
+      font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #f7faff 0%, #f4f8ff 40%, #f6f8fc 100%);
+      margin: 0;
+      padding: 0;
+      color: #111827;
+      line-height: 1.68;
+    }
+
+    .nx-legal-page {
+      min-height: 100vh;
+      padding: 48px 20px 60px;
+    }
+
+    .nx-legal-container {
+      max-width: 940px;
+      margin: 0 auto;
+      background: rgba(255,255,255,.80);
+      border: 1px solid rgba(255,255,255,.84);
+      backdrop-filter: blur(16px) saturate(160%);
+      -webkit-backdrop-filter: blur(16px) saturate(160%);
+      border-radius: 28px;
+      padding: 42px 46px;
+      box-shadow: 0 24px 60px rgba(17,24,39,.08);
+    }
+
+    .nx-legal-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .nx-legal-logo {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 28px;
+      margin-bottom: 16px;
+      box-shadow: 0 18px 40px rgba(17,24,39,.10);
+      background: #fff;
+    }
+
+    .nx-legal-kicker {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 32px;
+      padding: 0 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,.86);
+      border: 1px solid rgba(17,24,39,.08);
+      color: rgba(17,24,39,.66);
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 42px);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .nx-legal-intro {
+      margin-top: 18px;
+      font-size: 16px;
+      color: rgba(17,24,39,.78);
+    }
+
+    h2 {
+      margin-top: 34px;
+      margin-bottom: 12px;
+      font-size: 22px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    h3 {
+      margin-top: 18px;
+      margin-bottom: 8px;
+      font-size: 16px;
+      line-height: 1.3;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    p {
+      margin: 0 0 14px;
+      font-size: 15px;
+      color: rgba(17,24,39,.76);
+    }
+
+    ul, ol {
+      margin: 0 0 14px 20px;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 8px;
+      color: rgba(17,24,39,.76);
+      font-size: 15px;
+    }
+
+    strong {
+      color: #0f172a;
+    }
+
+    .nx-legal-highlight {
+      padding: 16px 18px;
+      margin: 20px 0;
+      border-radius: 18px;
+      background: rgba(20,90,220,.05);
+      border: 1px solid rgba(20,90,220,.10);
+      color: rgba(17,24,39,.82);
+    }
+
+    .nx-legal-footer {
+      margin-top: 42px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(17,24,39,.08);
+      text-align: center;
+      font-size: 13px;
+      color: rgba(17,24,39,.56);
+    }
+
+    .nx-legal-links {
+      margin-top: 24px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nx-legal-link {
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      color: #111827;
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(17,24,39,.08);
+      transition: transform .16s ease, border-color .16s ease;
+    }
+
+    .nx-legal-link:hover {
+      transform: translateY(-1px);
+      border-color: rgba(20,90,220,.20);
+    }
+
+    @media (max-width: 680px) {
+      .nx-legal-container {
+        padding: 28px 20px;
+        border-radius: 22px;
+      }
+
+      .nx-legal-logo {
+        width: 96px;
+        height: 96px;
+        border-radius: 22px;
+      }
+
+      p, li {
+        font-size: 14px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="nx-legal-page">
+    <section class="nx-legal-container">
+
+      <header class="nx-legal-header">
+        <img
+          src="../assets/nexus_icon.png"
+          class="nx-legal-logo"
+          alt="Nexus Ecosystem Logo"
+        />
+        <div class="nx-legal-kicker">Nexus Ecosystem</div>
+        <h1>Términos y Condiciones de Uso</h1>
+        <p class="nx-legal-intro">
+          Estos Términos y Condiciones regulan el acceso, navegación y uso de los productos, aplicaciones,
+          sitios web, servicios y experiencias digitales desarrollados bajo <strong>Nexus Ecosystem</strong>,
+          incluyendo productos actuales y futuros disponibles en iOS, Android, web u otras plataformas compatibles.
+        </p>
+      </header>
+
+      <p>
+        Al acceder, descargar, instalar, registrarte, navegar o utilizar cualquier producto o servicio de Nexus Ecosystem,
+        la persona usuaria declara haber leído, comprendido y aceptado íntegramente estos Términos.
+        Si no estás de acuerdo con cualquiera de sus disposiciones, deberás abstenerte de usar el ecosistema,
+        sus aplicaciones, sus sitios asociados y cualquier funcionalidad relacionada.
+      </p>
+
+      <div class="nx-legal-highlight">
+        Nexus Ecosystem desarrolla herramientas digitales de utilidad, organización, bienestar, seguimiento,
+        productividad e información. Salvo que expresamente se indique lo contrario en una función concreta,
+        los productos del ecosistema no sustituyen asesoría profesional especializada.
+      </div>
+
+      <h2>1. Identidad del servicio</h2>
+      <p>
+        Nexus Ecosystem es una marca y ecosistema digital que agrupa aplicaciones, sitios y productos tecnológicos
+        con distintas finalidades funcionales. Este ecosistema puede incluir herramientas de salud, bienestar,
+        organización personal, seguimiento, hábitos, productividad, experiencias visuales, servicios web y futuras líneas de producto.
+      </p>
+
+      <p>
+        Los presentes Términos aplican de manera amplia a:
+      </p>
+      <ul>
+        <li>Aplicaciones móviles actuales y futuras de Nexus Ecosystem</li>
+        <li>Sitios web oficiales, landing pages y páginas legales asociadas</li>
+        <li>Funciones premium, experimentales, beta o en evolución</li>
+        <li>Servicios complementarios, sincronización, respaldo o soporte</li>
+      </ul>
+
+      <h2>2. Elegibilidad y uso permitido</h2>
+      <p>
+        Para utilizar los productos o servicios de Nexus Ecosystem, la persona usuaria debe contar con capacidad legal
+        suficiente conforme a la legislación aplicable y utilizar el servicio de manera lícita, responsable y de buena fe.
+      </p>
+
+      <p>
+        No está permitido utilizar el ecosistema para:
+      </p>
+      <ul>
+        <li>Actividades ilícitas, fraudulentas o engañosas</li>
+        <li>Suplantación de identidad o manipulación de cuentas, sesiones o integridad del sistema</li>
+        <li>Acceso no autorizado, scraping, explotación automatizada o abuso técnico de la plataforma</li>
+        <li>Ingeniería inversa, descompilación, modificación o reproducción no autorizada</li>
+        <li>Uso que vulnere derechos de terceros, propiedad intelectual o normativa aplicable</li>
+      </ul>
+
+      <h2>3. Naturaleza de los productos</h2>
+      <p>
+        Los productos de Nexus Ecosystem pueden estar orientados a organización, seguimiento, bienestar,
+        productividad, visualización de información o acompañamiento funcional.
+      </p>
+
+      <h3>3.1 No sustitución profesional</h3>
+      <p>
+        Salvo que expresamente se indique en una función determinada, el ecosistema y sus aplicaciones no constituyen
+        servicios médicos, clínicos, hospitalarios, psicológicos, psiquiátricos, terapéuticos, farmacéuticos,
+        financieros, legales ni profesionales regulados.
+      </p>
+
+      <p>
+        En consecuencia, las personas usuarias reconocen que:
+      </p>
+      <ul>
+        <li>Los productos de Nexus Ecosystem no sustituyen consulta profesional especializada</li>
+        <li>No deben utilizarse como única base para decisiones médicas, clínicas, legales, financieras o equivalentes</li>
+        <li>Cualquier decisión relevante debe contrastarse con la persona profesional competente</li>
+      </ul>
+
+      <h3>3.2 No garantía de resultados</h3>
+      <p>
+        Nexus Ecosystem no garantiza resultados concretos, mejoras específicas, continuidad permanente,
+        exactitud absoluta, ausencia total de errores ni adecuación universal a todas las necesidades de cada persona usuaria.
+      </p>
+
+      <h2>4. Cuentas, acceso y disponibilidad</h2>
+      <p>
+        Algunos productos o funciones del ecosistema pueden requerir configuración local, autenticación,
+        inicio de sesión, acceso a servicios complementarios o determinados permisos del dispositivo.
+      </p>
+
+      <p>
+        Nexus Ecosystem podrá, en cualquier momento y sin necesidad de previo aviso:
+      </p>
+      <ul>
+        <li>Actualizar, modificar, suspender o retirar funcionalidades</li>
+        <li>Agregar o eliminar características, módulos o pantallas</li>
+        <li>Activar funciones beta, premium, limitadas o regionales</li>
+        <li>Restringir disponibilidad por plataforma, país, versión o compatibilidad</li>
+      </ul>
+
+      <p>
+        La disponibilidad del ecosistema puede variar según dispositivo, sistema operativo, conexión,
+        región geográfica, tienda de distribución o limitaciones técnicas de terceros.
+      </p>
+
+      <h2>5. Información ingresada por la persona usuaria</h2>
+      <p>
+        La persona usuaria es la única responsable del contenido, datos, configuraciones, registros,
+        preferencias, horarios, recordatorios, información personalizada o cualquier otro dato que ingrese,
+        edite, importe, sincronice, conserve o elimine dentro de los productos de Nexus Ecosystem.
+      </p>
+
+      <p>
+        Nexus Ecosystem no garantiza que la información ingresada por la persona usuaria sea completa, correcta,
+        actualizada o adecuada a sus necesidades específicas.
+      </p>
+
+      <h2>6. Permisos del dispositivo y funcionamiento</h2>
+      <p>
+        Dependiendo de la naturaleza de cada aplicación, Nexus Ecosystem puede solicitar permisos del sistema
+        como notificaciones, cámara, almacenamiento, archivos, acceso a alarmas exactas, tareas en segundo plano
+        u otros permisos razonablemente necesarios para ofrecer una funcionalidad determinada.
+      </p>
+
+      <p>
+        La persona usuaria reconoce que limitar, negar o revocar estos permisos puede afectar de forma parcial
+        o total la experiencia, la precisión, la programación de eventos o la continuidad de ciertas funciones.
+      </p>
+
+      <h2>7. Servicios tecnológicos y componentes de terceros</h2>
+      <p>
+        Para operar adecuadamente, Nexus Ecosystem puede apoyarse en servicios tecnológicos, infraestructura,
+        proveedores o componentes de terceros para funciones como almacenamiento, respaldo, distribución,
+        análisis técnico, autenticación, sincronización, notificaciones, monitoreo de errores, continuidad del servicio
+        o soporte operativo.
+      </p>
+
+      <p>
+        Nexus Ecosystem no será responsable por fallas, cambios, interrupciones, limitaciones, bloqueos,
+        retrasos o incidencias originadas directamente por dichos terceros, por las tiendas de aplicaciones,
+        por proveedores de red, por fabricantes de dispositivos o por sistemas operativos.
+      </p>
+
+      <h2>8. Propiedad intelectual</h2>
+      <p>
+        Todo el contenido, software, estructura, diseño, interfaz, identidad visual, logotipos, iconos,
+        textos, marcas, nombres comerciales, componentes, ilustraciones, capturas, material gráfico,
+        documentación y demás elementos del ecosistema pertenecen a Nexus Ecosystem o a sus respectivos titulares,
+        y se encuentran protegidos por la normativa aplicable en materia de propiedad intelectual e industrial.
+      </p>
+
+      <p>
+        El uso del ecosistema no otorga a la persona usuaria derecho alguno de propiedad sobre tales elementos.
+      </p>
+
+      <h3>8.1 Licencia limitada</h3>
+      <p>
+        Se concede a la persona usuaria una licencia limitada, personal, revocable, no exclusiva e intransferible
+        para usar los productos de Nexus Ecosystem únicamente conforme a estos Términos y para fines legítimos de uso personal o interno,
+        según la naturaleza del producto.
+      </p>
+
+      <h2>9. Restricciones de uso</h2>
+      <p>
+        Queda estrictamente prohibido:
+      </p>
+      <ul>
+        <li>Copiar, revender, sublicenciar o redistribuir el ecosistema sin autorización</li>
+        <li>Desarrollar obras derivadas o productos competidores a partir de elementos protegidos</li>
+        <li>Intentar obtener acceso indebido a infraestructura, código o integraciones</li>
+        <li>Manipular métricas, notificaciones, sincronización o flujos internos de la plataforma</li>
+        <li>Eliminar avisos de titularidad, copyright o identificación del ecosistema</li>
+      </ul>
+
+      <h2>10. Actualizaciones y versiones</h2>
+      <p>
+        Nexus Ecosystem puede publicar actualizaciones, parches, nuevas versiones o migraciones funcionales
+        en cualquier momento. Algunas actualizaciones podrán ser necesarias para conservar compatibilidad,
+        seguridad o continuidad operativa.
+      </p>
+
+      <p>
+        La persona usuaria reconoce que no todas las versiones antiguas serán soportadas indefinidamente
+        y que ciertas funcionalidades podrían cambiar, desaparecer o evolucionar sin obligación de mantener
+        compatibilidad retrospectiva absoluta.
+      </p>
+
+      <h2>11. Privacidad y tratamiento de datos</h2>
+      <p>
+        El uso del ecosistema también se rige por el Aviso de Privacidad oficial de Nexus Ecosystem,
+        el cual debe interpretarse conjuntamente con estos Términos.
+      </p>
+
+      <p>
+        La persona usuaria acepta que cierta información pueda ser tratada conforme a dicho Aviso,
+        exclusivamente para habilitar funciones, mantener continuidad, reforzar seguridad, ofrecer soporte
+        o mejorar la experiencia general del servicio.
+      </p>
+
+      <h2>12. Limitación de responsabilidad</h2>
+      <p>
+        En la máxima medida permitida por la legislación aplicable, Nexus Ecosystem, sus desarrolladores,
+        colaboradores, operadores, licenciatarios y proveedores tecnológicos no serán responsables por:
+      </p>
+      <ul>
+        <li>Errores, omisiones, interrupciones o fallos del servicio</li>
+        <li>Pérdida de información, configuraciones, historiales o datos</li>
+        <li>Decisiones tomadas por la persona usuaria con base en información mostrada por el ecosistema</li>
+        <li>Incompatibilidades con dispositivos, sistemas, capas de fabricante o configuraciones particulares</li>
+        <li>Daños indirectos, incidentales, especiales, consecuenciales o pérdida de ingresos, oportunidades o datos</li>
+        <li>Eventos atribuibles a terceros, tiendas, redes, proveedores o causas fuera de control razonable</li>
+      </ul>
+
+      <h3>12.1 Uso bajo responsabilidad propia</h3>
+      <p>
+        La persona usuaria acepta que utiliza los productos de Nexus Ecosystem bajo su propia responsabilidad
+        y que el ecosistema se proporciona en la medida legalmente permitida “tal cual” y “según disponibilidad”.
+      </p>
+
+      <h3>12.2 Límite máximo de responsabilidad</h3>
+      <p>
+        En caso de que, pese a lo anterior, se determinara alguna responsabilidad exigible a Nexus Ecosystem,
+        dicha responsabilidad total acumulada quedará limitada al menor de los siguientes montos:
+      </p>
+      <ul>
+        <li>La cantidad efectivamente pagada por la persona usuaria por el producto o servicio específico en los últimos 12 meses, si existiera</li>
+        <li>Un dólar estadounidense (USD $1.00), cuando no exista pago aplicable</li>
+        <li>El monto mínimo obligatorio que resulte irrenunciable conforme a la legislación aplicable</li>
+      </ul>
+
+      <h2>13. Indemnización</h2>
+      <p>
+        La persona usuaria acepta defender, indemnizar y mantener indemne a Nexus Ecosystem,
+        sus desarrolladores, operadores y colaboradores frente a reclamaciones, acciones, daños,
+        pérdidas, responsabilidades, costos y gastos derivados de:
+      </p>
+      <ul>
+        <li>Incumplimiento de estos Términos</li>
+        <li>Uso indebido, ilícito o abusivo del ecosistema</li>
+        <li>Violación de derechos de terceros</li>
+        <li>Uso del servicio de forma contraria a la normativa aplicable</li>
+      </ul>
+
+      <h2>14. Suspensión o terminación</h2>
+      <p>
+        Nexus Ecosystem podrá suspender, restringir o terminar el acceso total o parcial al servicio,
+        sin responsabilidad, cuando existan razones técnicas, operativas, legales, de seguridad,
+        de cumplimiento o de protección del ecosistema.
+      </p>
+
+      <p>
+        La persona usuaria también podrá dejar de utilizar el servicio en cualquier momento,
+        eliminando la aplicación, dejando de acceder al sitio o cesando el uso de la funcionalidad correspondiente.
+      </p>
+
+      <h2>15. Fuerza mayor</h2>
+      <p>
+        Nexus Ecosystem no será responsable por incumplimientos, retrasos o interrupciones causados por
+        hechos fuera de su control razonable, incluyendo fallas masivas de red, desastres naturales,
+        actos gubernamentales, conflictos, eventos de seguridad, interrupciones de terceros,
+        restricciones regulatorias o incidencias generalizadas de infraestructura.
+      </p>
+
+      <h2>16. Separabilidad</h2>
+      <p>
+        Si alguna disposición de estos Términos fuera declarada inválida, inaplicable o nula,
+        dicha circunstancia no afectará la validez del resto del documento, el cual continuará en pleno vigor.
+      </p>
+
+      <h2>17. No renuncia</h2>
+      <p>
+        La falta de ejercicio de cualquier derecho o facultad derivada de estos Términos no se considerará
+        renuncia al mismo, salvo manifestación expresa y por escrito.
+      </p>
+
+      <h2>18. Ley aplicable y jurisdicción</h2>
+      <p>
+        Estos Términos se interpretarán conforme a la legislación aplicable que resulte competente
+        en función de la operación del servicio y del lugar de residencia o consumo cuando así lo exijan
+        disposiciones imperativas de protección a personas consumidoras o usuarias.
+      </p>
+
+      <p>
+        En caso de controversia, las partes procurarán una solución amistosa previa. De no ser posible,
+        la controversia se someterá a la autoridad competente conforme a la legislación aplicable.
+      </p>
+
+      <h2>19. Idioma</h2>
+      <p>
+        Estos Términos pueden presentarse en distintos idiomas. En caso de divergencia interpretativa,
+        prevalecerá la versión en español, salvo que una norma imperativa disponga otra cosa.
+      </p>
+
+      <h2>20. Contacto</h2>
+      <p>
+        Para consultas legales, soporte o cuestiones relacionadas con estos Términos:
+      </p>
+      <p>
+        <strong>nexus.ecosystem.soporte@gmail.com</strong>
+      </p>
+
+      <h2>21. Aceptación final</h2>
+      <p>
+        Al continuar usando cualquier producto o servicio de Nexus Ecosystem, la persona usuaria declara que:
+      </p>
+      <ul>
+        <li>Ha leído íntegramente estos Términos</li>
+        <li>Comprende su alcance legal y operativo</li>
+        <li>Acepta que el uso del ecosistema se realiza bajo su propia responsabilidad dentro de los límites aquí previstos</li>
+      </ul>
+
+      <div class="nx-legal-links">
+        <a class="nx-legal-link" href="../index.html">Volver al inicio</a>
+        <a class="nx-legal-link" href="privacy.html">Aviso de privacidad</a>
+      </div>
+
+      <div class="nx-legal-footer">
+        © 2026 Nexus Ecosystem · Términos y Condiciones de Uso
+      </div>
+    </section>
+  </main>
+</body>
+</html>

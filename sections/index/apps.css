@@ -1,10 +1,10 @@
 /* =========================================================
-   NEXUS — APPS SECTION (PREMIUM CORREGIDO)
+   NEXUS — APPS SECTION
    ========================================================= */
 
 .nx-apps{
   margin-top: 44px;
-  padding: 38px 0 10px;
+  padding: 42px 0 20px;
 }
 
 .nx-apps__container{
@@ -13,102 +13,188 @@
 
 .nx-apps__head{
   text-align: center;
-  max-width: 860px;
-  margin: 0 auto 22px;
+  max-width: 920px;
+  margin: 0 auto 24px;
 }
 
 .nx-apps__kicker{
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 30px;
+  min-height: 30px;
   padding: 0 12px;
   border-radius: 999px;
   font-size: 12px;
-  font-weight: 900;
-  letter-spacing: .4px;
-  background: rgba(255,255,255,.55);
-  border: 1px solid rgba(255,255,255,.65);
-  box-shadow: 0 18px 40px rgba(11,18,32,.08);
-  color: rgba(11,18,32,.78);
+  font-weight: 500;
+  letter-spacing: .05em;
+  background: rgba(255,255,255,.62);
+  border: 1px solid rgba(255,255,255,.72);
+  box-shadow: 0 14px 34px rgba(11,18,32,.05);
+  color: rgba(13,21,35,.72);
 }
 
 .nx-apps__title{
-  margin: 14px 0 10px;
-  font-size: clamp(22px, 3.2vw, 34px);
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  font-weight: 950;
-  color: rgba(11,18,32,.95);
+  margin: 16px 0 12px;
+  font-size: clamp(24px, 3.4vw, 40px);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+  color: #0d1523;
 }
 
 .nx-apps__desc{
   margin: 0 auto;
-  max-width: 720px;
-  font-size: 14px;
-  line-height: 1.55;
-  color: rgba(11,18,32,.70);
-  font-weight: 700;
+  max-width: 760px;
+  font-size: 15px;
+  line-height: 1.72;
+  color: rgba(13,21,35,.72);
+  font-weight: 400;
 }
 
-/* GRID */
-.nx-apps__grid{
+.nx-appsCarousel{
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-  margin-top: 18px;
+  grid-template-columns: 56px minmax(0, 1fr) 56px;
+  align-items: center;
+  gap: 14px;
+  margin-top: 24px;
 }
 
-/* CARD BASE */
+.nx-appsCarousel__viewport{
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+  cursor: grab;
+  padding: 8px 4px 20px;
+}
+
+.nx-appsCarousel__viewport:active{
+  cursor: grabbing;
+}
+
+.nx-appsCarousel__viewport.is-dragging{
+  cursor: grabbing;
+  user-select: none;
+}
+
+.nx-appsCarousel__viewport::-webkit-scrollbar{
+  display: none;
+}
+
+.nx-appsCarousel__nav{
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.68);
+  background: rgba(255,255,255,.74);
+  color: #0f1726;
+  font-size: 28px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 14px 34px rgba(11,18,32,.08);
+  transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease, opacity .16s ease;
+  z-index: 2;
+}
+
+.nx-appsCarousel__nav:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 20px 42px rgba(11,18,32,.12);
+  border-color: rgba(31,106,225,.20);
+}
+
+.nx-appsCarousel__nav:disabled{
+  opacity: .42;
+  cursor: default;
+  transform: none;
+  box-shadow: 0 14px 34px rgba(11,18,32,.05);
+}
+
+.nx-appsTrack{
+  display: flex;
+  gap: 18px;
+  width: max-content;
+  align-items: stretch;
+}
+
 .nx-appCard{
+  flex: 0 0 360px;
+  scroll-snap-align: start;
   position: relative;
   overflow: hidden;
-  border-radius: 24px;
-  background: rgba(255,255,255,.16);
-  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 28px;
+  background: rgba(255,255,255,.22);
+  border: 1px solid rgba(255,255,255,.28);
   backdrop-filter: blur(18px) saturate(170%);
   -webkit-backdrop-filter: blur(18px) saturate(170%);
   box-shadow:
-    0 26px 60px rgba(11,18,32,.10),
-    0 1px 0 rgba(255,255,255,.22) inset;
-  padding: 16px;
+    0 24px 58px rgba(11,18,32,.08),
+    0 1px 0 rgba(255,255,255,.20) inset;
+  padding: 18px;
   transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  min-height: 100%;
 }
 
 .nx-appCard:hover{
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   box-shadow:
-    0 30px 70px rgba(11,18,32,.14),
-    0 1px 0 rgba(255,255,255,.22) inset;
-  border-color: rgba(31,106,225,.30);
+    0 34px 76px rgba(11,18,32,.12),
+    0 1px 0 rgba(255,255,255,.20) inset;
+  border-color: rgba(31,106,225,.18);
 }
 
-/* THEME “GLOW” */
 .nx-appCard::before{
   content:"";
   position:absolute;
   inset:-80px;
-  opacity: .9;
-  filter: blur(26px);
+  opacity: .85;
+  filter: blur(28px);
   pointer-events:none;
 }
 
 .nx-appCard--medi::before{
-  background: radial-gradient(520px 280px at 22% 10%, rgba(60,150,255,.28), transparent 55%),
-              radial-gradient(520px 280px at 80% 60%, rgba(31,106,225,.18), transparent 55%);
+  background:
+    radial-gradient(520px 280px at 22% 10%, rgba(60,150,255,.24), transparent 55%),
+    radial-gradient(520px 280px at 80% 60%, rgba(31,106,225,.14), transparent 55%);
 }
 
 .nx-appCard--aura::before{
-  background: radial-gradient(520px 280px at 22% 10%, rgba(170,120,255,.26), transparent 55%),
-              radial-gradient(520px 280px at 80% 60%, rgba(120,190,255,.16), transparent 55%);
+  background:
+    radial-gradient(520px 280px at 22% 10%, rgba(170,120,255,.22), transparent 55%),
+    radial-gradient(520px 280px at 80% 60%, rgba(120,190,255,.14), transparent 55%);
 }
 
 .nx-appCard--beast::before{
-  background: radial-gradient(520px 280px at 22% 10%, rgba(255,190,30,.22), transparent 55%),
-              radial-gradient(520px 280px at 80% 60%, rgba(255,230,140,.18), transparent 55%);
+  background:
+    radial-gradient(520px 280px at 22% 10%, rgba(255,190,30,.20), transparent 55%),
+    radial-gradient(520px 280px at 80% 60%, rgba(255,230,140,.14), transparent 55%);
 }
 
-/* TOP - ICONO CORREGIDO */
+.nx-appCard--abonia::before{
+  background:
+    radial-gradient(520px 280px at 22% 10%, rgba(30,190,120,.24), transparent 55%),
+    radial-gradient(520px 280px at 80% 60%, rgba(85,220,160,.14), transparent 55%);
+}
+
+.nx-appCard--veridex::before{
+  background:
+    radial-gradient(520px 280px at 22% 10%, rgba(255,145,60,.24), transparent 55%),
+    radial-gradient(520px 280px at 80% 60%, rgba(255,195,120,.14), transparent 55%);
+}
+
+.nx-appCard--seoul::before{
+  background:
+    radial-gradient(520px 280px at 22% 10%, rgba(50,50,55,.26), transparent 55%),
+    radial-gradient(520px 280px at 80% 60%, rgba(110,110,120,.16), transparent 55%);
+}
+
 .nx-appCard__top{
   position: relative;
   z-index: 2;
@@ -118,30 +204,29 @@
 }
 
 .nx-appCard__iconWrap{
-  width: 56px;           /* Tamaño optimizado */
-  height: 56px;
-  border-radius: 14px;   /* Redondeo estilo App Store */
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
   background: #fff;
   border: 1px solid rgba(255,255,255,.60);
   box-shadow: 0 12px 30px rgba(11,18,32,.12);
-  display: flex;         /* Cambiado a flex para control total */
+  display: flex;
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
-  overflow: hidden;      /* CORTA la imagen para que llene el redondeo */
-  padding: 0 !important; /* ELIMINA EL SOBRANTE */
+  overflow: hidden;
+  padding: 0 !important;
 }
 
 .nx-appCard__icon{
-  width: 100%;           /* Abarca todo el ancho */
-  height: 100%;          /* Abarca todo el alto */
-  object-fit: cover;     /* ZOOM que llena el contenedor */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
-  transition: transform .3s ease; /* Prepárate para el hover */
+  transition: transform .3s ease;
 }
 
-/* ZOOM EXTRA AL PASAR EL MOUSE */
-.nx-appCard:hover .nx-appCard__icon {
+.nx-appCard:hover .nx-appCard__icon{
   transform: scale(1.08);
 }
 
@@ -159,60 +244,69 @@
 
 .nx-appCard__name{
   margin: 0;
-  font-size: 16px;
-  font-weight: 950;
+  font-size: 18px;
+  font-weight: 700;
   letter-spacing: -0.02em;
-  color: rgba(11,18,32,.95);
+  color: #0f1726;
 }
 
 .nx-appCard__tagline{
-  margin: 3px 0 0;
-  font-size: 12px;
-  font-weight: 800;
-  color: rgba(11,18,32,.60);
+  margin: 4px 0 0;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: rgba(13,21,35,.60);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* BADGES */
 .nx-badge{
-  height: 26px;
+  min-height: 26px;
   padding: 0 10px;
   border-radius: 999px;
   font-size: 11px;
-  font-weight: 950;
-  letter-spacing: .3px;
+  font-weight: 600;
+  letter-spacing: .02em;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255,255,255,.65);
-  background: rgba(255,255,255,.55);
-  color: rgba(11,18,32,.78);
+  border: 1px solid rgba(255,255,255,.68);
+  background: rgba(255,255,255,.58);
+  color: rgba(13,21,35,.78);
   white-space: nowrap;
 }
 
 .nx-badge--live{
-  border-color: rgba(60,150,255,.35);
-  background: rgba(60,150,255,.14);
-  color: rgba(11,18,32,.90);
+  border-color: rgba(60,150,255,.26);
+  background: rgba(60,150,255,.12);
+  color: #111827;
 }
 
-.nx-badge--soon{
-  border-color: rgba(170,120,255,.30);
-  background: rgba(170,120,255,.14);
+.nx-badge--dev{
+  border-color: rgba(31,106,225,.20);
+  background: rgba(31,106,225,.10);
+  color: #111827;
 }
 
-.nx-badge--labs{
-  border-color: rgba(255,190,30,.30);
-  background: rgba(255,190,30,.14);
+.nx-badge--private{
+  border-color: rgba(60,60,66,.22);
+  background: rgba(40,40,44,.10);
+  color: #111827;
 }
 
-/* BODY */
 .nx-appCard__body{
   position: relative;
   z-index: 2;
-  margin-top: 12px;
+  margin-top: 14px;
+}
+
+.nx-appCard__text{
+  margin: 0 0 14px;
+  font-size: 14px;
+  line-height: 1.7;
+  font-weight: 400;
+  color: rgba(13,21,35,.70);
+  min-height: 98px;
 }
 
 .nx-appCard__bullets{
@@ -220,16 +314,16 @@
   padding: 0;
   list-style: none;
   display: grid;
-  gap: 8px;
+  gap: 10px;
 }
 
 .nx-appCard__bullets li{
-  font-size: 13px;
-  font-weight: 800;
-  color: rgba(11,18,32,.78);
+  font-size: 13.5px;
+  font-weight: 500;
+  color: rgba(13,21,35,.80);
   padding-left: 18px;
   position: relative;
-  line-height: 1.25;
+  line-height: 1.45;
 }
 
 .nx-appCard__bullets li::before{
@@ -240,23 +334,22 @@
   width: 8px;
   height: 8px;
   border-radius: 999px;
-  background: rgba(31,106,225,.55);
-  box-shadow: 0 10px 18px rgba(31,106,225,.12);
+  background: rgba(31,106,225,.52);
+  box-shadow: 0 8px 18px rgba(31,106,225,.10);
 }
 
-/* ACTIONS */
 .nx-appCard__actions{
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
-  margin-top: 14px;
+  margin-top: 16px;
 }
 
 .nx-btn{
   height: 44px;
   border-radius: 16px;
   font-size: 13px;
-  font-weight: 950;
+  font-weight: 600;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -264,85 +357,84 @@
   cursor: pointer;
   border: 1px solid rgba(255,255,255,.65);
   text-decoration: none;
-  transition: transform .16s ease, background .16s ease, border-color .16s ease;
+  transition: transform .16s ease, background .16s ease, border-color .16s ease, color .16s ease, opacity .16s ease;
   user-select: none;
 }
 
-.nx-btn:active{ transform: translateY(1px); }
+.nx-btn:active{
+  transform: translateY(1px);
+}
 
 .nx-btn--primary{
-  background: rgba(31,106,225,.14);
-  border-color: rgba(31,106,225,.30);
-  color: rgba(11,18,32,.92);
+  background: rgba(31,106,225,.12);
+  border-color: rgba(31,106,225,.24);
+  color: #101827;
 }
 
 .nx-btn--ghost{
-  background: rgba(255,255,255,.45);
-  color: rgba(11,18,32,.82);
+  background: rgba(255,255,255,.48);
+  color: rgba(13,21,35,.82);
 }
 
-.nx-btn--wide{
-  width: 100%;
-  background: rgba(255,255,255,.55);
-  border-color: rgba(255,255,255,.70);
-  color: rgba(11,18,32,.88);
+.nx-btn--disabled{
+  pointer-events: none;
+  opacity: .58;
 }
 
-/* STORES */
 .nx-appCard__stores{
   display: flex;
-  gap: 10px;
-  margin-top: 12px;
+  gap: 12px;
+  margin-top: 14px;
   flex-wrap: wrap;
-}
-
-.nx-store__pill{
-  height: 34px;
-  padding: 0 12px;
-  border-radius: 999px;
-  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  font-weight: 950;
-  background: rgba(255,255,255,.55);
-  border: 1px solid rgba(255,255,255,.65);
-  color: rgba(11,18,32,.78);
-  box-shadow: 0 18px 40px rgba(11,18,32,.06);
 }
 
-/* SHINE */
+.nx-store{
+  display: inline-flex;
+  text-decoration: none;
+  transition: transform .16s ease, opacity .16s ease;
+}
+
+.nx-store:hover{
+  transform: translateY(-1px);
+}
+
+.nx-store--disabled{
+  opacity: .42;
+  filter: grayscale(1);
+  pointer-events: none;
+}
+
+.nx-store__badgeImg{
+  display: block;
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+}
+
 .nx-appCard__shine{
   position:absolute;
   inset:-120px;
-  background: radial-gradient(600px 300px at 12% 0%, rgba(255,255,255,.35), transparent 60%);
+  background: radial-gradient(600px 300px at 12% 0%, rgba(255,255,255,.30), transparent 60%);
   transform: rotate(-8deg);
   opacity: .55;
   pointer-events:none;
 }
 
-/* BOTTOM */
-.nx-apps__bottom{
-  margin-top: 16px;
-  display: grid;
-  grid-template-columns: 1.2fr .8fr;
-  gap: 14px;
-  align-items: center;
-}
-
-.nx-apps__note{
-  padding: 14px 16px;
-  border-radius: 20px;
-  background: rgba(255,255,255,.55);
-  border: 1px solid rgba(255,255,255,.70);
-  color: rgba(11,18,32,.72);
-  font-size: 13px;
-  font-weight: 800;
-  box-shadow: 0 18px 40px rgba(11,18,32,.06);
-}
-
-/* RESPONSIVE */
 @media (max-width: 980px){
-  .nx-apps__grid{ grid-template-columns: 1fr; }
-  .nx-apps__bottom{ grid-template-columns: 1fr; }
+  .nx-appsCarousel{
+    grid-template-columns: 1fr;
+  }
+
+  .nx-appsCarousel__nav{
+    display: none;
+  }
+
+  .nx-appCard{
+    flex: 0 0 320px;
+  }
+
+  .nx-appCard__text{
+    min-height: auto;
+  }
 }

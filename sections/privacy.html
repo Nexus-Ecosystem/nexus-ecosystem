@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Aviso de Privacidad — Nexus Ecosystem</title>
+
+  <link rel="icon" type="image/png" href="../assets/nexus_icon.png">
+  <link rel="stylesheet" href="../css/styles.css">
+
+  <style>
+    body {
+      font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #f7faff 0%, #f4f8ff 40%, #f6f8fc 100%);
+      margin: 0;
+      padding: 0;
+      color: #111827;
+      line-height: 1.65;
+    }
+
+    .nx-legal-page {
+      min-height: 100vh;
+      padding: 48px 20px 60px;
+    }
+
+    .nx-legal-container {
+      max-width: 940px;
+      margin: 0 auto;
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(255,255,255,.8);
+      backdrop-filter: blur(16px) saturate(160%);
+      -webkit-backdrop-filter: blur(16px) saturate(160%);
+      border-radius: 28px;
+      padding: 42px 46px;
+      box-shadow: 0 24px 60px rgba(17,24,39,.08);
+    }
+
+    .nx-legal-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .nx-legal-logo {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 28px;
+      margin-bottom: 16px;
+      box-shadow: 0 18px 40px rgba(17,24,39,.10);
+      background: #fff;
+    }
+
+    .nx-legal-kicker {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 32px;
+      padding: 0 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,.86);
+      border: 1px solid rgba(17,24,39,.08);
+      color: rgba(17,24,39,.66);
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 42px);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .nx-legal-intro {
+      margin-top: 18px;
+      font-size: 16px;
+      color: rgba(17,24,39,.78);
+    }
+
+    h2 {
+      margin-top: 34px;
+      margin-bottom: 12px;
+      font-size: 22px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    h3 {
+      margin-top: 18px;
+      margin-bottom: 8px;
+      font-size: 16px;
+      line-height: 1.3;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    p {
+      margin: 0 0 14px;
+      font-size: 15px;
+      color: rgba(17,24,39,.76);
+    }
+
+    ul {
+      margin: 0 0 14px 20px;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 8px;
+      color: rgba(17,24,39,.76);
+      font-size: 15px;
+    }
+
+    .nx-legal-highlight {
+      padding: 16px 18px;
+      margin: 20px 0;
+      border-radius: 18px;
+      background: rgba(20,90,220,.05);
+      border: 1px solid rgba(20,90,220,.10);
+      color: rgba(17,24,39,.82);
+    }
+
+    .nx-legal-footer {
+      margin-top: 42px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(17,24,39,.08);
+      text-align: center;
+      font-size: 13px;
+      color: rgba(17,24,39,.56);
+    }
+
+    .nx-legal-links {
+      margin-top: 24px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nx-legal-link {
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      color: #111827;
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(17,24,39,.08);
+      transition: transform .16s ease, border-color .16s ease;
+    }
+
+    .nx-legal-link:hover {
+      transform: translateY(-1px);
+      border-color: rgba(20,90,220,.20);
+    }
+
+    @media (max-width: 680px) {
+      .nx-legal-container {
+        padding: 28px 20px;
+        border-radius: 22px;
+      }
+
+      .nx-legal-logo {
+        width: 96px;
+        height: 96px;
+        border-radius: 22px;
+      }
+
+      p, li {
+        font-size: 14px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="nx-legal-page">
+    <section class="nx-legal-container">
+
+      <header class="nx-legal-header">
+        <img
+          src="../assets/nexus_icon.png"
+          class="nx-legal-logo"
+          alt="Nexus Ecosystem Logo"
+        />
+        <div class="nx-legal-kicker">Nexus Ecosystem</div>
+        <h1>Aviso de Privacidad</h1>
+        <p class="nx-legal-intro">
+          Este Aviso de Privacidad aplica a las aplicaciones, productos, servicios y experiencias digitales
+          desarrollados bajo <strong>Nexus Ecosystem</strong>, incluyendo aplicaciones actuales y futuras
+          disponibles en iOS, Android y otras plataformas compatibles.
+        </p>
+      </header>
+
+      <p>
+        En Nexus Ecosystem valoramos la privacidad, la claridad y la confianza. Por ello, este documento
+        describe de manera amplia cómo podemos recopilar, usar, resguardar, procesar y proteger la información
+        relacionada con el uso de nuestras aplicaciones y servicios.
+      </p>
+
+      <p>
+        Este Aviso busca alinearse con principios generales de protección de datos, buenas prácticas de la industria,
+        requisitos de tiendas de aplicaciones y marcos normativos aplicables, incluyendo estándares de transparencia,
+        seguridad, minimización de datos y respeto a los derechos de las personas usuarias.
+      </p>
+
+      <h2>1. Responsable del tratamiento</h2>
+      <p>
+        El responsable del tratamiento de los datos vinculados a las aplicaciones y productos de Nexus Ecosystem
+        es el equipo desarrollador y operador de Nexus Ecosystem.
+      </p>
+      <p>
+        Para cualquier consulta, solicitud o ejercicio de derechos relacionados con privacidad, puedes contactarnos en:
+        <strong>nexus.ecosystem.soporte@gmail.com</strong>
+      </p>
+
+      <h2>2. Alcance de este Aviso</h2>
+      <p>
+        Este Aviso aplica a todos los productos actuales y futuros de Nexus Ecosystem, incluyendo, entre otros:
+      </p>
+      <ul>
+        <li>Medi</li>
+        <li>Aura Zen</li>
+        <li>Beast</li>
+        <li>Otros productos, aplicaciones, sitios web, paneles o servicios asociados a Nexus Ecosystem</li>
+      </ul>
+
+      <h2>3. Información que podemos recopilar</h2>
+      <p>
+        Dependiendo del producto utilizado, de las funciones activadas y del tipo de experiencia contratada o usada,
+        Nexus Ecosystem puede tratar diferentes categorías de información, siempre procurando recolectar únicamente
+        lo necesario para ofrecer la funcionalidad correspondiente.
+      </p>
+
+      <h3>3.1 Información proporcionada por la persona usuaria</h3>
+      <ul>
+        <li>Datos ingresados manualmente dentro de la aplicación</li>
+        <li>Preferencias, configuraciones y personalizaciones</li>
+        <li>Recordatorios, horarios, eventos, registros o contenido creado por la persona usuaria</li>
+        <li>Información de contacto en caso de soporte, retroalimentación o consultas</li>
+      </ul>
+
+      <h3>3.2 Información técnica y de funcionamiento</h3>
+      <ul>
+        <li>Datos básicos del dispositivo y del sistema operativo</li>
+        <li>Idioma, zona horaria, versión de la app y configuraciones relacionadas</li>
+        <li>Información operativa necesaria para asegurar estabilidad, compatibilidad y funcionamiento</li>
+        <li>Eventos técnicos relacionados con errores, rendimiento, seguridad o sincronización</li>
+      </ul>
+
+      <h3>3.3 Información de uso</h3>
+      <ul>
+        <li>Interacciones generales con funciones, pantallas o herramientas de la aplicación</li>
+        <li>Preferencias de uso y patrones funcionales internos</li>
+        <li>Datos necesarios para mantener continuidad, historial o sincronización entre sesiones cuando aplique</li>
+      </ul>
+
+      <div class="nx-legal-highlight">
+        En Nexus Ecosystem procuramos aplicar el principio de minimización: recopilar solo la información que
+        sea necesaria para proporcionar la funcionalidad, la continuidad, la mejora y la seguridad del servicio.
+      </div>
+
+      <h2>4. Finalidades del tratamiento</h2>
+      <p>La información puede ser utilizada para las siguientes finalidades:</p>
+      <ul>
+        <li>Permitir el funcionamiento principal de cada app o servicio</li>
+        <li>Configurar recordatorios, eventos, alarmas, programación o seguimiento</li>
+        <li>Guardar preferencias, historial o configuraciones personalizadas</li>
+        <li>Sincronizar información entre dispositivos o sesiones, cuando esa función exista</li>
+        <li>Mejorar estabilidad, seguridad, compatibilidad y experiencia general</li>
+        <li>Atender soporte técnico, dudas, incidencias o solicitudes de las personas usuarias</li>
+        <li>Prevenir errores, uso indebido, abuso técnico o vulnerabilidades</li>
+        <li>Cumplir obligaciones legales, regulatorias o requerimientos de plataformas</li>
+      </ul>
+
+      <h2>5. Almacenamiento y seguridad</h2>
+      <p>
+        La información puede almacenarse localmente en el dispositivo, en infraestructuras seguras en la nube
+        o en servicios tecnológicos de soporte debidamente integrados al ecosistema, dependiendo de la función
+        concreta de cada aplicación.
+      </p>
+      <p>
+        Nexus Ecosystem adopta medidas razonables, administrativas, técnicas y organizativas para proteger la
+        información contra pérdida, alteración, acceso no autorizado, uso indebido o divulgación no permitida.
+      </p>
+      <ul>
+        <li>Protección por capas del sistema operativo y del entorno de ejecución</li>
+        <li>Controles de acceso y separación lógica de la información</li>
+        <li>Uso de servicios tecnológicos de confianza para operación, continuidad y soporte</li>
+        <li>Medidas de resguardo compatibles con estándares modernos de desarrollo y despliegue</li>
+      </ul>
+
+      <h2>6. Sincronización, respaldo y servicios en la nube</h2>
+      <p>
+        Algunas funciones de Nexus Ecosystem pueden requerir mecanismos de sincronización, respaldo, entrega de
+        contenido, autenticación, notificaciones, almacenamiento remoto o continuidad del servicio. En esos casos,
+        cierta información podrá ser tratada mediante proveedores tecnológicos o infraestructura en la nube
+        seleccionada por Nexus Ecosystem.
+      </p>
+      <p>
+        Dicho tratamiento se realiza con el propósito de habilitar la funcionalidad correspondiente, mejorar la
+        disponibilidad del servicio, mantener continuidad entre dispositivos o reforzar la seguridad y confiabilidad
+        de la experiencia.
+      </p>
+
+      <h2>7. Permisos del dispositivo</h2>
+      <p>
+        Dependiendo de la aplicación y de las funciones que la persona usuaria decida utilizar, Nexus Ecosystem
+        puede solicitar permisos del dispositivo como, por ejemplo:
+      </p>
+      <ul>
+        <li>Notificaciones</li>
+        <li>Cámara</li>
+        <li>Almacenamiento o archivos</li>
+        <li>Alarmas o programación exacta de recordatorios</li>
+        <li>Tareas en segundo plano</li>
+        <li>Acceso a funciones del sistema necesarias para la experiencia</li>
+      </ul>
+      <p>
+        Cada permiso se solicita únicamente cuando es pertinente para una función concreta. La persona usuaria puede
+        revisar, limitar o revocar estos permisos desde la configuración del sistema operativo de su dispositivo.
+      </p>
+
+      <h2>8. Compartición de información</h2>
+      <p>
+        Nexus Ecosystem no vende información personal. Tampoco comparte información de manera arbitraria.
+      </p>
+      <p>
+        No obstante, cierta información podrá ser tratada o accedida por proveedores, plataformas o servicios
+        tecnológicos que apoyen la operación del ecosistema, únicamente en la medida necesaria para:
+      </p>
+      <ul>
+        <li>Hospedaje, sincronización o continuidad del servicio</li>
+        <li>Entrega de notificaciones o comunicaciones operativas</li>
+        <li>Soporte técnico, monitoreo de errores o seguridad</li>
+        <li>Cumplimiento de requerimientos legales o regulatorios</li>
+      </ul>
+
+      <h2>9. Retención de la información</h2>
+      <p>
+        La información será conservada durante el tiempo que resulte razonablemente necesario para cumplir con las
+        finalidades descritas en este Aviso, para mantener la funcionalidad del producto, para cumplir obligaciones
+        legales o para atender incidencias, seguridad, auditoría técnica o soporte.
+      </p>
+      <p>
+        Cuando la naturaleza del producto lo permita, la persona usuaria podrá eliminar datos desde la propia app,
+        borrar configuraciones locales o dejar de usar el servicio en cualquier momento.
+      </p>
+
+      <h2>10. Derechos de la persona usuaria</h2>
+      <p>
+        De conformidad con la normativa aplicable, la persona usuaria podrá solicitar, cuando corresponda:
+      </p>
+      <ul>
+        <li>Acceso a la información vinculada a su uso del servicio</li>
+        <li>Rectificación de información incorrecta o desactualizada</li>
+        <li>Cancelación o eliminación, cuando legal y técnicamente proceda</li>
+        <li>Oposición o limitación a ciertos tratamientos</li>
+        <li>Revocación de consentimiento, cuando aplique</li>
+      </ul>
+      <p>
+        Para ejercer estos derechos, puedes escribir a: <strong>soporte@nexusecosystem.com</strong>
+      </p>
+
+      <h2>11. Menores de edad</h2>
+      <p>
+        Los productos de Nexus Ecosystem no están dirigidos intencionalmente a menores de edad sin supervisión
+        adecuada cuando la naturaleza del servicio así lo requiera. Cuando sea aplicable conforme a la normativa
+        correspondiente, se recomienda intervención, autorización o acompañamiento de madre, padre o tutor.
+      </p>
+
+      <h2>12. Limitación y uso informativo</h2>
+      <p>
+        Algunas aplicaciones del ecosistema pueden ofrecer herramientas de seguimiento, organización, bienestar o
+        apoyo informativo. Salvo que expresamente se indique lo contrario en una funcionalidad concreta, estas
+        herramientas no sustituyen asesoría profesional, médica, clínica, psicológica, legal, financiera ni de otra
+        naturaleza especializada.
+      </p>
+
+      <h2>13. Cambios a este Aviso</h2>
+      <p>
+        Nexus Ecosystem podrá actualizar este Aviso de Privacidad en cualquier momento para reflejar cambios en sus
+        productos, en sus procesos, en la normativa aplicable o en los servicios utilizados para operar el ecosistema.
+      </p>
+      <p>
+        La versión vigente estará disponible en el sitio o enlace oficial correspondiente.
+      </p>
+
+      <h2>14. Contacto</h2>
+      <p>
+        Para dudas, comentarios, aclaraciones o solicitudes relacionadas con privacidad, uso de datos o este Aviso:
+      </p>
+      <p>
+        <strong>nexus.ecosystem.soporte@gmail.com</strong>
+      </p>
+
+      <div class="nx-legal-links">
+        <a class="nx-legal-link" href="../index.html">Volver al inicio</a>
+        <a class="nx-legal-link" href="../support.html">Soporte</a>
+      </div>
+
+      <div class="nx-legal-footer">
+        © 2026 Nexus Ecosystem · Aviso de Privacidad
+      </div>
+    </section>
+  </main>
+</body>
+</html>

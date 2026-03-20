@@ -3,23 +3,609 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   <title>Aura Zen — Nexus Ecosystem</title>
 
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
+  <link rel="icon" type="image/png" href="assets/nexus_icon.png">
 
-  <!-- HEADER -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/aura-page.css">
+</head>
+
+<body>
   <div id="app-header"></div>
 
-  <main class="container">
-    <h1>Aura Zen</h1>
-    <p>Bienestar, mindfulness y equilibrio.</p>
+  <main id="main-content">
+    <section class="au-page">
+
+      <!-- HERO -->
+      <section class="au-hero">
+        <div class="container au-hero__inner">
+
+          <div class="au-hero__left au-anim">
+            <div class="au-kicker">Aura Zen</div>
+
+            <div class="au-appHead">
+              <div class="au-appHead__iconWrap">
+                <img src="assets/aura.png" alt="Icono de Aura Zen" class="au-appHead__icon">
+              </div>
+
+              <div class="au-appHead__meta">
+                <h1 class="au-h1">Tu espacio para ciclo, calendario menstrual y bienestar con una experiencia más suave y personal.</h1>
+                <p class="au-lead">
+                  Aura Zen está diseñada para acompañar el seguimiento del ciclo menstrual con una experiencia visual calmada,
+                  clara y más íntima. Reúne calendario, registro, seguimiento y bienestar dentro de un entorno pensado para sentirse ligero y cuidado.
+                </p>
+              </div>
+            </div>
+
+            <div class="au-chipRow">
+              <span class="au-chip"><span class="au-chip__dot"></span> iOS</span>
+              <span class="au-chip"><span class="au-chip__dot"></span> Ciclo</span>
+              <span class="au-chip"><span class="au-chip__dot"></span> Calendario menstrual</span>
+              <span class="au-chip"><span class="au-chip__dot"></span> Bienestar</span>
+              <span class="au-chip"><span class="au-chip__dot"></span> Experiencia visual calmada</span>
+            </div>
+
+            <div class="au-storeRow">
+              <a
+                href="https://apps.apple.com/mx/app/aura-zen/id6757166481"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="au-store"
+                aria-label="Descargar Aura Zen en App Store"
+              >
+                <img src="assets/tienda_ios.png" alt="Descargar en App Store" class="au-store__img">
+              </a>
+            </div>
+
+            <div class="au-heroFacts">
+              <div class="au-heroFacts__item">
+                <div class="au-heroFacts__label">Diseñada para</div>
+                <div class="au-heroFacts__value">Seguimiento del ciclo y bienestar personal</div>
+              </div>
+
+              <div class="au-heroFacts__item">
+                <div class="au-heroFacts__label">Experiencia</div>
+                <div class="au-heroFacts__value">Más suave, íntima y clara</div>
+              </div>
+
+              <div class="au-heroFacts__item">
+                <div class="au-heroFacts__label">Disponible</div>
+                <div class="au-heroFacts__value">iOS</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="au-hero__right au-anim">
+            <div class="au-heroPreviewStack">
+              <div class="au-heroMock au-heroMock--main">
+                <img
+                  src="assets/gallery/aura/hero-aura.png"
+                  alt="Vista principal de Aura Zen"
+                  class="au-heroMock__img"
+                />
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- OVERVIEW -->
+      <section class="au-section">
+        <div class="container">
+          <div class="au-sectionHead au-anim">
+            <div class="au-kicker">Visión general</div>
+            <h2 class="au-h2">Una experiencia pensada para acompañar tu ciclo con más claridad</h2>
+            <p class="au-sub">
+              Aura Zen está diseñada como un espacio visual y funcional donde el seguimiento del ciclo, el calendario menstrual
+              y la sensación de bienestar conviven dentro de una experiencia más calmada.
+            </p>
+          </div>
+
+          <div class="au-overviewGrid">
+            <article class="au-overviewCard au-anim">
+              <div class="au-overviewCard__icon">🗓️</div>
+              <h3 class="au-h3">Calendario menstrual</h3>
+              <p class="au-p">
+                Visualiza y acompaña tu ciclo desde una interfaz clara, limpia y fácil de consultar.
+              </p>
+            </article>
+
+            <article class="au-overviewCard au-anim">
+              <div class="au-overviewCard__icon">🌙</div>
+              <h3 class="au-h3">Seguimiento personal</h3>
+              <p class="au-p">
+                Lleva un registro más ordenado de tu experiencia y consulta tu información en un solo lugar.
+              </p>
+            </article>
+
+            <article class="au-overviewCard au-anim">
+              <div class="au-overviewCard__icon">✨</div>
+              <h3 class="au-h3">Bienestar visual</h3>
+              <p class="au-p">
+                Una experiencia más suave e íntima, pensada para sentirse ligera y agradable en el uso diario.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURES -->
+      <section class="au-section au-section--soft">
+        <div class="container">
+          <div class="au-sectionHead au-anim">
+            <div class="au-kicker">Funciones</div>
+            <h2 class="au-h2">Lo que hace Aura Zen</h2>
+            <p class="au-sub">
+              Cada parte de Aura Zen está pensada para que el seguimiento del ciclo se sienta más claro, visual y personal.
+            </p>
+          </div>
+
+          <div class="au-featuresGrid">
+            <article class="au-feature au-anim">
+              <div class="au-feature__icon">🩷</div>
+              <h3 class="au-h3">Seguimiento del ciclo</h3>
+              <p class="au-p">
+                Acompaña y registra distintas etapas dentro de una experiencia organizada y fácil de revisar.
+              </p>
+            </article>
+
+            <article class="au-feature au-anim">
+              <div class="au-feature__icon">📅</div>
+              <h3 class="au-h3">Calendario menstrual</h3>
+              <p class="au-p">
+                Consulta tu información desde un calendario visual que facilita la lectura y el orden.
+              </p>
+            </article>
+
+            <article class="au-feature au-anim">
+              <div class="au-feature__icon">🌸</div>
+              <h3 class="au-h3">Experiencia calmada</h3>
+              <p class="au-p">
+                Una interfaz pensada para sentirse suave, limpia y menos saturada en el día a día.
+              </p>
+            </article>
+
+            <article class="au-feature au-anim">
+              <div class="au-feature__icon">🪷</div>
+              <h3 class="au-h3">Bienestar personal</h3>
+              <p class="au-p">
+                Aura Zen busca acompañar la experiencia personal desde una interacción más íntima y cuidada.
+              </p>
+            </article>
+
+            <article class="au-feature au-anim">
+              <div class="au-feature__icon">📈</div>
+              <h3 class="au-h3">Consulta visual clara</h3>
+              <p class="au-p">
+                Revisa la información importante dentro de una estructura visual simple y moderna.
+              </p>
+            </article>
+
+            <article class="au-feature au-anim">
+              <div class="au-feature__icon">🌙</div>
+              <h3 class="au-h3">Diseño con intención</h3>
+              <p class="au-p">
+                Cada detalle visual está pensado para transmitir calma, suavidad y claridad.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- BENEFITS -->
+      <section class="au-section">
+        <div class="container">
+          <div class="au-benefits au-anim">
+            <div class="au-benefits__left">
+              <div class="au-kicker">Diseño</div>
+              <h2 class="au-h2">Ciclo y bienestar dentro de una experiencia más suave.</h2>
+              <p class="au-sub au-sub--left">
+                Aura Zen combina seguimiento personal con una estética más calmada, para que cada consulta se sienta más clara, ligera y agradable.
+              </p>
+            </div>
+
+            <div class="au-benefits__right">
+              <div class="au-benefitLine">
+                <span class="au-benefitLine__dot"></span>
+                <div>
+                  <div class="au-benefitLine__title">Visualmente más ligera</div>
+                  <div class="au-benefitLine__text">Una interfaz que respira mejor y ayuda a consultar sin saturación.</div>
+                </div>
+              </div>
+
+              <div class="au-benefitLine">
+                <span class="au-benefitLine__dot"></span>
+                <div>
+                  <div class="au-benefitLine__title">Más personal</div>
+                  <div class="au-benefitLine__text">Un espacio pensado para sentirse íntimo, suave y cercano.</div>
+                </div>
+              </div>
+
+              <div class="au-benefitLine">
+                <span class="au-benefitLine__dot"></span>
+                <div>
+                  <div class="au-benefitLine__title">Más claro de revisar</div>
+                  <div class="au-benefitLine__text">La información se organiza de una forma más fácil de leer y seguir.</div>
+                </div>
+              </div>
+
+              <div class="au-benefitLine">
+                <span class="au-benefitLine__dot"></span>
+                <div>
+                  <div class="au-benefitLine__title">Parte del ecosistema Nexus</div>
+                  <div class="au-benefitLine__text">Aura Zen comparte una base visual y funcional consistente con el resto de productos.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+          <!-- SHOWCASE / STACK CAROUSEL -->
+      <section class="au-section">
+        <div class="container">
+          <div class="au-sectionHead au-anim">
+            <div class="au-kicker">Galería</div>
+            <h2 class="au-h2">Aura Zen en acción</h2>
+            <p class="au-sub">
+              Pantallas reales que muestran distintas partes de la experiencia de Aura Zen.
+            </p>
+          </div>
+
+          <div class="au-showcase au-anim">
+            <button class="au-showcase__nav au-showcase__nav--prev" type="button" aria-label="Anterior">
+              ‹
+            </button>
+
+            <div class="au-showcase__viewport">
+              <div class="au-showcase__track" id="auShowcaseTrack">
+                <button class="au-showcase__card" type="button" data-index="0" data-img="assets/gallery/aura/a1.png" aria-label="Captura 1">
+                  <img src="assets/gallery/aura/a1.png" alt="Captura 1 de Aura Zen">
+                </button>
+
+                <button class="au-showcase__card" type="button" data-index="1" data-img="assets/gallery/aura/a2.png" aria-label="Captura 2">
+                  <img src="assets/gallery/aura/a2.png" alt="Captura 2 de Aura Zen">
+                </button>
+
+                <button class="au-showcase__card" type="button" data-index="2" data-img="assets/gallery/aura/a3.png" aria-label="Captura 3">
+                  <img src="assets/gallery/aura/a3.png" alt="Captura 3 de Aura Zen">
+                </button>
+
+                <button class="au-showcase__card" type="button" data-index="3" data-img="assets/gallery/aura/a4.png" aria-label="Captura 4">
+                  <img src="assets/gallery/aura/a4.png" alt="Captura 4 de Aura Zen">
+                </button>
+              </div>
+            </div>
+
+            <button class="au-showcase__nav au-showcase__nav--next" type="button" aria-label="Siguiente">
+              ›
+            </button>
+          </div>
+
+          <div class="au-showcase__dots" id="auShowcaseDots">
+            <button class="au-showcase__dot" type="button" data-index="0" aria-label="Ir a imagen 1"></button>
+            <button class="au-showcase__dot" type="button" data-index="1" aria-label="Ir a imagen 2"></button>
+            <button class="au-showcase__dot" type="button" data-index="2" aria-label="Ir a imagen 3"></button>
+            <button class="au-showcase__dot" type="button" data-index="3" aria-label="Ir a imagen 4"></button>
+          </div>
+        </div>
+      </section>
+
+
+                <!-- VIDEO SHORTS -->
+      <section class="au-section au-section--soft">
+        <div class="container">
+          <div class="au-sectionHead au-anim">
+            <div class="au-kicker">Videos</div>
+            <h2 class="au-h2">Aura Zen en video</h2>
+            <p class="au-sub">
+              Reels verticales y demos rápidas para mostrar la experiencia de Aura Zen.
+            </p>
+          </div>
+
+          <div class="au-videoBlock au-anim">
+            <div class="au-videoPlayerWrap">
+              <div id="auYoutubePlayer" class="au-videoPlayer"></div>
+            </div>
+
+            <div class="au-videoSidebar">
+              <div class="au-videoSidebar__head">
+                <h3 class="au-h3">Explora los videos</h3>
+                <div class="au-videoControls">
+                  <button id="auVideoPrev" type="button" class="au-videoBtn" aria-label="Video anterior">‹</button>
+                  <button id="auVideoNext" type="button" class="au-videoBtn" aria-label="Video siguiente">›</button>
+                </div>
+              </div>
+
+              <div class="au-videoList" id="auVideoList">
+                <button class="au-videoItem is-active" type="button" data-video-id="6JPkV--BJbc">
+                  <span class="au-videoItem__number">01</span>
+                  <span class="au-videoItem__content">
+                    <span class="au-videoItem__title">Conoce Aura Zen en segundos</span>
+                    <span class="au-videoItem__meta">Descubre la experiencia visual</span>
+                  </span>
+                </button>
+
+                <button class="au-videoItem" type="button" data-video-id="xSwDIwZPJJE">
+                  <span class="au-videoItem__number">02</span>
+                  <span class="au-videoItem__content">
+                    <span class="au-videoItem__title">Calendario y ciclo en una sola app</span>
+                    <span class="au-videoItem__meta">Seguimiento claro y personal</span>
+                  </span>
+                </button>
+
+                <button class="au-videoItem" type="button" data-video-id="WBcDJjYuXY8">
+                  <span class="au-videoItem__number">03</span>
+                  <span class="au-videoItem__content">
+                    <span class="au-videoItem__title">Una experiencia más suave y calmada</span>
+                    <span class="au-videoItem__meta">Diseño pensado para bienestar</span>
+                  </span>
+                </button>
+
+                <button class="au-videoItem" type="button" data-video-id="6JPkV--BJbc">
+                  <span class="au-videoItem__number">04</span>
+                  <span class="au-videoItem__content">
+                    <span class="au-videoItem__title">Sigue tu ciclo con más claridad</span>
+                    <span class="au-videoItem__meta">Información fácil de revisar</span>
+                  </span>
+                </button>
+
+                <button class="au-videoItem" type="button" data-video-id="xSwDIwZPJJE">
+                  <span class="au-videoItem__number">05</span>
+                  <span class="au-videoItem__content">
+                    <span class="au-videoItem__title">Aura Zen te acompaña cada día</span>
+                    <span class="au-videoItem__meta">Bienestar en una sola experiencia</span>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+      <!-- CTA -->
+      <section class="au-section au-section--last">
+        <div class="container">
+          <div class="au-cta au-anim">
+            <div class="au-cta__copy">
+              <div class="au-kicker">Descargar</div>
+              <h2 class="au-h2">Empieza a usar Aura Zen</h2>
+              <p class="au-sub au-sub--left">
+                Disponible en iOS para acompañar tu ciclo y bienestar con una experiencia más suave, clara y moderna.
+              </p>
+            </div>
+
+            <div class="au-cta__actions">
+              <a
+                href="https://apps.apple.com/mx/app/aura-zen/id6757166481"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="au-store"
+              >
+                <img src="assets/tienda_ios.png" alt="Descargar en App Store" class="au-store__img">
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODAL -->
+      <div class="au-modal" id="auModal" aria-hidden="true">
+        <div class="au-modal__backdrop" data-close="1"></div>
+        <div class="au-modal__panel" role="dialog" aria-modal="true" aria-label="Vista previa de Aura Zen">
+          <button class="au-modal__close" type="button" data-close="1" aria-label="Cerrar">✕</button>
+          <img class="au-modal__img" id="auModalImg" src="" alt="Preview Aura Zen">
+        </div>
+      </div>
+
+    </section>
   </main>
 
-  <!-- FOOTER -->
   <div id="app-footer"></div>
 
-  <script src="js/layout.js"></script>
+  <script src="js/i18n.js" defer></script>
+  <script src="js/layout.js" defer></script>
+  <script src="https://www.youtube.com/iframe_api"></script>
+
+  <script>
+    let auYoutubePlayer = null;
+    let auCurrentVideoIndex = 0;
+
+    function onYouTubeIframeAPIReady() {
+      const config = window.__auVideoConfig;
+      if (!config || !config.videoIds || !config.videoIds.length) return;
+
+      auYoutubePlayer = new YT.Player('auYoutubePlayer', {
+        width: '380',
+        height: '720',
+        videoId: config.videoIds[0],
+        playerVars: {
+          autoplay: 1,
+          mute: 1,
+          controls: 1,
+          rel: 0,
+          playsinline: 1,
+          modestbranding: 1
+        },
+        events: {
+          onReady: function(event) {
+            config.renderVideoList();
+            event.target.playVideo();
+          },
+          onStateChange: function(event) {
+            if (event.data === YT.PlayerState.ENDED) {
+              config.playVideoAt(auCurrentVideoIndex + 1);
+            }
+          }
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.add('au-js');
+
+      const els = document.querySelectorAll('.au-anim');
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      els.forEach((el) => io.observe(el));
+
+      const modal = document.getElementById('auModal');
+      const modalImg = document.getElementById('auModalImg');
+
+      function openModal(src) {
+        modalImg.src = src;
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        modalImg.src = '';
+        document.body.style.overflow = '';
+      }
+
+      modal.addEventListener('click', (e) => {
+        if (e.target?.dataset?.close) closeModal();
+      });
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+          closeModal();
+        }
+      });
+
+      // showcase
+      const cards = Array.from(document.querySelectorAll('.au-showcase__card'));
+      const prevBtn = document.querySelector('.au-showcase__nav--prev');
+      const nextBtn = document.querySelector('.au-showcase__nav--next');
+      const dots = Array.from(document.querySelectorAll('.au-showcase__dot'));
+
+      let current = 1;
+
+      function getPrevIndex(index) {
+        return (index - 1 + cards.length) % cards.length;
+      }
+
+      function getNextIndex(index) {
+        return (index + 1) % cards.length;
+      }
+
+      function renderCarousel() {
+        cards.forEach((card, index) => {
+          card.classList.remove('is-left', 'is-active', 'is-right', 'is-hidden');
+
+          if (index === current) {
+            card.classList.add('is-active');
+          } else if (index === getPrevIndex(current)) {
+            card.classList.add('is-left');
+          } else if (index === getNextIndex(current)) {
+            card.classList.add('is-right');
+          } else {
+            card.classList.add('is-hidden');
+          }
+        });
+
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('is-active', index === current);
+        });
+      }
+
+      prevBtn?.addEventListener('click', () => {
+        current = getPrevIndex(current);
+        renderCarousel();
+      });
+
+      nextBtn?.addEventListener('click', () => {
+        current = getNextIndex(current);
+        renderCarousel();
+      });
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          current = index;
+          renderCarousel();
+        });
+      });
+
+      cards.forEach((card, index) => {
+        card.addEventListener('click', () => {
+          if (index === current) {
+            openModal(card.dataset.img);
+          } else {
+            current = index;
+            renderCarousel();
+          }
+        });
+      });
+
+      renderCarousel();
+
+      // videos
+      const videoItems = Array.from(document.querySelectorAll('.au-videoItem'));
+      const videoPrevBtn = document.getElementById('auVideoPrev');
+      const videoNextBtn = document.getElementById('auVideoNext');
+      const videoIds = videoItems.map((item) => item.dataset.videoId).filter(Boolean);
+
+      function renderVideoList() {
+        videoItems.forEach((item, index) => {
+          item.classList.toggle('is-active', index === auCurrentVideoIndex);
+        });
+      }
+
+      function playVideoAt(index) {
+        if (!videoIds.length) return;
+
+        auCurrentVideoIndex = (index + videoIds.length) % videoIds.length;
+        renderVideoList();
+
+        if (auYoutubePlayer && typeof auYoutubePlayer.loadVideoById === 'function') {
+          auYoutubePlayer.loadVideoById(videoIds[auCurrentVideoIndex]);
+
+          const activeItem = videoItems[auCurrentVideoIndex];
+          if (activeItem) {
+            activeItem.scrollIntoView({
+              behavior: 'smooth',
+              block: 'nearest'
+            });
+          }
+        }
+      }
+
+      videoItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+          playVideoAt(index);
+        });
+      });
+
+      videoPrevBtn?.addEventListener('click', () => {
+        playVideoAt(auCurrentVideoIndex - 1);
+      });
+
+      videoNextBtn?.addEventListener('click', () => {
+        playVideoAt(auCurrentVideoIndex + 1);
+      });
+
+      window.__auVideoConfig = {
+        videoIds,
+        renderVideoList,
+        playVideoAt
+      };
+    });
+  </script>
 </body>
 </html>

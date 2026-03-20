@@ -4,156 +4,322 @@
     <div class="nx-apps__head">
       <div class="nx-apps__kicker">Apps & Proyectos</div>
       <h2 class="nx-apps__title">
-        Un ecosistema con diseño premium para lanzar, escalar y dar soporte.
+        Un ecosistema digital pensado para crear productos útiles, visualmente consistentes y listos para crecer.
       </h2>
       <p class="nx-apps__desc">
-        Cada producto tiene su propia identidad, pero todos comparten la misma obsesión:
-        experiencia limpia, rápida y bonita.
+        Cada experiencia dentro de Nexus tiene su propia personalidad, pero todas comparten la misma base:
+        claridad, diseño premium y una ejecución cuidada de principio a fin.
       </p>
     </div>
 
-    <div class="nx-apps__grid">
+    <div class="nx-appsCarousel">
+      <button class="nx-appsCarousel__nav nx-appsCarousel__nav--prev" type="button" aria-label="Anterior">
+        ‹
+      </button>
 
-      <!-- ================= MEDI ================= -->
-      <article class="nx-appCard nx-appCard--medi">
-        <div class="nx-appCard__top">
-          <div class="nx-appCard__iconWrap">
-            <img 
-              class="nx-appCard__icon" 
-              src="assets/medi.png" 
-              alt="Icono de Medi">
-          </div>
+      <div class="nx-appsCarousel__viewport" id="nxAppsViewport">
+        <div class="nx-appsTrack" id="nxAppsTrack">
 
-          <div class="nx-appCard__meta">
-            <div class="nx-appCard__nameRow">
-              <h3 class="nx-appCard__name">Medi</h3>
-              <span class="nx-badge nx-badge--live">Disponible</span>
+          <!-- ================= MEDI ================= -->
+          <article class="nx-appCard nx-appCard--medi">
+            <div class="nx-appCard__top">
+              <div class="nx-appCard__iconWrap">
+                <img class="nx-appCard__icon" src="assets/medi.png" alt="Icono de Medi">
+              </div>
+
+              <div class="nx-appCard__meta">
+                <div class="nx-appCard__nameRow">
+                  <h3 class="nx-appCard__name">Medi</h3>
+                  <span class="nx-badge nx-badge--live">Disponible</span>
+                </div>
+                <p class="nx-appCard__tagline">
+                  Salud • Recordatorios • Seguimiento diario
+                </p>
+              </div>
             </div>
-            <p class="nx-appCard__tagline">
-              Medicamentos • Recordatorios • Caducidades
-            </p>
-          </div>
-        </div>
 
-        <div class="nx-appCard__body">
-          <ul class="nx-appCard__bullets">
-            <li>Recordatorios inteligentes</li>
-            <li>Historial y control de caducidades</li>
-            <li>Exportables / reportes</li>
-          </ul>
+            <div class="nx-appCard__body">
+              <p class="nx-appCard__text">
+                Medi ayuda a organizar tratamientos, recordatorios, medicamentos, recetas y seguimiento de salud con una experiencia clara, rápida y útil en el día a día.
+              </p>
 
-          <div class="nx-appCard__actions">
-            <a class="nx-btn nx-btn--primary" href="medi.html">Ver Medi</a>
-            <a class="nx-btn nx-btn--ghost" href="support.html">Soporte</a>
-          </div>
+              <ul class="nx-appCard__bullets">
+                <li>Recordatorios inteligentes</li>
+                <li>Control de medicamentos y recetas</li>
+                <li>Seguimiento y reportes</li>
+              </ul>
 
-          <div class="nx-appCard__stores">
-            <a class="nx-store" href="#" aria-label="Descargar Medi en iOS">
-              <span class="nx-store__pill"> iOS</span>
-            </a>
-            <a class="nx-store" href="#" aria-label="Descargar Medi en Android">
-              <span class="nx-store__pill">Android</span>
-            </a>
-          </div>
-        </div>
+              <div class="nx-appCard__actions">
+                <a class="nx-btn nx-btn--primary" href="medi.html">Ver Medi</a>
+                <a class="nx-btn nx-btn--ghost" href="support.html">Soporte</a>
+              </div>
 
-        <div class="nx-appCard__shine"></div>
-      </article>
+              <div class="nx-appCard__stores">
+                <a class="nx-store"
+                   href="https://apps.apple.com/mx/app/medi-recordatorios/id6756452930"
+                   target="_blank" rel="noopener noreferrer">
+                  <img src="assets/tienda_ios.png" class="nx-store__badgeImg" alt="Descargar Medi en App Store">
+                </a>
 
-
-      <!-- ================= AURA ================= -->
-      <article class="nx-appCard nx-appCard--aura">
-        <div class="nx-appCard__top">
-          <div class="nx-appCard__iconWrap">
-            <img 
-              class="nx-appCard__icon" 
-              src="assets/aura.png" 
-              alt="Icono de Aura Zen">
-          </div>
-
-          <div class="nx-appCard__meta">
-            <div class="nx-appCard__nameRow">
-              <h3 class="nx-appCard__name">Aura Zen</h3>
-              <span class="nx-badge nx-badge--soon">Muy pronto</span>
+                <a class="nx-store"
+                   href="https://play.google.com/store/apps/details?id=com.nexussytem.medi&pcampaignid=web_share"
+                   target="_blank" rel="noopener noreferrer">
+                  <img src="assets/tienda_android.png" class="nx-store__badgeImg" alt="Descargar Medi en Google Play">
+                </a>
+              </div>
             </div>
-            <p class="nx-appCard__tagline">
-              Bienestar • Hábitos • Respiración
-            </p>
-          </div>
-        </div>
 
-        <div class="nx-appCard__body">
-          <ul class="nx-appCard__bullets">
-            <li>Rutinas de respiración guiadas</li>
-            <li>Retos de hábitos de 7/14/21 días</li>
-            <li>Progreso y logros</li>
-          </ul>
+            <div class="nx-appCard__shine"></div>
+          </article>
 
-          <div class="nx-appCard__actions">
-            <a class="nx-btn nx-btn--primary" href="aura-zen.html">Ver Aura</a>
-            <a class="nx-btn nx-btn--ghost" href="support.html">Soporte</a>
-          </div>
+          <!-- ================= AURA ================= -->
+          <article class="nx-appCard nx-appCard--aura">
+            <div class="nx-appCard__top">
+              <div class="nx-appCard__iconWrap">
+                <img class="nx-appCard__icon" src="assets/aura.png" alt="Icono de Aura Zen">
+              </div>
 
-          <div class="nx-appCard__stores">
-            <span class="nx-store nx-store--disabled">
-              <span class="nx-store__pill">iOS</span>
-            </span>
-            <span class="nx-store nx-store--disabled">
-              <span class="nx-store__pill">Android</span>
-            </span>
-          </div>
-        </div>
-
-        <div class="nx-appCard__shine"></div>
-      </article>
-
-
-      <!-- ================= BEAST ================= -->
-      <article class="nx-appCard nx-appCard--beast">
-        <div class="nx-appCard__top">
-          <div class="nx-appCard__iconWrap">
-            <img 
-              class="nx-appCard__icon" 
-              src="assets/beast.png" 
-              alt="Icono de Beast">
-          </div>
-
-          <div class="nx-appCard__meta">
-            <div class="nx-appCard__nameRow">
-              <h3 class="nx-appCard__name">Beast</h3>
-              <span class="nx-badge nx-badge--labs">Labs</span>
+              <div class="nx-appCard__meta">
+                <div class="nx-appCard__nameRow">
+                  <h3 class="nx-appCard__name">Aura Zen</h3>
+                  <span class="nx-badge nx-badge--live">Disponible</span>
+                </div>
+                <p class="nx-appCard__tagline">
+                  Ciclo • Calendario menstrual • Bienestar
+                </p>
+              </div>
             </div>
-            <p class="nx-appCard__tagline">
-              Productividad • Metas • Enfoque
-            </p>
-          </div>
+
+            <div class="nx-appCard__body">
+              <p class="nx-appCard__text">
+                Aura Zen está diseñada para el seguimiento del ciclo menstrual con una experiencia más calmada, visual y personal.
+              </p>
+
+              <ul class="nx-appCard__bullets">
+                <li>Calendario menstrual inteligente</li>
+                <li>Registro y seguimiento del ciclo</li>
+                <li>Experiencia visual suave y clara</li>
+              </ul>
+
+              <div class="nx-appCard__actions">
+                <a class="nx-btn nx-btn--primary" href="aura-zen.html">Ver Aura</a>
+                <a class="nx-btn nx-btn--ghost" href="support.html">Soporte</a>
+              </div>
+
+              <div class="nx-appCard__stores">
+                <a class="nx-store"
+                   href="https://apps.apple.com/mx/app/aura-zen/id6757166481"
+                   target="_blank" rel="noopener noreferrer">
+                  <img src="assets/tienda_ios.png" class="nx-store__badgeImg" alt="Descargar Aura Zen en App Store">
+                </a>
+
+                <span class="nx-store nx-store--disabled">
+                  <img src="assets/tienda_android.png" class="nx-store__badgeImg" alt="Android no disponible">
+                </span>
+              </div>
+            </div>
+
+            <div class="nx-appCard__shine"></div>
+          </article>
+
+          <!-- ================= BEAST ================= -->
+          <article class="nx-appCard nx-appCard--beast">
+            <div class="nx-appCard__top">
+              <div class="nx-appCard__iconWrap">
+                <img class="nx-appCard__icon" src="assets/beast.png" alt="Icono de Beast">
+              </div>
+
+              <div class="nx-appCard__meta">
+                <div class="nx-appCard__nameRow">
+                  <h3 class="nx-appCard__name">Beast</h3>
+                  <span class="nx-badge nx-badge--dev">En desarrollo</span>
+                </div>
+                <p class="nx-appCard__tagline">
+                  Rendimiento • Metas • Enfoque
+                </p>
+              </div>
+            </div>
+
+            <div class="nx-appCard__body">
+              <p class="nx-appCard__text">
+                Beast es una línea enfocada en disciplina, progreso y rendimiento personal dentro del ecosistema Nexus.
+              </p>
+
+              <ul class="nx-appCard__bullets">
+                <li>Seguimiento de objetivos</li>
+                <li>Hábitos y disciplina</li>
+                <li>Producto en evolución</li>
+              </ul>
+
+              <div class="nx-appCard__actions">
+                <span class="nx-btn nx-btn--primary nx-btn--disabled">Próximamente</span>
+                <a class="nx-btn nx-btn--ghost" href="support.html">Soporte</a>
+              </div>
+
+              <div class="nx-appCard__stores">
+                <span class="nx-store nx-store--disabled">
+                  <img src="assets/tienda_ios.png" class="nx-store__badgeImg" alt="iOS no disponible">
+                </span>
+
+                <span class="nx-store nx-store--disabled">
+                  <img src="assets/tienda_android.png" class="nx-store__badgeImg" alt="Android no disponible">
+                </span>
+              </div>
+            </div>
+
+            <div class="nx-appCard__shine"></div>
+          </article>
+
+          <!-- ================= ABONIA ================= -->
+          <article class="nx-appCard nx-appCard--abonia">
+            <div class="nx-appCard__top">
+              <div class="nx-appCard__iconWrap">
+                <img class="nx-appCard__icon" src="assets/abonia.png" alt="Icono de Abonia">
+              </div>
+
+              <div class="nx-appCard__meta">
+                <div class="nx-appCard__nameRow">
+                  <h3 class="nx-appCard__name">Abonia</h3>
+                  <span class="nx-badge nx-badge--dev">En desarrollo</span>
+                </div>
+                <p class="nx-appCard__tagline">
+                  Ventas • Abonos • Campañas WhatsApp
+                </p>
+              </div>
+            </div>
+
+            <div class="nx-appCard__body">
+              <p class="nx-appCard__text">
+                Abonia está pensada para negocios que venden a crédito o por abonos y necesitan una forma más clara de dar seguimiento a clientes, pagos y campañas.
+              </p>
+
+              <ul class="nx-appCard__bullets">
+                <li>Control de abonos y saldos</li>
+                <li>Seguimiento de clientes</li>
+                <li>Campañas y contacto por WhatsApp</li>
+              </ul>
+
+              <div class="nx-appCard__actions">
+                <span class="nx-btn nx-btn--primary nx-btn--disabled">Próximamente</span>
+                <a class="nx-btn nx-btn--ghost" href="support.html">Soporte</a>
+              </div>
+
+              <div class="nx-appCard__stores">
+                <span class="nx-store nx-store--disabled">
+                  <img src="assets/tienda_ios.png" class="nx-store__badgeImg" alt="iOS no disponible">
+                </span>
+
+                <span class="nx-store nx-store--disabled">
+                  <img src="assets/tienda_android.png" class="nx-store__badgeImg" alt="Android no disponible">
+                </span>
+              </div>
+            </div>
+
+            <div class="nx-appCard__shine"></div>
+          </article>
+
+          <!-- ================= VERIDEX ================= -->
+          <article class="nx-appCard nx-appCard--veridex">
+            <div class="nx-appCard__top">
+              <div class="nx-appCard__iconWrap">
+                <img class="nx-appCard__icon" src="assets/verifex.png" alt="Icono de Veridex">
+              </div>
+
+              <div class="nx-appCard__meta">
+                <div class="nx-appCard__nameRow">
+                  <h3 class="nx-appCard__name">Veridex</h3>
+                  <span class="nx-badge nx-badge--dev">En desarrollo</span>
+                </div>
+                <p class="nx-appCard__tagline">
+                  Pensión • Gastos • Evidencia
+                </p>
+              </div>
+            </div>
+
+            <div class="nx-appCard__body">
+              <p class="nx-appCard__text">
+                Veridex está diseñada para gestionar pensión alimenticia, registrar gastos, guardar tickets y llevar control de abonos del deudor con mejor orden y evidencia.
+              </p>
+
+              <ul class="nx-appCard__bullets">
+                <li>Registro de gastos y tickets</li>
+                <li>Control de abonos recibidos</li>
+                <li>Historial y evidencia organizada</li>
+              </ul>
+
+              <div class="nx-appCard__actions">
+                <span class="nx-btn nx-btn--primary nx-btn--disabled">Próximamente</span>
+                <a class="nx-btn nx-btn--ghost" href="support.html">Soporte</a>
+              </div>
+
+              <div class="nx-appCard__stores">
+                <span class="nx-store nx-store--disabled">
+                  <img src="assets/tienda_ios.png" class="nx-store__badgeImg" alt="iOS no disponible">
+                </span>
+
+                <span class="nx-store nx-store--disabled">
+                  <img src="assets/tienda_android.png" class="nx-store__badgeImg" alt="Android no disponible">
+                </span>
+              </div>
+            </div>
+
+            <div class="nx-appCard__shine"></div>
+          </article>
+
+          <!-- ================= SEOUL STICKS ================= -->
+          <article class="nx-appCard nx-appCard--seoul">
+            <div class="nx-appCard__top">
+              <div class="nx-appCard__iconWrap">
+                <img class="nx-appCard__icon" src="assets/seoulsticks.png" alt="Icono de Seoul Sticks">
+              </div>
+
+              <div class="nx-appCard__meta">
+                <div class="nx-appCard__nameRow">
+                  <h3 class="nx-appCard__name">Seoul Sticks</h3>
+                  <span class="nx-badge nx-badge--private">Proyecto privado</span>
+                </div>
+                <p class="nx-appCard__tagline">
+                  Punto de venta • Órdenes • Operación
+                </p>
+              </div>
+            </div>
+
+            <div class="nx-appCard__body">
+              <p class="nx-appCard__text">
+                Seoul Sticks es una referencia de proyecto privado orientado a la operación de un negocio de banderillas, ventas y flujo interno.
+              </p>
+
+              <ul class="nx-appCard__bullets">
+                <li>Gestión de ventas y órdenes</li>
+                <li>Referencia de producto privado</li>
+                <li>No disponible como app pública</li>
+              </ul>
+
+              <div class="nx-appCard__actions">
+                <span class="nx-btn nx-btn--primary nx-btn--disabled">Privado</span>
+                <a class="nx-btn nx-btn--ghost" href="support.html">Soporte</a>
+              </div>
+
+              <div class="nx-appCard__stores">
+                <span class="nx-store nx-store--disabled">
+                  <img src="assets/tienda_ios.png" class="nx-store__badgeImg" alt="iOS no disponible">
+                </span>
+
+                <span class="nx-store nx-store--disabled">
+                  <img src="assets/tienda_android.png" class="nx-store__badgeImg" alt="Android no disponible">
+                </span>
+              </div>
+            </div>
+
+            <div class="nx-appCard__shine"></div>
+          </article>
+
         </div>
+      </div>
 
-        <div class="nx-appCard__body">
-          <ul class="nx-appCard__bullets">
-            <li>Planificación por objetivos</li>
-            <li>Rituales diarios y tracking</li>
-            <li>Panel de progreso</li>
-          </ul>
-
-          <div class="nx-appCard__actions">
-            <a class="nx-btn nx-btn--primary" href="beast.html">Ver Beast</a>
-            <a class="nx-btn nx-btn--ghost" href="support.html">Soporte</a>
-          </div>
-
-          <div class="nx-appCard__stores">
-            <span class="nx-store nx-store--disabled">
-              <span class="nx-store__pill">iOS</span>
-            </span>
-            <span class="nx-store nx-store--disabled">
-              <span class="nx-store__pill">Android</span>
-            </span>
-          </div>
-        </div>
-
-        <div class="nx-appCard__shine"></div>
-      </article>
-
+      <button class="nx-appsCarousel__nav nx-appsCarousel__nav--next" type="button" aria-label="Siguiente">
+        ›
+      </button>
     </div>
   </div>
 </section>
