@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Eliminación de cuenta — Abonia</title>
+
+  <link rel="icon" type="image/png" href="../assets/abonia.png">
+  <link rel="stylesheet" href="../css/styles.css">
+
+  <style>
+    body {
+      font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #f7faff 0%, #f4f8ff 40%, #f6f8fc 100%);
+      margin: 0;
+      padding: 0;
+      color: #111827;
+      line-height: 1.65;
+    }
+
+    .nx-delete-page {
+      min-height: 100vh;
+      padding: 48px 20px 60px;
+    }
+
+    .nx-delete-container {
+      max-width: 980px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(18px) saturate(160%);
+      -webkit-backdrop-filter: blur(18px) saturate(160%);
+      border-radius: 30px;
+      padding: 42px 46px;
+      box-shadow: 0 24px 60px rgba(17, 24, 39, 0.08);
+    }
+
+    .nx-delete-header {
+      margin-bottom: 30px;
+    }
+
+    .nx-delete-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 22px;
+      margin-bottom: 14px;
+    }
+
+    .nx-delete-logo {
+      width: 104px;
+      height: 104px;
+      object-fit: cover;
+      border-radius: 28px;
+      background: #fff;
+      box-shadow: 0 18px 40px rgba(17, 24, 39, 0.10);
+      border: 1px solid rgba(17, 24, 39, 0.05);
+      flex-shrink: 0;
+    }
+
+    .nx-delete-header-content {
+      flex: 1;
+      text-align: left;
+      min-width: 0;
+    }
+
+    .nx-delete-kicker {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      padding: 0 16px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(17, 24, 39, 0.08);
+      color: rgba(17, 24, 39, 0.64);
+      margin-bottom: 16px;
+    }
+
+    .nx-delete-title {
+      margin: 0;
+      font-size: clamp(34px, 4vw, 52px);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .nx-delete-subtitle {
+      margin: 18px 0 0;
+      max-width: 760px;
+      font-size: 17px;
+      color: rgba(17, 24, 39, 0.76);
+    }
+
+    .nx-delete-highlight {
+      padding: 18px 20px;
+      margin: 26px 0 10px;
+      border-radius: 20px;
+      background: rgba(20, 90, 220, 0.05);
+      border: 1px solid rgba(20, 90, 220, 0.10);
+      color: rgba(17, 24, 39, 0.82);
+      font-size: 16px;
+    }
+
+    .nx-delete-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+      margin-top: 26px;
+    }
+
+    .nx-delete-card {
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(17, 24, 39, 0.07);
+      border-radius: 22px;
+      padding: 24px 24px;
+      box-shadow: 0 12px 30px rgba(17, 24, 39, 0.04);
+    }
+
+    .nx-delete-card h2 {
+      margin: 0 0 12px;
+      font-size: 24px;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      font-weight: 750;
+      color: #0f172a;
+    }
+
+    .nx-delete-card h3 {
+      margin: 0 0 8px;
+      font-size: 17px;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .nx-delete-card p {
+      margin: 0 0 14px;
+      font-size: 15px;
+      color: rgba(17, 24, 39, 0.76);
+    }
+
+    .nx-delete-card ul,
+    .nx-delete-card ol {
+      margin: 0 0 8px 20px;
+      padding: 0;
+    }
+
+    .nx-delete-card li {
+      margin-bottom: 10px;
+      font-size: 15px;
+      color: rgba(17, 24, 39, 0.76);
+    }
+
+    .nx-delete-email {
+      display: inline-block;
+      font-weight: 700;
+      color: #145adc;
+      text-decoration: none;
+      word-break: break-word;
+    }
+
+    .nx-delete-options {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .nx-delete-option {
+      border-radius: 18px;
+      background: rgba(20, 90, 220, 0.04);
+      border: 1px solid rgba(20, 90, 220, 0.08);
+      padding: 18px 16px;
+      height: 100%;
+    }
+
+    .nx-delete-option-number {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #145adc;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .nx-delete-process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .nx-delete-step {
+      border-radius: 18px;
+      background: rgba(20, 90, 220, 0.04);
+      border: 1px solid rgba(20, 90, 220, 0.08);
+      padding: 16px 14px;
+    }
+
+    .nx-delete-step-number {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #145adc;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .nx-delete-step-title {
+      margin: 0 0 6px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .nx-delete-step-text {
+      margin: 0;
+      font-size: 14px;
+      color: rgba(17, 24, 39, 0.72);
+      line-height: 1.5;
+    }
+
+    .nx-delete-actions {
+      margin-top: 28px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nx-delete-button {
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
+    }
+
+    .nx-delete-button--primary {
+      background: #145adc;
+      color: #fff;
+      border: 1px solid #145adc;
+      box-shadow: 0 14px 30px rgba(20, 90, 220, 0.18);
+    }
+
+    .nx-delete-button--secondary {
+      background: rgba(255, 255, 255, 0.86);
+      color: #111827;
+      border: 1px solid rgba(17, 24, 39, 0.10);
+    }
+
+    .nx-delete-button:hover {
+      transform: translateY(-1px);
+    }
+
+    /* ===== Footer ===== */
+    .nx-delete-footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(17, 24, 39, 0.08);
+      text-align: center;
+      font-size: 13px;
+      color: rgba(17, 24, 39, 0.56);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .nx-delete-footer-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+    }
+
+    .nx-delete-footer-logo {
+      width: 16px !important;
+      height: 16px !important;
+      max-width: 16px !important;
+      max-height: 16px !important;
+      border-radius: 5px;
+      object-fit: cover;
+      background: #fff;
+      border: 1px solid rgba(17, 24, 39, 0.05);
+      box-shadow: 0 2px 6px rgba(17, 24, 39, 0.08);
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+
+    .nx-delete-footer-separator {
+      opacity: 0.4;
+    }
+
+    @media (max-width: 900px) {
+      .nx-delete-options {
+        grid-template-columns: 1fr;
+      }
+
+      .nx-delete-process {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .nx-delete-container {
+        padding: 28px 20px;
+        border-radius: 22px;
+      }
+
+      .nx-delete-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 16px;
+      }
+
+      .nx-delete-header-content {
+        text-align: center;
+      }
+
+      .nx-delete-logo {
+        width: 92px;
+        height: 92px;
+        border-radius: 22px;
+      }
+
+      .nx-delete-title {
+        font-size: 40px;
+      }
+
+      .nx-delete-subtitle {
+        font-size: 15px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .nx-delete-card h2 {
+        font-size: 22px;
+      }
+
+      .nx-delete-card p,
+      .nx-delete-card li,
+      .nx-delete-step-text {
+        font-size: 14px;
+      }
+
+      .nx-delete-process {
+        grid-template-columns: 1fr;
+      }
+
+      .nx-delete-footer {
+        font-size: 12px;
+        gap: 4px;
+      }
+
+      .nx-delete-footer-logo {
+        width: 14px !important;
+        height: 14px !important;
+        max-width: 14px !important;
+        max-height: 14px !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="nx-delete-page">
+    <section class="nx-delete-container">
+
+      <header class="nx-delete-header">
+        <div class="nx-delete-top">
+          <img
+            src="../assets/abonia.png"
+            class="nx-delete-logo"
+            alt="Logo de Abonia"
+          />
+
+          <div class="nx-delete-header-content">
+            <div class="nx-delete-kicker">Abonia</div>
+
+            <h1 class="nx-delete-title">Eliminación de cuenta</h1>
+
+            <p class="nx-delete-subtitle">
+              Página oficial para solicitar la eliminación de tu cuenta y de los datos asociados de Abonia.
+              Puedes iniciar este proceso desde la aplicación o mediante correo de soporte.
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <div class="nx-delete-highlight">
+        <strong>Importante:</strong> La eliminación de cuenta implica la cancelación permanente del acceso a Abonia
+        y la eliminación de los datos asociados a tu cuenta, salvo aquella información que debamos conservar
+        temporalmente por motivos legales, fiscales, de seguridad o prevención de fraude.
+      </div>
+
+      <div class="nx-delete-grid">
+        <article class="nx-delete-card">
+          <h2>¿Qué se elimina?</h2>
+          <ul>
+            <li>Tu cuenta de usuario de Abonia.</li>
+            <li>Datos de perfil asociados a la cuenta.</li>
+            <li>Información vinculada directamente al uso de la aplicación, cuando corresponda.</li>
+            <li>Datos operativos no sujetos a conservación obligatoria.</li>
+          </ul>
+        </article>
+
+        <article class="nx-delete-card">
+          <h2>¿Qué podría conservarse temporalmente?</h2>
+          <p>
+            En ciertos casos, algunos datos pueden conservarse por un periodo limitado cuando exista una obligación legal,
+            fiscal o una necesidad legítima relacionada con cumplimiento normativo, prevención de fraude, seguridad,
+            auditoría o resolución de disputas.
+          </p>
+        </article>
+
+        <article class="nx-delete-card">
+          <h2>Opciones para solicitar la eliminación</h2>
+
+          <div class="nx-delete-options">
+            <div class="nx-delete-option">
+              <div class="nx-delete-option-number">1</div>
+              <h3>Desde la app</h3>
+              <p>
+                Si tu versión instalada de Abonia ya incluye esta función, puedes iniciar el proceso desde la sección
+                de perfil, configuración o cuenta dentro de la aplicación.
+              </p>
+              <p>
+                Busca la opción <strong>Eliminar cuenta</strong> y sigue las instrucciones mostradas en pantalla.
+              </p>
+            </div>
+
+            <div class="nx-delete-option">
+              <div class="nx-delete-option-number">2</div>
+              <h3>Por correo</h3>
+              <p>
+                Si no tienes acceso a la app o prefieres soporte directo, puedes solicitar la eliminación enviando un correo a:
+              </p>
+              <p>
+                <a class="nx-delete-email" href="mailto:nexus.ecosystem.soporte@gmail.com?subject=Eliminar%20cuenta%20Abonia">
+                  nexus.ecosystem.soporte@gmail.com
+                </a>
+              </p>
+              <p>
+                Incluye el correo asociado a tu cuenta y el asunto:
+                <strong>Eliminar cuenta Abonia</strong>.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="nx-delete-card">
+          <h2>Proceso de atención</h2>
+
+          <div class="nx-delete-process">
+            <div class="nx-delete-step">
+              <div class="nx-delete-step-number">1</div>
+              <h3 class="nx-delete-step-title">Solicitud</h3>
+              <p class="nx-delete-step-text">
+                Inicias la petición desde la app o por correo.
+              </p>
+            </div>
+
+            <div class="nx-delete-step">
+              <div class="nx-delete-step-number">2</div>
+              <h3 class="nx-delete-step-title">Validación</h3>
+              <p class="nx-delete-step-text">
+                Podemos solicitar verificación adicional para confirmar la titularidad.
+              </p>
+            </div>
+
+            <div class="nx-delete-step">
+              <div class="nx-delete-step-number">3</div>
+              <h3 class="nx-delete-step-title">Procesamiento</h3>
+              <p class="nx-delete-step-text">
+                Se elimina la cuenta y los datos aplicables conforme al proceso correspondiente.
+              </p>
+            </div>
+
+            <div class="nx-delete-step">
+              <div class="nx-delete-step-number">4</div>
+              <h3 class="nx-delete-step-title">Confirmación</h3>
+              <p class="nx-delete-step-text">
+                Recibes una notificación o correo de confirmación al concluir el proceso.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="nx-delete-card">
+          <h2>Tiempo de atención</h2>
+          <p>
+            Revisaremos tu solicitud y podremos pedir validación adicional para confirmar que la petición
+            fue realizada por la persona titular de la cuenta. El tiempo de atención puede variar, pero
+            normalmente se procesa en algunos días hábiles.
+          </p>
+        </article>
+
+        <article class="nx-delete-card">
+          <h2>Información importante</h2>
+          <ul>
+            <li>Eliminar la aplicación de tu dispositivo no elimina tu cuenta.</li>
+            <li>Si tienes pagos, suscripciones o procesos activos relacionados con la cuenta, deberán revisarse conforme a la plataforma o servicio correspondiente.</li>
+            <li>En algunos casos, podríamos solicitar información adicional para validar la identidad antes de completar la eliminación.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="nx-delete-actions">
+        <a
+          class="nx-delete-button nx-delete-button--primary"
+          href="mailto:nexus.ecosystem.soporte@gmail.com?subject=Eliminar%20cuenta%20Abonia"
+        >
+          Solicitar por correo
+        </a>
+
+        <a
+          class="nx-delete-button nx-delete-button--secondary"
+          href="../support.html"
+        >
+          Ir a soporte
+        </a>
+
+        <a
+          class="nx-delete-button nx-delete-button--secondary"
+          href="../index.html"
+        >
+          Volver al inicio
+        </a>
+      </div>
+
+      <div class="nx-delete-footer">
+        <span>Abonia</span>
+
+        <span class="nx-delete-footer-separator">·</span>
+
+        <span class="nx-delete-footer-brand">
+          by
+          <img
+            src="../assets/nexus_icon.png"
+            class="nx-delete-footer-logo"
+            alt="Nexus Ecosystem"
+          />
+          Nexus Ecosystem
+        </span>
+
+        <span class="nx-delete-footer-separator">·</span>
+
+        <span>Última actualización: marzo 2026</span>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
